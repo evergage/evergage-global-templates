@@ -1,21 +1,22 @@
 # Evergage Global Templates
 
 ### Hero Banner With Call-to-Action
-![Screen Shot 2020-05-26 at 4 43 21 PM](https://user-images.githubusercontent.com/32201252/82960688-09ee7f00-9f70-11ea-88b2-e476e995edf4.png)
+![template](https://user-images.githubusercontent.com/32201252/88121725-799d7680-cb7b-11ea-8e3b-3d7c16fb4029.png)
 
 #### Configuration:
-<img width="357" alt="Screen Shot 2020-05-31 at 3 06 22 PM" src="https://user-images.githubusercontent.com/32201252/83363710-4cd59b80-a350-11ea-8f19-c827ff897dbd.png">
+<img width="357" alt="Configuration for Hero Banner with CTA" src="https://user-images.githubusercontent.com/32201252/88122049-5de6a000-cb7c-11ea-8100-8bd5adb5d4cd.png">
 
 1. Background Image URL
-    - "https://www.northerntrailoutfitters.com/dw/image/v2/BDPX_PRD/on/demandware.static/-/Library-Sites-NTO-SFRASharedLibrary/default/dw8dec29a5/images/stories/stories-hero-05-1800-600.jpg"
-1. Style (Dark on Light, Light on Dark)
-1. Header
-    - Ex: "Rewards Club"
-1. Subheader
-    - Ex: "Start earning 5% back every time you shop. It's free to join!"
-1. CTA Text
-    - Ex: "JOIN NOW"
-1. CTA Destination URL
+    - "https://www.northerntrailoutfitters.com/dw/image/v2/BDPX_PRD/on/demandware.static/-/Library-Sites-NTO-SFRASharedLibrary/default/dw37eb7010/images/homepage/home-banner-hero-04-1905-600.jpg"
+2. Color Theme (Dark text on light background, light text on dark background)
+3. Header
+    - Ex: "New Arrivals in Men's"
+4. Subheader
+    - Ex: "Check out the latest styles in jackets, footwear, and more!"
+5. CTA Text
+    - Ex: "SHOP NOW"
+6. CTA Destination URL
+    - Ex: "https://www.northerntrailoutfitters.com/default/men"
 
 ### Infobar with Call-to-Action
 <div align="center">
