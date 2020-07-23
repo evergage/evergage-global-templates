@@ -30,6 +30,6 @@ export class HeroBannerCtaTemplate implements CampaignTemplateComponent {
 
     run(context:CampaignComponentContext) {
         return {};
-        }
+    }
 
 }
