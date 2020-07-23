@@ -15,7 +15,7 @@ export class HeroBannerCtaTemplate implements CampaignTemplateComponent {
         {label: "Dark text on light background", className: "evg-dark-on-light"},
         {label: "Light text on dark background", className: "evg-light-on-dark"}
     ])
-    colorTheme: ColorTheme; 
+    colorTheme: ColorTheme = {label: "Light text on dark background", className: "evg-light-on-dark"};
 
     header: string = "New Arrivals in Men's";
 

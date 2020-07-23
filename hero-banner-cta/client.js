@@ -6,8 +6,8 @@
    * @description Sets the color theme to the Color Theme option selected.
    */
   function applyColorTheme(context) {
-    var colorTheme = context.colorTheme ? context.colorTheme.className : "evg-light-on-dark";
-    Evergage.cashDom("#evg-hero-banner, #evg-hero-banner .evg-h1, #evg-hero-banner .evg-h2").addClass(colorTheme);
+    Evergage.cashDom("#evg-hero-banner, #evg-hero-banner .evg-h1, #evg-hero-banner .evg-h2")
+    .addClass(context.colorTheme.className);
   }
 
   function apply(context, template) {
