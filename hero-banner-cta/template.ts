@@ -28,7 +28,7 @@ export class HeroBannerCtaTemplate implements CampaignTemplateComponent {
     @subtitle("Enter a fully qualified destination URL for the CTA (e.g., https://www.northerntrailoutfitters.com)")
     ctaUrl: string = "/default/men";
 
-    run(context:CampaignComponentContext) {
+    run(context: CampaignComponentContext) {
         return {};
     }
 
