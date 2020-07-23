@@ -12,8 +12,8 @@ export class HeroBannerCtaTemplate implements CampaignTemplateComponent {
     contentZone: string = "Homepage | Hero";
   
     @options([
-        {label: "Dark text on light background", className: "evg-dark-on-light"},
-        {label: "Light text on dark background", className: "evg-light-on-dark"}
+        {label: "Light text on dark background", className: "evg-light-on-dark"},
+        {label: "Dark text on light background", className: "evg-dark-on-light"}
     ])
     colorTheme: ColorTheme = {label: "Light text on dark background", className: "evg-light-on-dark"};
 
