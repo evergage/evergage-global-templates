@@ -1,7 +1,7 @@
 # Evergage Global Templates
 
 ### Hero Banner With Call-to-Action
-![template](https://user-images.githubusercontent.com/32201252/88121725-799d7680-cb7b-11ea-8e3b-3d7c16fb4029.png)
+![template](/hero-banner-cta/template.png)
 
 #### Configuration:
 <img width="357" alt="Configuration for Hero Banner with CTA" src="https://user-images.githubusercontent.com/32201252/88122049-5de6a000-cb7c-11ea-8100-8bd5adb5d4cd.png">
