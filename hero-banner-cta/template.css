@@ -1,65 +1,142 @@
-#evg-hero-cta {
-    background-color: #ffffff;
-    background-size: cover;
-    height: 500px;
-    width: 100%;
+/* ==========================================================================
+   Hero Banner
+========================================================================== */
+
+#evg-hero-banner.evg-jumbotron {
+   position: relative;
+   height: 500px;
+   width: 100%;
+   background-size: cover;
 }
-#evg-hero-cta .evg-content {
-    height: 100%;
-    width: auto;
-    text-align: center;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -moz-box-orient: horizontal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+ 
+#evg-hero-banner .evg-container {
+   position: relative;
+   z-index: 2;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: column nowrap;
+   flex-flow: column nowrap;
+   -webkit-justify-content: center;
+   justify-content: center;
+   -webkit-align-items: center;
+   align-items: center;
+   padding: 10px;
+   height: 100%;
+   width: auto;
 }
-#evg-hero-cta .evg-header {
-    display: inline-block;
-    font-size: 65px;
-    line-height: 30px;
-    margin: 40px;
+
+/* ==========================================================================
+   Headers
+========================================================================== */
+
+#evg-hero-banner .evg-h1,
+#evg-hero-banner .evg-h2 {
+   padding: 0;
+   margin: 0 0 .5rem;
+   font-family: inherit;
+   font-weight: 500;
+   line-height: 1.2;
+   color: inherit;
 }
-#evg-hero-cta .evg-subheader {
-    display: block;
-    font-size: 22px;
-    line-height: 40px;
-    margin-bottom: 20px;
-    text-decoration: none;
+
+#evg-hero-banner .evg-h1 {
+   font-size: 2.5rem;
 }
-#evg-hero-cta .evg-cta {
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 10px 30px;
-    text-decoration: none;
+ 
+#evg-hero-banner .evg-h2 {
+   font-size: 2rem;
 }
-#evg-hero-cta.evg-light {
-    color: #ffffff;
+
+#evg-hero-banner .evg-display-2 {
+   font-size: 5.5rem;
+   font-weight: 700;
+   line-height: 1.2;
 }
-#evg-hero-cta.evg-dark {
-    color: #343a40;
+
+#evg-hero-banner .evg-header,
+#evg-hero-banner .evg-subheader {
+   margin-bottom: 1rem;
+   text-align: center;
 }
-#evg-hero-cta .evg-light {
-    border: 2px solid #ffffff;
-    color: #ffffff;
+
+/* ==========================================================================
+   Call-To-Action Button
+========================================================================== */
+
+#evg-hero-banner .evg-btn {
+   display: inline-block;
+   vertical-align: middle;
+   padding: .5rem 1rem;
+   border: 1px solid transparent;
+   border-radius: 3rem;
+   color: #215ca0;
+   background-color: transparent;
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1.5;
+   text-align: center;
+   text-decoration: none;
+   cursor: pointer;
+   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
-#evg-hero-cta .evg-dark {
-    border: 2px solid #343a40;
-    color: #343a40;
+
+#evg-hero-banner .evg-btn-lg {
+   padding: .5rem 2rem;
+   font-size: 1.25rem;
+}
+
+#evg-hero-banner .evg-btn-primary {
+   color: #fff;
+   background-color: #215ca0;
+   transition: background-color 0.15s, color 0.15s;
+}
+ 
+#evg-hero-banner .evg-btn-primary:hover {
+   color: #fff;
+   border-color: #1c4e88;
+   background-color: #1c4e88;
+}
+
+/* ==========================================================================
+   Color Theme
+========================================================================== */
+
+#evg-hero-banner.evg-dark-on-light {
+   background-color: #fff;
+}
+ 
+#evg-hero-banner.evg-light-on-dark {
+   background-color: #343a40;
+}
+
+#evg-hero-banner .evg-h1.evg-dark-on-light,
+#evg-hero-banner .evg-h2.evg-dark-on-light {
+   color: #343a40;
+}
+ 
+#evg-hero-banner .evg-h1.evg-light-on-dark,
+#evg-hero-banner .evg-h2.evg-light-on-dark {
+   color: #fff;
+}
+ 
+/* ==========================================================================
+   Media Queries
+========================================================================== */
+ 
+@media screen and (max-width: 991px) {
+   #evg-hero-banner .evg-h2 {
+       font-size: 1.5rem;
+   }
+
+   #evg-hero-banner .evg-display-2 {
+       font-size: 3.75rem;
+   }
+
+   #evg-hero-banner .evg-btn-lg {
+      font-size: 1rem;
+   }
 }
