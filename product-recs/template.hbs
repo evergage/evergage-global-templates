@@ -2,17 +2,19 @@
     <div class="evg-recs-header">
         {{header}}
     </div>
-    {{#each products}}
-    <div class="evg-item" data-evg-product-id="{{id}}">
-        <a href="{{attributes.url.value}}">
-            <img class="evg-image" src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
-        </a>
-        <div class="evg-description">
-            <a class="evg-name" href="{{attributes.url.value}}">{{attributes.name.value}}</a>
-            <div class="evg-price">
-                ${{attributes.price.value}}
+    <div class="evg-recs-container">
+        {{#each products}}
+        <div class="evg-item" data-evg-product-id="{{id}}">
+            <a href="{{attributes.url.value}}">
+                <img class="evg-image" src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
+            </a>
+            <div class="evg-description">
+                <a class="evg-name" href="{{attributes.url.value}}">{{attributes.name.value}}</a>
+                <div class="evg-price">
+                    ${{attributes.price.value}}
+                </div>
             </div>
         </div>
+        {{/each}}
     </div>
-    {{/each}}
 </div>

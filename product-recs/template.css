@@ -4,7 +4,7 @@
     margin: 0 auto;
     max-width: 1440px;
     padding: 20px 0px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     width: 100%;
 }
 
@@ -16,10 +16,52 @@
     width: 100%;
 }
 
+#evg-product-recs .evg-recs-container {
+    position: relative;
+    z-index: 2;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+
+    /* padding: 10px; */
+    height: 100%;
+    width: auto;
+}
+
 #evg-product-recs .evg-item {
-    display: inline-block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+
     text-align: center;
-    width: 25%;
+    width: auto;
 }
 
 #evg-product-recs .evg-image {
@@ -29,6 +71,8 @@
 
 #evg-product-recs .evg-description {
     padding: 10px 0px 20px;
+    height: 6em;
+    width: 100%;
 }
 
 #evg-product-recs .evg-name {
@@ -37,6 +81,7 @@
     font-weight: 600;
     text-decoration: none;
     margin-bottom: 8px;
+    max-width: 95%;
 }
 
 #evg-product-recs .evg-product {
