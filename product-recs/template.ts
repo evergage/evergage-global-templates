@@ -7,7 +7,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     // TODO: homepage_product_recommendations
 
     /** Multiple content zone options */
-    // contentZone: "Content Zone 1" | "Content Zone 2";
+    // contentZone: "Homepage | Product Recommendations" | "PDP Recs Row 1" | "PDP Recs Row 2";
 
     @title("Recommendations Row Header")
     header: string;
