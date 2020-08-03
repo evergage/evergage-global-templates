@@ -91,6 +91,7 @@
 
 #evg-hero-banner .evg-btn-primary {
    color: #fff;
+   border-color: #215ca0;
    background-color: #215ca0;
    transition: background-color 0.15s, color 0.15s;
 }
