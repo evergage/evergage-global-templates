@@ -1,6 +1,13 @@
-import { RecipeReference, RecipeReferenceLookup, recommend } from "recs";
+import { RecommendationsConfig, RecipeReference, RecipeReferenceLookup, recommend } from "recs";
 
 export class ProductRecommendationsTemplate implements CampaignTemplateComponent {
+
+    @hidden(true)
+    contentZone: string = "Homepage | Product Recommendations";
+    // TODO: homepage_product_recommendations
+
+    /** Multiple content zone options */
+    // contentZone: "Content Zone 1" | "Content Zone 2";
 
     @title("Recommendations Row Header")
     header: string;
@@ -8,16 +15,17 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     @lookupOptions((self) => new RecipeReferenceLookup("Product"))
     @title("Recipe")
     recipeId: RecipeReference;
+    maxResults: number = 6;
 
-    run(context:CampaignComponentContext) {
-        const products = recommend(context, {
-            itemType: "Product",
-            maxResults: 4,
-            recipeId: this.recipeId,
-            validate: () => true
-        });
+    run(context: CampaignComponentContext) {
         return {
-            products
+            products: recommend(context, {
+                itemType: "Product",
+                maxResults: this.maxResults,
+                recipeId: this.recipeId,
+                validate: () => true
+
+            } as RecommendationsConfig)
         };
     }
 }

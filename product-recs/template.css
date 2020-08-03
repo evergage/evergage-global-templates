@@ -32,16 +32,16 @@
 }
 
 #evg-product-recs .evg-name {
-    color:#393939; 
+    color:#393939;
     font-size:15px;
-    font-weight: 600; 
-    text-decoration: none; 
-    margin-bottom: 8px; 
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 8px;
 }
 
 #evg-product-recs .evg-product {
-    color:#565656; 
+    color:#565656;
     font-size:15px;
-    font-weight: 600; 
-    margin-bottom: 0; 
+    font-weight: 600;
+    margin-bottom: 0;
 }
