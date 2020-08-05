@@ -11,9 +11,9 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
      * Business-User Controls
      */
     // @hidden(true)
-    // contentZone: string = "homepage_product_recommendations";
+    // contentZone: string = "home_product_recommendations";
     @options([
-        { name: "homepage_product_recommendations", label: "Homepage Product Recommendations" },
+        { name: "home_product_recommendations", label: "Homepage Product Recommendations" },
         { name: "product_detail_recs_row_1", label: "Product Details Recommendations Row 1" },
         { name: "product_detail_recs_row_2", label: "Product Details Recommendations Row 2" },
         // TODO: Needed in sitemap
@@ -25,7 +25,10 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
         // { name: "404_error_recs_row", label: "404 Error Recommendations Row" },
         // { name: "search_results_recs_row", label: "Search Results Recommendations Row" },
     ])
-    contentZone: ProductRecommendationsContentZones;
+    selectedContentZone: ProductRecommendationsContentZones = { name: "home_product_recommendations", label: "Homepage Product Recommendations" };
+
+    @hidden(true)
+    contentZone: string = this.selectedContentZone.name;
 
     @title("Recommendations Row Header")
     header: string;
@@ -60,6 +63,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     visibilityOptions: object;
 
     run(context: CampaignComponentContext) {
+        this.contentZone = this.selectedContentZone.name;
         this.visibilityOptions = {
             name: this.nameVisibility,
             description: this.descriptionVisibility,
