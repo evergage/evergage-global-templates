@@ -90,10 +90,22 @@
     margin-bottom: 0;
 }
 
-
 #evg-product-recs .evg-hide {
     display: none;
     height: 0;
     visibility: hidden;
     width: 0;
+}
+
+@media only screen and (max-width: 420px) {
+    #evg-product-recs .evg-recs-container {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+
+    #evg-product-recs .evg-item {
+        max-width: 50%;
+    }
 }
