@@ -135,8 +135,6 @@
 ========================================================================== */
 
 @media only screen and (max-width: 990px) {
-    #evg-product-recs {}
-
     #evg-product-recs .evg-container {
         max-width: 720px;
         padding-right: 15px;
