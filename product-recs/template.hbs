@@ -1,11 +1,20 @@
 {{!--
-    Add Evergage data attributes to elements you wish to track in the test experience.
+    Global Template: Product Recommendations Rows
 
-    Note: Using Evergage data attributes allows you to track stats with Evergage and
-    requires the "Campaign Stat Tracking Gear" installed and enabled for your dataset.
+    This global template inserts a row of recommended Products, chosen by
+    a selected Einstein Recipe.
 
-    Visit the Campaign Stats Tracking documentation to learn more:
-    https://developer.evergage.com/templates/campaign-stats.
+    Requirements:
+    1) Ensure that the available Content Zones are defined in your Sitemap.
+
+    Customizations:
+    1) Media query breakpoints can be changed in CSS.
+    2) For performance optimization, add an observer selector as a second argument to
+    Evergage.DisplayUtil.pageElementLoaded in Clientside Code that waits for the content zone to load into the DOM.
+    3) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code.
+    Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
+    4) Remove or change the default values for the configuration properties in Serverside Code.
+    5) Change any and all values of aria-label attributes as necessary.
 --}}
 
 <div id="evg-product-recs" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}" data-evg-campaign-group="test" aria-label="Product Recommendations {{#if header}}- {{header}}{{/if}}">

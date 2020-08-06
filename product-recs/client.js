@@ -1,9 +1,19 @@
 (function() {
 
+    /**
+     * @function buildExperienceSelector
+     * @param {Object} context
+     * @description Concatenates selector using Experience ID from context.
+     */
     function buildExperienceSelector(context) {
         return "[data-evg-experience-id=" + context.experience + "]";
     }
 
+    /**
+     * @function applyVisibilityOptions
+     * @param {Object} context
+     * @description Hides elements based on selected Visibility options.
+     */
     function applyVisibilityOptions(context) {
         var experienceContainer = Evergage.cashDom(buildExperienceSelector(context));
         var options = context.visibilityOptions;

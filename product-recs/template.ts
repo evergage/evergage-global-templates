@@ -1,4 +1,4 @@
-import { RecommendationsConfig, RecipeReference, RecipeReferenceLookup, recommend } from "recs";
+import { RecommendationsConfig, recommend } from "recs";
 
 export class ProductRecommendationsContentZones {
     name: string;
@@ -8,10 +8,18 @@ export class ProductRecommendationsContentZones {
 export class ProductRecommendationsTemplate implements CampaignTemplateComponent {
 
     /**
+     * Developer Controls
+     */
+    @hidden(true)
+    maxResults: 4 | 5 | 6 = 6;
+
+    @hidden(true)
+    visibilityOptions: object;
+
+
+    /**
      * Business-User Controls
      */
-    // @hidden(true)
-    // contentZone: string = "home_product_recommendations";
     @options([
         { name: "home_product_recommendations", label: "Homepage Product Recommendations" },
         { name: "product_detail_recs_row_1", label: "Product Details Recommendations Row 1" },
@@ -33,9 +41,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     @title("Recommendations Row Header")
     header: string;
 
-    @lookupOptions((self) => new RecipeReferenceLookup("Product"))
-    @title("Recipe")
-    recipeId: RecipeReference;
+    recsConfig: RecommendationsConfig = new RecommendationsConfig().restrictItemType("Product").restrictMaxResults(this.maxResults)
 
     @title("Show Product name")
     // @shownIf()
@@ -53,15 +59,6 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     // @shownIf()
     ratingVisibility: boolean = true;
 
-    /**
-     * Developer Controls
-     */
-    @hidden(true)
-    maxResults: 4 | 5 | 6 = 6;
-
-    @hidden(true)
-    visibilityOptions: object;
-
     run(context: CampaignComponentContext) {
         this.contentZone = this.selectedContentZone.name;
         this.visibilityOptions = {
@@ -72,13 +69,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
         };
 
         return {
-            products: recommend(context, {
-                itemType: "Product",
-                maxResults: this.maxResults,
-                recipeId: this.recipeId,
-                validate: () => true
-
-            } as RecommendationsConfig)
+            products: recommend(context, this.recsConfig)
         };
     }
 }
