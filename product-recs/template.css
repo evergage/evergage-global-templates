@@ -1,13 +1,16 @@
+/* ==========================================================================
+   Header and Containers
+========================================================================== */
+
 #evg-product-recs {
     color: #565656;
     font-family: Source Sans Pro, sans-serif;
     margin: 20px auto;
     max-width: 1440px;
-    /* white-space: nowrap; */
     width: 100%;
 }
 
-#evg-product-recs .evg-recs-header {
+#evg-product-recs .evg-header {
     font-size: 28px;
     margin-bottom: 0.5em;
     text-align: center;
@@ -15,7 +18,7 @@
     width: 100%;
 }
 
-#evg-product-recs .evg-recs-container {
+#evg-product-recs .evg-container {
     position: relative;
     z-index: 2;
 
@@ -36,12 +39,22 @@
     -ms-flex-align: end;
     align-items: flex-end;
 
-    /* padding: 10px; */
     height: 100%;
     width: auto;
 }
 
-#evg-product-recs .evg-item {
+/* ==========================================================================
+   Product Recs
+========================================================================== */
+
+/* #evg-product-recs .evg-product {
+    color:#565656;
+    font-size:15px;
+    font-weight: 600;
+    margin-bottom: 0;
+} */
+
+#evg-product-recs .evg-product-rec {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -63,31 +76,29 @@
     width: auto;
 }
 
-#evg-product-recs .evg-image {
+#evg-product-recs .evg-product-rec-image {
     height: auto;
     width: 80%;
 }
 
-#evg-product-recs .evg-description {
+#evg-product-recs .evg-product-rec-text {
     padding: 10px 0px 0px;
     height: 6em;
     width: 100%;
 }
 
-#evg-product-recs .evg-name {
+#evg-product-recs .evg-product-rec-name,
+#evg-product-recs .evg-product-rec-price,
+#evg-product-recs .evg-product-rec-rating {
+    margin-bottom: 8px;
+}
+
+#evg-product-recs .evg-product-rec-name {
     color:#393939;
     font-size:15px;
     font-weight: 600;
     text-decoration: none;
-    margin-bottom: 8px;
     max-width: 75%;
-}
-
-#evg-product-recs .evg-product {
-    color:#565656;
-    font-size:15px;
-    font-weight: 600;
-    margin-bottom: 0;
 }
 
 #evg-product-recs .evg-hide {
@@ -97,7 +108,11 @@
     width: 0;
 }
 
-@media only screen and (max-width: 420px) {
+/* ==========================================================================
+   Media Queries
+========================================================================== */
+
+@media only screen and (max-width: 992px) {
     #evg-product-recs .evg-recs-container {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -105,7 +120,8 @@
         flex-flow: row wrap;
     }
 
-    #evg-product-recs .evg-item {
+    #evg-product-recs .evg-product-rec {
+        margin-bottom: 2em;
         max-width: 50%;
     }
 }

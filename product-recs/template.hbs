@@ -8,22 +8,24 @@
     https://developer.evergage.com/templates/campaign-stats.
 --}}
 
-<div id="evg-product-recs" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}" data-evg-campaign-group="test">
-    <div class="evg-recs-header">
+<div id="evg-product-recs" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}" data-evg-campaign-group="test" aria-label="Product Recommendations {{#if header}}- {{header}}{{/if}}">
+    <h1 class="evg-header">
         {{header}}
-    </div>
-    <div class="evg-recs-container">
+    </h1>
+    <div class="evg-container">
         {{#each products}}
-        <div class="evg-item" data-evg-product-id="{{id}}">
+        <div class="evg-product-rec" data-evg-product-id="{{id}}">
             <a href="{{attributes.url.value}}">
-                <img class="evg-image" src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
+                <img class="evg-product-rec-image" src="{{attributes.imageUrl.value}}" data-evg-product-imageUrl="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
-            <div class="evg-item-text">
-                <a class="evg-name" href="{{attributes.url.value}}">{{attributes.name.value}}</a>
-                <div class="evg-price">
+            <div class="evg-product-rec-text">
+                <a class="evg-product-rec-name" href="{{attributes.url.value}}" data-evg-product-name="{{attributes.name.value}}">
+                    {{attributes.name.value}}
+                </a>
+                <div class="evg-product-rec-price" data-evg-product-price="{{attributes.price.value}}">
                     ${{attributes.price.value}}
                 </div>
-                <div class="evg-rating">
+                <div class="evg-product-rec-rating" data-evg-product-rating="{{attributes.rating.value}}">
                     Rating: {{attributes.rating.value}}
                 </div>
             </div>
