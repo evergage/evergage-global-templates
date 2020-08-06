@@ -1,10 +1,12 @@
 # Evergage Global Templates
 
 ### Hero Banner With Call-to-Action
-![template](/hero-banner-cta/template.png)
+![hero banner with call to action template](/hero-banner-cta/template.png)
+
+This global template replaces a hero banner with a new banner containing a background image and a call-to-action button.
 
 #### Configuration:
-<img width="357" alt="Configuration for Hero Banner with CTA" src="https://user-images.githubusercontent.com/32201252/88122049-5de6a000-cb7c-11ea-8100-8bd5adb5d4cd.png">
+![Hero Banner with Call-to-Action Configuration](https://user-images.githubusercontent.com/32201252/89225547-371e6580-d58f-11ea-838f-b98d6cc12f25.png)
 
 1. Background Image URL
     - "https://www.northerntrailoutfitters.com/dw/image/v2/BDPX_PRD/on/demandware.static/-/Library-Sites-NTO-SFRASharedLibrary/default/dw37eb7010/images/homepage/home-banner-hero-04-1905-600.jpg"

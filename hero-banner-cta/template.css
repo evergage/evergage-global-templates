@@ -91,6 +91,7 @@
 
 #evg-hero-banner .evg-btn-primary {
    color: #fff;
+   border-color: #215ca0;
    background-color: #215ca0;
    transition: background-color 0.15s, color 0.15s;
 }
@@ -129,11 +130,11 @@
  
 @media screen and (max-width: 991px) {
    #evg-hero-banner .evg-h2 {
-       font-size: 1.5rem;
+      font-size: 1.5rem;
    }
 
    #evg-hero-banner .evg-display-2 {
-       font-size: 3.75rem;
+      font-size: 3.75rem;
    }
 
    #evg-hero-banner .evg-btn-lg {

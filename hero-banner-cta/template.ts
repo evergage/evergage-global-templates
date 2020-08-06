@@ -9,7 +9,7 @@ export class HeroBannerCtaTemplate implements CampaignTemplateComponent {
     imageURL: string = "https://www.northerntrailoutfitters.com/dw/image/v2/BDPX_PRD/on/demandware.static/-/Library-Sites-NTO-SFRASharedLibrary/default/dw37eb7010/images/homepage/home-banner-hero-04-1905-600.jpg"
 
     @hidden(true)
-    contentZone: string = "Homepage | Hero";
+    contentZone: string = "home_hero";
   
     @options([
         {label: "Light text on dark background", className: "evg-light-on-dark"},
