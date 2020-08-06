@@ -1,0 +1,352 @@
+/* ==========================================================================
+   Popup
+========================================================================== */
+
+#evg-email-capture-popup {
+    position: relative;
+    z-index: 9999999;
+}
+#evg-email-capture-popup .evg-overlay {
+    background-color: #000;
+    bottom: 0;
+    left: 0;
+    opacity: 0.3;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+#evg-email-capture-popup .evg-popup {
+    background-color: #FFF;
+    background-size: cover;
+    height: 500px;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
+    position: fixed;
+    top: 50%;
+    width: 500px;
+}
+#evg-email-capture-popup .evg-btn-dismissal {
+    background-color: #000;
+    border-radius: 15px;
+    color: #FFF;
+    cursor: pointer;
+    height: 30px;
+    line-height: 28px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    text-align: center;
+    user-select: none;
+    width: 30px;
+}
+
+#evg-email-capture-popup .evg-content {
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+#evg-email-capture-popup .evg-title {
+    display: inline-block;
+    font-size: 40px;
+    margin-bottom: 10px;
+    width: 400px;
+}
+#evg-email-capture-popup .evg-subtitle {
+    display: inline-block;
+    font-size: 16px;
+    width: 350px;
+}
+#evg-email-capture-popup .evg-form {
+    margin: 10px 0;
+    width: 250px;
+}
+#evg-email-capture-popup .evg-form > input {
+    margin: 5px 0;
+    width: 100%;
+}
+#evg-email-capture-popup .evg-form > a {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 10px 0px;
+    padding: 10px 30px;
+    text-decoration: none;
+}
+#evg-email-capture-popup .evg-opt-out {
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: underline;
+}
+#evg-email-capture-popup .evg-confirm-content {
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.evg-input {
+    display: inline-block;
+    vertical-align: middle;
+    padding: .5rem 1rem;
+    border: 2px solid #000;
+    color: #215ca0;
+    font-weight: 400;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* ==========================================================================
+   Headers
+========================================================================== */
+#evg-email-capture-popup .evg-h1,
+#evg-email-capture-popup .evg-h2 {
+   padding: 0;
+   margin: 0 0 .5rem;
+   font-family: inherit;
+   font-weight: 500;
+   line-height: 1.2;
+   color: inherit;
+}
+
+#evg-email-capture-popup .evg-h1 {
+   font-size: 2.5rem;
+}
+ 
+#evg-email-capture-popup .evg-h2 {
+   font-size: 2rem;
+}
+
+#evg-email-capture-popup .evg-display-2 {
+   font-size: 5.5rem;
+   font-weight: 700;
+   line-height: 1.2;
+}
+#evg-email-capture-popup .evg-header {
+    display: inline-block;
+    font-size: 40px;
+    margin-bottom: 10px;
+    width: 400px;
+}
+#evg-email-capture-popup .evg-subheader {
+    display: inline-block;
+    font-size: 16px;
+    width: 350px;
+}
+
+#evg-email-capture-popup .evg-h1 {
+    font-size: 2.5rem;
+}
+
+#evg-email-capture-popup .evg-h2 {
+   font-size: 2rem;
+}
+
+#evg-email-capture-popup .evg-h3 {
+   font-size: 1.75rem;
+}
+
+#evg-email-capture-popup .evg-h4 {
+   font-size: 1.5rem;
+}
+
+#evg-email-capture-popup .evg-h5 {
+   font-size: 1.25rem;
+}
+
+#evg-email-capture-popup .evg-h6 {
+   font-size: 1rem;
+}
+
+/* ==========================================================================
+   Call-To-Action Button
+========================================================================== */
+
+#evg-email-capture-popup .evg-btn {
+    display: inline-block;
+    vertical-align: middle;
+    padding: .5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 3rem;
+    color: #215ca0;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#evg-email-capture-popup .evg-btn-lg {
+    padding: .5rem 2rem;
+    font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   Error message
+========================================================================== */
+
+#evg-email-capture-popup .evg-error {
+    color: #c23934;
+}
+
+#evg-email-capture-popup .evg-hide {
+    display: none;
+}
+#evg-email-capture-popup.evg-light {
+    color: #ffffff;
+}
+#evg-email-capture-popup.evg-dark {
+    color: #343a40;
+}
+#evg-email-capture-popup .evg-light {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+#evg-email-capture-popup .evg-dark {
+    border: 2px solid #343a40;
+    color: #343a40;
+}
+
+/* ==========================================================================
+   Color Theme
+========================================================================== */
+
+#evg-email-capture-popup .evg-hide {
+    display: none;
+}
+#evg-email-capture-popup.evg-dark-on-light {
+    background-color: #fff;
+    border: 2px solid #ffffff;
+}
+ 
+#evg-email-capture-popup.evg-light-on-dark {
+   background-color: #343a40;
+}
+
+#evg-email-capture-popup .evg-h1.evg-dark-on-light,
+#evg-email-capture-popup .evg-h2.evg-dark-on-light {
+   color: #343a40;
+}
+ 
+#evg-email-capture-popup .evg-h1.evg-light-on-dark,
+#evg-email-capture-popup .evg-h2.evg-light-on-dark {
+   color: #fff;
+}
+
+#evg-email-capture-popup .evg-btn-dismissal.evg-dark-on-light {
+   color: #343a40;
+}
+
+#evg-email-capture-popup .evg-btn-dismissal.evg-light-on-dark {
+   color: #fff;
+}
+
+#evg-email-capture-popup .evg-btn-primary {
+    color: #ffffff;
+    border-color: #215ca0;
+    background-color: #215ca0;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+/* ==========================================================================
+   Media Queries
+========================================================================== */
+ 
+@media screen and (max-width: 699px) {
+  #evg-email-capture-popup .evg-popup {
+    background-color: #FFF;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    height: 500px;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
+    position: fixed;
+    top: 50%;
+    width: 80vw;
+    transform: translateX(25px);
+   }
+ 
+}
+@media screen and (max-width: 499px) {
+  #evg-email-capture-popup .evg-popup {
+    background-color: #FFF;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    height: 500px;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
+    position: fixed;
+    top: 50%;
+    width: 90vw;
+    transform: translateX(65px);
+   }
+}
+@media screen and (max-width: 375px) {
+  #evg-email-capture-popup .evg-popup {
+    background-color: #FFF;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    height: 500px;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
+    position: fixed;
+    top: 50%;
+    width: 90vw;
+    transform: translateX(80px);
+   }
+}
+
