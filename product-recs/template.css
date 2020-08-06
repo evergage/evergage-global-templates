@@ -1,5 +1,28 @@
 /* ==========================================================================
-   Header and Containers
+    EVG Global Styles
+========================================================================== */
+
+.evg-h1,
+.evg-h2,
+.evg-h3,
+.evg-h4,
+.evg-h5,
+.evg-h6 {
+    padding: 0;
+    margin: 0 0 .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+
+.evg-h3 {
+    font-size: 1.75rem;
+}
+
+
+/* ==========================================================================
+   Containers
 ========================================================================== */
 
 #evg-product-recs {
@@ -7,14 +30,6 @@
     font-family: Source Sans Pro, sans-serif;
     margin: 20px auto;
     max-width: 1440px;
-    width: 100%;
-}
-
-#evg-product-recs .evg-header {
-    font-size: 28px;
-    margin-bottom: 0.5em;
-    text-align: center;
-    padding: 10px 0px;
     width: 100%;
 }
 
@@ -43,16 +58,22 @@
     width: auto;
 }
 
+
+/* ==========================================================================
+   Headers
+========================================================================== */
+
+#evg-product-recs .evg-header {
+    margin: 1rem 0 2rem;
+    padding: 10px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+
 /* ==========================================================================
    Product Recs
 ========================================================================== */
-
-/* #evg-product-recs .evg-product {
-    color:#565656;
-    font-size:15px;
-    font-weight: 600;
-    margin-bottom: 0;
-} */
 
 #evg-product-recs .evg-product-rec {
     display: -webkit-box;
@@ -108,12 +129,21 @@
     width: 0;
 }
 
+
 /* ==========================================================================
    Media Queries
 ========================================================================== */
 
-@media only screen and (max-width: 992px) {
-    #evg-product-recs .evg-recs-container {
+@media only screen and (max-width: 990px) {
+    #evg-product-recs {}
+
+    #evg-product-recs .evg-container {
+        max-width: 720px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-flow: row wrap;
