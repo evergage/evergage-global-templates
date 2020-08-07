@@ -1,0 +1,40 @@
+{{!-- 
+    Global Template: Exit Intent Popup
+
+    This global template is used for exit intent purposes. It contains a background image and a call to action.
+    
+    There are two default Color Themes: Dark text for lighter backgrounds or
+    light text on darker backgrounds.
+
+    Requirements:
+    1) Set the content zone in the Serverside Code to one that is defined in your Sitemap.
+
+    Customizations:
+    1) Color Theme options can be changed in Serverside Code.
+    2) Color Theme styling and implementation can be changed in Clientside Code and CSS.
+    3) Fallback background color of the Color Theme options can be changed in CSS.
+    4) Media query breakpoints can be changed in CSS.
+    5) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code. 
+    Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
+    6) Remove or change the default values for the configuration properties in Serverside Code.
+    7) Change the aria-label attribute value of .evg-cta to an appropriate description.
+    
+--}}
+
+<div id="evg-email-capture-popup" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Popup Message">
+    <div class="evg-overlay"></div>
+    <div class="evg-popup" style="background-image:url('{{imageUrl}}');">
+        <div class="evg-content">
+            <h1 class="evg-header evg-h1 evg-display-2 evg-text">
+                {{{header}}}
+            </h1>
+            <h2 class="evg-subheader evg-h2 evg-text">
+                {{{subheader}}}
+            </h2>
+            <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg" type="button" aria-label="Learn More">
+                {{{ctaText}}}
+            </a>   
+        </div>
+        <div class="evg-btn-dismissal" data-evg-dismissal>&times;</div>
+    </div>
+</div>
