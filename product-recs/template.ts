@@ -21,26 +21,23 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
      * Business-User Controls
      */
     @options([
-        { name: "home_product_recommendations", label: "Homepage Product Recommendations" },
-        { name: "product_detail_recs_row_1", label: "Product Details Recommendations Row 1" },
-        { name: "product_detail_recs_row_2", label: "Product Details Recommendations Row 2" },
-        // TODO: Needed in sitemap
-        // { name: "plp_recs_row", label: "PLP Recommendations Row" },
-        // { name: "cart_recs_row_1", label: "Cart Recommendations Row 1" },
-        // { name: "cart_recs_row_2", label: "Cart Recommendations Row 2" },
-        // { name: "order_confirmation_recs_row", label: "Order Confirmation Recommendations Row" },
-        // { name: "arc_modal_recs_row", label: "Arc Modal Recommendations Row" },
-        // { name: "404_error_recs_row", label: "404 Error Recommendations Row" },
-        // { name: "search_results_recs_row", label: "Search Results Recommendations Row" },
+        "home_product_recommendations",
+        "product_detail_recs_row_1",
+        "product_detail_recs_row_2",
+        "plp_recs_row",
+        "cart_recs_row_1",
+        "cart_recs_row_2",
+        "order_confirmation_recs_row",
+        "arc_modal_recs_row",
+        "404_error_recs_row",
+        "search_results_recs_row",
     ])
-    selectedContentZone: ProductRecommendationsContentZones = { name: "home_product_recommendations", label: "Homepage Product Recommendations" };
-
-    @hidden(true)
-    contentZone: string = this.selectedContentZone.name;
+    contentZone: string = "home_product_recommendations";
 
     @title("Recommendations Row Header")
     header: string;
 
+    @title(" ")
     recsConfig: RecommendationsConfig = new RecommendationsConfig().restrictItemType("Product").restrictMaxResults(this.maxResults)
 
     @title("Show Product name")
@@ -60,7 +57,6 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     ratingVisibility: boolean = true;
 
     run(context: CampaignComponentContext) {
-        this.contentZone = this.selectedContentZone.name;
         this.visibilityOptions = {
             name: this.nameVisibility,
             description: this.descriptionVisibility,

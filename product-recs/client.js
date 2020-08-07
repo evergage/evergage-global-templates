@@ -20,7 +20,7 @@
         if (typeof options === "object") {
             Object.keys(options).map(optionKey => {
                 if (!options[optionKey]) {
-                    experienceContainer.find("[class*=evg-" + optionKey + "]").addClass("evg-hide");
+                    experienceContainer.find("[class*=evg-product-rec-" + optionKey + "]").addClass("evg-hide");
                 }
             });
         }
@@ -51,11 +51,11 @@
          * Note: To use Evergage.DisplayUtils.pageElementLoaded, you must have the
          * Display Utilities gear installed and enabled for your dataset.
          */
-        var contentZone = Evergage.getContentZoneSelector(((context || {}).selectedContentZone || {}).name);
-        return Evergage.DisplayUtils.pageElementLoaded(contentZone).then(el => {
-            if (contentZone) {
+        var contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
+        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(el => {
+            if (contentZoneSelector) {
                 var html = template(context);
-                Evergage.cashDom(contentZone).before(html);
+                Evergage.cashDom(contentZoneSelector).before(html);
                 applyVisibilityOptions(context);
             }
         });
@@ -78,11 +78,11 @@
          * Visit the Campaign Stats Tracking documentation to learn more:
          * https://developer.evergage.com/templates/campaign-stats
          */
-        var selector = Evergage.getContentZoneSelector(((context || {}).selectedContentZone || {}).name);
-        Evergage.cashDom(selector).attr("data-evg-campaign-id", context.campaign);
-        Evergage.cashDom(selector).attr("data-evg-experience-id", context.experience);
-        Evergage.cashDom(selector).attr("data-evg-user-group", "Control");
-        Evergage.cashDom(selector + " a").attr("data-evg-clickthrough", "");
+        var contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
+        Evergage.cashDom(contentZoneSelector).attr("data-evg-campaign-id", context.campaign);
+        Evergage.cashDom(contentZoneSelector).attr("data-evg-experience-id", context.experience);
+        Evergage.cashDom(contentZoneSelector).attr("data-evg-user-group", "Control");
+        Evergage.cashDom(contentZoneSelector + " a").attr("data-evg-clickthrough", "");
 
     }
 
