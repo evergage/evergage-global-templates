@@ -25,13 +25,13 @@ data-evg-campaign-group="test" aria-label="Product Recommendations {{#if header}
         {{#each products}}
         <div class="evg-product-recommendation" data-evg-product-id="{{id}}">
             <a href="{{attributes.url.value}}">
-                <img class="evg-product-image" src="{{attributes.imageUrl.value}}"
-                data-evg-product-imageUrl="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
+                <img class="evg-product-image" data-evg-product-imageUrl="{{attributes.imageUrl.value}}"
+                src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
                 <div class="evg-product-rec-name--wrapper">
-                    <a class="evg-product-name" href="{{attributes.url.value}}"
-                    data-evg-product-name="{{attributes.name.value}}">
+                    <a class="evg-product-name" data-evg-product-name="{{attributes.name.value}}"
+                    href="{{attributes.url.value}}">
                         {{attributes.name.value}}
                     </a>
                 </div>

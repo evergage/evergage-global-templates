@@ -6,7 +6,7 @@
      * @description Concatenates selector using Experience ID from context.
      */
     function buildExperienceSelector(context) {
-        return "[data-evg-experience-id=" + context.experience + "]";
+        return `[data-evg-experience-id=${context.experience}]`;
     }
 
     /**
@@ -20,7 +20,7 @@
         if (typeof options === "object") {
             for (const optionKey in options) {
                 if (!options[optionKey]) {
-                    experienceContainer.find("[class*=evg-product-rec-" + optionKey + "]").addClass("evg-hide");
+                    experienceContainer.find(`[class*=evg-product-${optionKey}`).addClass("evg-hide");
                 }
             }
         }
