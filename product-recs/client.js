@@ -52,12 +52,10 @@
          * Display Utilities gear installed and enabled for your dataset.
          */
         var contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
-        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(el => {
-            if (contentZoneSelector) {
-                var html = template(context);
-                Evergage.cashDom(contentZoneSelector).before(html);
-                applyVisibilityOptions(context);
-            }
+        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
+            var html = template(context);
+            Evergage.cashDom(element).before(html);
+            applyVisibilityOptions(context);
         });
     }
 

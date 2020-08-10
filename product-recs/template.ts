@@ -11,7 +11,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
      * Developer Controls
      */
     @hidden(true)
-    maxResults: 4 | 5 | 6 = 6;
+    maxResults: 2 | 4 | 6 | 8 = 6;
 
     @hidden(true)
     visibilityOptions: object;
@@ -41,20 +41,16 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     recsConfig: RecommendationsConfig = new RecommendationsConfig().restrictItemType("Product").restrictMaxResults(this.maxResults)
 
     @title("Show Product name")
-    // @shownIf()
     nameVisibility: boolean = true;
 
     @title("Show Product description")
-    // @shownIf()
     descriptionVisibility: boolean = true;
 
     @title("Show Product price")
-    // @shownIf()
     priceVisibility: boolean = true;
 
     @title("Show Product rating")
-    // @shownIf()
-    ratingVisibility: boolean = true;
+    ratingVisibility: boolean = false;
 
     run(context: CampaignComponentContext) {
         this.visibilityOptions = {
