@@ -11,10 +11,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
      * Developer Controls
      */
     @hidden(true)
-    maxResults: 2 | 4 | 6 | 8 = 6;
-
-    @hidden(true)
-    visibilityOptions: object;
+    maxResults: 2 | 4 | 6 | 8 = 4;
 
 
     /**
@@ -35,7 +32,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     contentZone: string = "home_product_recommendations";
 
     @title("Recommendations Row Header")
-    header: string;
+    title: string = "You May Also Like";
 
     @title(" ")
     recsConfig: RecommendationsConfig = new RecommendationsConfig().restrictItemType("Product").restrictMaxResults(this.maxResults)
@@ -53,13 +50,6 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     ratingVisibility: boolean = false;
 
     run(context: CampaignComponentContext) {
-        this.visibilityOptions = {
-            name: this.nameVisibility,
-            description: this.descriptionVisibility,
-            price: this.priceVisibility,
-            rating: this.ratingVisibility
-        };
-
         return {
             products: recommend(context, this.recsConfig)
         };

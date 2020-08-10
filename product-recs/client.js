@@ -9,23 +9,6 @@
         return `[data-evg-experience-id=${context.experience}]`;
     }
 
-    /**
-     * @function applyVisibilityOptions
-     * @param {Object} context
-     * @description Hides elements based on selected Visibility options.
-     */
-    function applyVisibilityOptions(context) {
-        const experienceContainer = Evergage.cashDom(buildExperienceSelector(context));
-        const options = context.visibilityOptions;
-        if (typeof options === "object") {
-            for (const optionKey in options) {
-                if (!options[optionKey]) {
-                    experienceContainer.find(`[class*=evg-product-${optionKey}`).addClass("evg-hide");
-                }
-            }
-        }
-    }
-
     function apply(context, template) {
         /**
          * The code below insert your generated HTML from Handlebars before the
@@ -56,7 +39,6 @@
             .then(element => {
                 const html = template(context);
                 Evergage.cashDom(element).before(html);
-                applyVisibilityOptions(context);
             });
     }
 

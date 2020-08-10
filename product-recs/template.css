@@ -114,8 +114,34 @@
     overflow: hidden;
 }
 
-#evg-recipe-product-recommendations .evg-product-price {
+#evg-recipe-product-recommendations .evg-product-price,
+#evg-recipe-product-recommendations .evg-product-rating {
     margin-top: .5em;
+}
+
+#evg-recipe-product-recommendations .evg-product-rating {
+    margin: auto;
+    width: 5rem;
+    text-align: left;
+    text-decoration: none;
+}
+
+#evg-recipe-product-recommendations .evg-star-empty,
+#evg-recipe-product-recommendations .evg-star-full {
+    /* font-size: 16px; */
+    text-align: left;
+    text-decoration: none;
+}
+
+#evg-recipe-product-recommendations .evg-star-empty {
+    color: #dee3e8;
+}
+
+#evg-recipe-product-recommendations .evg-star-fill {
+    position: relative;
+    margin-top: -1.4em;
+    color: #ce763c;
+    overflow: hidden;
 }
 
 #evg-recipe-product-recommendations .evg-hide {
