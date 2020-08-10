@@ -41,19 +41,14 @@
 ========================================================================== */
 
 #evg-recipe-product-recommendations .evg-h3 {
-    padding: 0;
-    margin: 0 0 .5rem;
-    color: inherit;
-    font-family: inherit;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-#evg-recipe-product-recommendations .evg-header {
     padding: 10px 0;
     margin: 1rem 0 2rem;
     width: 100%;
+    color: inherit;
+    font-family: inherit;
+    font-weight: 500;
     font-size: 1.75rem;
+    line-height: 1.2;
     text-align: center;
 }
 
