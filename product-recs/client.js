@@ -15,25 +15,25 @@
      * @description Hides elements based on selected Visibility options.
      */
     function applyVisibilityOptions(context) {
-        var experienceContainer = Evergage.cashDom(buildExperienceSelector(context));
-        var options = context.visibilityOptions;
+        const experienceContainer = Evergage.cashDom(buildExperienceSelector(context));
+        const options = context.visibilityOptions;
         if (typeof options === "object") {
-            Object.keys(options).map(optionKey => {
+            for (const optionKey in options) {
                 if (!options[optionKey]) {
                     experienceContainer.find("[class*=evg-product-rec-" + optionKey + "]").addClass("evg-hide");
                 }
-            });
+            }
         }
     }
 
     function apply(context, template) {
-
         /**
-         * The code below replaces the content of your selected content zone
-         * with the HTML generated from Handlebars.
+         * The code below insert your generated HTML from Handlebars before the
+         * selected content zone by using .before(html), though .after(html) can
+         * be used if you'd like insert the HTML after that content zone.
          *
-         * If you instead wish to insert your generated HTML before or after your
-         * selected content zone, use .before(html) or .after(html), respectively.
+         * If you instead wish to replace the content of your selected content zone
+         * with the HTML generated from Handlebars, then .html(html) can be used.
          *
          * Note: To use a content zone, you must define a "contentZone" configuration
          * property in the Serverside Code.
@@ -51,23 +51,21 @@
          * Note: To use Evergage.DisplayUtils.pageElementLoaded, you must have the
          * Display Utilities gear installed and enabled for your dataset.
          */
-        var contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
-        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
-            var html = template(context);
-            Evergage.cashDom(element).before(html);
-            applyVisibilityOptions(context);
-        });
+        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
+        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector)
+            .then(element => {
+                const html = template(context);
+                Evergage.cashDom(element).before(html);
+                applyVisibilityOptions(context);
+            });
     }
 
     function reset(context, template) {
-
         /** Remove the template from the DOM to reset the template. */
         Evergage.cashDom(buildExperienceSelector(context)).remove();
-
     }
 
     function control(context) {
-
         /**
          * Add Evergage data attributes to elements you wish to track in the control experience.
          *
@@ -76,12 +74,11 @@
          * Visit the Campaign Stats Tracking documentation to learn more:
          * https://developer.evergage.com/templates/campaign-stats
          */
-        var contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
+        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
         Evergage.cashDom(contentZoneSelector).attr("data-evg-campaign-id", context.campaign);
         Evergage.cashDom(contentZoneSelector).attr("data-evg-experience-id", context.experience);
         Evergage.cashDom(contentZoneSelector).attr("data-evg-user-group", "Control");
         Evergage.cashDom(contentZoneSelector + " a").attr("data-evg-clickthrough", "");
-
     }
 
     registerTemplate({
