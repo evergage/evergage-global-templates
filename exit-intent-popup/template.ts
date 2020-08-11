@@ -1,6 +1,6 @@
-export class ColorTheme {
+export class StyleField {
     label: string;
-    className: string;
+    styleClass: string;
 }
 
 export class EmailCapturePopupTemplate implements CampaignTemplateComponent {
@@ -9,10 +9,10 @@ export class EmailCapturePopupTemplate implements CampaignTemplateComponent {
     imageUrl: string = "https://cumulus-fs.s3.amazonaws.com/images/banking-savings.png"
     
     @options([
-        {label: "Light text on dark background", className: "evg-light-on-dark"},
-        {label: "Dark text on light background", className: "evg-dark-on-light"}
+        {label: "Light text on dark background", styleClass: "evg-light-on-dark"},
+        {label: "Dark text on light background", styleClass: "evg-dark-on-light"}
     ])
-    colorTheme: ColorTheme = {label: "Dark text on light background", className: "evg-dark-on-light"};
+    style: StyleField = {label: "Dark text on light background", styleClass: "evg-dark-on-light"};
 
     header: string = "Wait, don't leave!";
 
@@ -28,9 +28,7 @@ export class EmailCapturePopupTemplate implements CampaignTemplateComponent {
     ctaUrl: string = "/banking/checking-and-savings";
 
     @hidden(true)
-    contentZone = "global_popup"
-
-    
+    contentZone = "global_popup";
 
     run(context: CampaignComponentContext) {
         return {};
