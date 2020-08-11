@@ -13,6 +13,9 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     // @hidden(true)
     maximumNumberOfProducts: 2 | 4 | 6 | 8 = 4;
 
+    @hidden(true)
+    maxRatingBound: number = 5;
+
 
     /**
      * Business-User Controls

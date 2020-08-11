@@ -1,5 +1,5 @@
 {{!--
-    Global Template: Product Recommendations Rows
+    Global Template: Recipe Product Recommendations
 
     This global template inserts a row of recommended products, based on a selected Einstein Recipe.
 
@@ -17,19 +17,19 @@
 --}}
 
 <div id="evg-recipe-product-recommendations" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}"
-data-evg-campaign-group="{{userGroup}}" aria-label="Product Recommendations {{#if title}}- {{title}}{{/if}}">
-    <h3 class="evg-h3">
+data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations {{#if title}}- {{title}}{{/if}}">
+    <h3 class="evg-h3 evg-header">
         {{title}}
     </h3>
     <div class="evg-container evg-product-recommendations">
         {{#each products}}
-        <div class="evg-product-recommendation" data-evg-product-id="{{id}}">
+        <div class="evg-product-recommendation" data-evg-item-id="{{id}}" data-evg-item-type="{{../recipe.itemType}}">
             <a href="{{attributes.url.value}}">
                 <img class="evg-product-image" data-evg-product-imageUrl="{{attributes.imageUrl.value}}"
                 src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
-                <div class="evg-product-rec-name--wrapper{{#unless ../nameVisibility}} evg-hide{{/unless}}">
+                <div class="evg-product-name--wrapper{{#unless ../nameVisibility}} evg-hide{{/unless}}">
                     <a class="evg-product-name" data-evg-product-name="{{attributes.name.value}}"
                     href="{{attributes.url.value}}">
                         {{attributes.name.value}}
@@ -50,7 +50,7 @@ data-evg-campaign-group="{{userGroup}}" aria-label="Product Recommendations {{#i
                     class="evg-star-empty" eg-ratings="{{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}}">
                         ★★★★★
                     </div>
-                    <div style="width: calc({{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}} / 5 * 100%);"
+                    <div style="width: calc({{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}} / {{../maxRatingBound}} * 100%);"
                     class="evg-star-fill">
                         ★★★★★
                     </div>
