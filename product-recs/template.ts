@@ -39,7 +39,9 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     title: string = "You May Also Like";
 
     @title(" ")
-    recsConfig: RecommendationsConfig = new RecommendationsConfig().restrictItemType("Product").restrictMaxResults(this.maximumNumberOfProducts);
+    recsConfig: RecommendationsConfig = new RecommendationsConfig()
+        .restrictItemType("Product")
+        .restrictMaxResults(this.maximumNumberOfProducts);
 
     @title("Show Product name")
     nameVisibility: boolean = true;
@@ -56,6 +58,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     run(context: CampaignComponentContext) {
         this.recsConfig.maxResults = this.maximumNumberOfProducts;
         return {
+            itemType: this.recsConfig.itemType,
             products: recommend(context, this.recsConfig)
         };
     }

@@ -12,8 +12,11 @@
     Evergage.DisplayUtil.pageElementLoaded in Clientside Code that waits for the content zone to load into the DOM.
     3) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code.
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
-    4) Remove or change the default values for the configuration properties in Serverside Code.
-    5) Change any and all values of aria-label attributes as necessary.
+    4) Ratings are styled using the current rating value and a maxRatingBound, which is defined in the configuration
+    properties in Serverside Code and defaults to 5. If you know that ratings captured in the sitemap are on a scale
+    of 5, then there's no need to change this value.
+    5) Remove or change the default values for the configuration properties in Serverside Code.
+    6) Change any and all values of aria-label attributes as necessary.
 --}}
 
 <div id="evg-recipe-product-recommendations" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}"
@@ -23,18 +26,16 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations {{#if ti
     </h3>
     <div class="evg-container evg-product-recommendations">
         {{#each products}}
-        <div class="evg-product-recommendation" data-evg-item-id="{{id}}" data-evg-item-type="{{../recipe.itemType}}">
+        <div class="evg-product-recommendation" data-evg-item-id="{{id}}" data-evg-item-type="{{itemType}}">
             <a href="{{attributes.url.value}}">
                 <img class="evg-product-image" data-evg-product-imageUrl="{{attributes.imageUrl.value}}"
                 src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
-                <div class="evg-product-name--wrapper{{#unless ../nameVisibility}} evg-hide{{/unless}}">
-                    <a class="evg-product-name" data-evg-product-name="{{attributes.name.value}}"
-                    href="{{attributes.url.value}}">
-                        {{attributes.name.value}}
-                    </a>
-                </div>
+                <a class="evg-product-name{{#unless ../nameVisibility}} evg-hide{{/unless}}"
+                data-evg-product-name="{{attributes.name.value}}" href="{{attributes.url.value}}">
+                    {{attributes.name.value}}
+                </a>
                 {{#if attributes.description.value}}
                 <div class="evg-product-description{{#unless ../descriptionVisibility}} evg-hide{{/unless}}">
                     {{attributes.description.value}}
