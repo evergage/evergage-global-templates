@@ -119,13 +119,15 @@
     overflow: hidden;
 }
 
+#evg-recipe-product-recommendations .evg-product-description,
 #evg-recipe-product-recommendations .evg-product-price,
 #evg-recipe-product-recommendations .evg-product-rating {
-    margin-top: .5em;
+    margin-bottom: .5rem;
 }
 
 #evg-recipe-product-recommendations .evg-product-rating {
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
     width: 5rem;
     text-align: left;
     text-decoration: none;
