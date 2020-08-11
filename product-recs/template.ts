@@ -10,8 +10,8 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     /**
      * Developer Controls
      */
-    @hidden(true)
-    maxResults: 2 | 4 | 6 | 8 = 4;
+    // @hidden(true)
+    maximumNumberOfProducts: 2 | 4 | 6 | 8 = 4;
 
 
     /**
@@ -31,11 +31,12 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     ])
     contentZone: string = "home_product_recommendations";
 
-    @title("Recommendations Row Header")
+    @title("Title")
+    @subtitle("i.e. You May Also Like")
     title: string = "You May Also Like";
 
     @title(" ")
-    recsConfig: RecommendationsConfig = new RecommendationsConfig().restrictItemType("Product").restrictMaxResults(this.maxResults)
+    recsConfig: RecommendationsConfig = new RecommendationsConfig().restrictItemType("Product").restrictMaxResults(this.maximumNumberOfProducts);
 
     @title("Show Product name")
     nameVisibility: boolean = true;
@@ -50,6 +51,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     ratingVisibility: boolean = false;
 
     run(context: CampaignComponentContext) {
+        this.recsConfig.maxResults = this.maximumNumberOfProducts;
         return {
             products: recommend(context, this.recsConfig)
         };

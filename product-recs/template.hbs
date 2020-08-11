@@ -29,27 +29,31 @@ data-evg-campaign-group="{{userGroup}}" aria-label="Product Recommendations {{#i
                 src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
-                <div class="evg-product-rec-name--wrapper{{#unless ../this.nameVisibility}} evg-hide{{/unless}}">
+                <div class="evg-product-rec-name--wrapper{{#unless ../nameVisibility}} evg-hide{{/unless}}">
                     <a class="evg-product-name" data-evg-product-name="{{attributes.name.value}}"
                     href="{{attributes.url.value}}">
                         {{attributes.name.value}}
                     </a>
                 </div>
                 {{#if attributes.description.value}}
-                <div class="evg-product-description{{#unless ../this.descriptionVisibility}} evg-hide{{/unless}}">
+                <div class="evg-product-description{{#unless ../descriptionVisibility}} evg-hide{{/unless}}">
                     {{attributes.description.value}}
                 </div>
                 {{/if}}
-                <div class="evg-product-price{{#unless ../this.priceVisibility}} evg-hide{{/unless}}"
+                <div class="evg-product-price{{#unless ../priceVisibility}} evg-hide{{/unless}}"
                 data-evg-product-price="{{attributes.price.value}}">
                     ${{attributes.price.value}}
                 </div>
-                <div class="evg-product-rating{{#unless ../this.ratingVisibility}} evg-hide{{/unless}}"
+                <div class="evg-product-rating{{#unless ../ratingVisibility}} evg-hide{{/unless}}"
                 data-evg-product-rating="{{attributes.rating.value}}" aria-label="Rating: {{attributes.rating.value}}">
-                    <div style="width: auto" class="evg-star-empty"
-                    eg-ratings="{{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}}">★★★★★</div>
+                    <div style="width: auto"
+                    class="evg-star-empty" eg-ratings="{{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}}">
+                        ★★★★★
+                    </div>
                     <div style="width: calc({{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}} / 5 * 100%);"
-                    class="evg-star-fill">★★★★★</div>
+                    class="evg-star-fill">
+                        ★★★★★
+                    </div>
                 </div>
             </div>
         </div>
