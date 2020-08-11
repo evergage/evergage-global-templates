@@ -23,8 +23,9 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
     ])
     contentZone: string = "home_recs";
 
+    @title("Title")
     @subtitle("i.e. You May Also Like")
-    title: string = "You May Also Like";
+    header: string = "You May Also Like";
 
     @title(" ")
     @subtitle("i.e. Collaborative with Trending")
