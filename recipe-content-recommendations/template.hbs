@@ -17,7 +17,6 @@
     6) Change any and all values of aria-label attributes as necessary.
 --}}
 
-
 <article id="evg-recipe-content-recommendations" data-evg-campaign-id="{{campaign}}" 
 data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" 
 aria-label="Content Recommendations {{#if title}}- {{title}}{{/if}}">
@@ -32,11 +31,11 @@ aria-label="Content Recommendations {{#if title}}- {{title}}{{/if}}">
                     alt="{{attributes.name.value}}"/>
                 </a>
                 <div class="evg-content-details evg-card-body">
-                    <div class="evg-content-name evg-card-title {{#unless ../this.nameVisibility}} evg-hide{{/unless}}">
+                    <div class="evg-content-name evg-card-title {{#unless ../nameVisibility}} evg-hide{{/unless}}">
                         <a href="{{attributes.url.value}}">{{attributes.name.value}}</a>
                     </div>
                     {{#if attributes.description.value}}
-                    <div class="evg-content-description evg-card-text {{#unless ../this.descriptionVisibility}} evg-hide{{/unless}}">
+                    <div class="evg-content-description evg-card-text {{#unless ../descriptionVisibility}} evg-hide{{/unless}}">
                         {{attributes.description.value}}
                     </div>
                     {{/if}}
