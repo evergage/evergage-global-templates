@@ -18,7 +18,6 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
      */
     @options([
         "home_recs",
-        "404_error_recs_row",
         "search_recs"
     ])
     contentZone: string = "home_recs";
