@@ -11,7 +11,7 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
      * Developer Controls
      */
     @hidden(true)
-    maxResults: 4 | 6 = 4;
+    maximumNumberOfItems: 4 | 6 = 4;
 
     /**
      * Business-User Controls
@@ -28,8 +28,8 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
 
     @title(" ")
     @subtitle("i.e. Collaborative with Trending")
-    recsConfig: RecommendationsConfig = new RecommendationsConfig().restrictItemType("Blog")
-    .restrictMaxResults(this.maxResults);
+    recipe: RecommendationsConfig = new RecommendationsConfig().restrictItemType("Blog")
+    .restrictMaxResults(this.maximumNumberOfItems);
 
     @title("Show content name")
     nameVisibility: boolean = true;
@@ -42,10 +42,10 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
 
     run(context:CampaignComponentContext) {
 
-        this.recsConfig.maxResults = this.maxResults;
+        this.recipe.maxResults = this.maximumNumberOfItems;
 
         return {
-            blogs: recommend(context, this.recsConfig)
+            blogs: recommend(context, this.recipe)
         }
     }
 
