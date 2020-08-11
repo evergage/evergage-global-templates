@@ -5,7 +5,7 @@
 #evg-recipe-content-recommendations {
     padding: 1em 0;
     width: 100%;
-    color: inherit; 
+    color: inherit;
     font-family: inherit;
 }
 
@@ -30,9 +30,9 @@
     -ms-flex-align: start;
     align-items: flex-start;
 
-    max-width: 960px;
-    width: auto;
     margin: 0 auto;
+    width: auto;
+    max-width: 960px;
 }
 
 #evg-recipe-content-recommendations .evg-card-container {
@@ -68,35 +68,35 @@
 }
 
 #evg-recipe-content-recommendations .evg-card-image {
+    margin: 0;
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
 }
 
 #evg-recipe-content-recommendations .evg-card-body {
-    background-color: #fff;
     padding: 1rem;
     width: 100%;
-    text-align: left;
     overflow: hidden;
+    background-color: #fff;
+    text-align: left;
 }
 
 #evg-recipe-content-recommendations .evg-card-title {
-    margin: auto auto 0;
+    margin: 0 auto .75rem auto;
     height: 2.5rem;
+    overflow: hidden;
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 2.5rem;
     text-decoration: none;
-    margin-bottom: .75rem;
-    overflow: hidden;
 }
 
 #evg-recipe-content-recommendations .evg-card-text {
     height: 8rem;
     overflow: hidden;
-    line-height: 2rem;
     font-size: 1.25rem;
+    line-height: 2rem;
 }
 
 #evg-recipe-content-recommendations .evg-hide {
@@ -120,12 +120,12 @@
     }
 
     #evg-recipe-content-recommendations .evg-h3 {
-        font-size: 1.5rem;
         padding: 0;
         margin: 0 0 .5rem;
+        color: inherit;
         font-family: inherit;
+        font-size: 1.5rem;
         font-weight: 500;
         line-height: 1.2;
-        color: inherit;
     }
 }
