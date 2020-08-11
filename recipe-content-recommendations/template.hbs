@@ -24,7 +24,7 @@ aria-label="Content Recommendations {{#if title}}- {{title}}{{/if}}">
     <div class="evg-content-recommendations evg-container">
         {{#each blogs}}
         <div class="evg-card-container">
-            <article class="evg-content-recommendation evg-card">
+            <article class="evg-content-recommendation evg-card" data-evg-item-id="{{id}}" data-evg-item-type="{{../recipe.itemType}}">
                 <a href="{{attributes.url.value}}">
                     <img class="evg-content-image evg-card-image" 
                     data-evg-product-imageUrl="{{attributes.imageUrl.value}}" src="{{attributes.imageUrl.value}}" 
