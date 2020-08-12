@@ -62,6 +62,7 @@
 ========================================================================== */
 
 #evg-recipe-product-recommendations .evg-product-recommendation {
+    padding: 1rem .5rem;
     margin: 0 1rem;
 
     display: -webkit-box;
@@ -112,8 +113,9 @@
 
 #evg-recipe-product-recommendations .evg-product-description {
     margin: 0 auto;
+    max-height: 2rem;
     width: 95%;
-    font-size: .5rem;
+    font-size: .85rem;
     line-height: 1rem;
     overflow: hidden;
 }
@@ -134,7 +136,6 @@
 
 #evg-recipe-product-recommendations .evg-star-empty,
 #evg-recipe-product-recommendations .evg-star-full {
-    /* font-size: 16px; */
     text-align: left;
     text-decoration: none;
 }

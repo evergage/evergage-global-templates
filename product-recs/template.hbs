@@ -12,11 +12,14 @@
     Evergage.DisplayUtil.pageElementLoaded in Clientside Code that waits for the content zone to load into the DOM.
     3) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code.
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
-    4) Ratings are styled using the current rating value and a maxRatingBound, which is defined in the configuration
+    4) If you change the margin and/or padding (left and/or right) for .evg-product-recommendation, be sure to change
+    the last value in calc() for the inline max-width style. The initial value of 3rem is the result of:
+    margin-left (1rem) + padding-left (.5rem) + padding-right (.5rem) + margin-right (1rem)
+    5) Ratings are styled using the current rating value and a maxRatingBound, which is defined in the configuration
     properties in Serverside Code and defaults to 5. If you know that ratings captured in the sitemap are on a scale
     of 5, then there's no need to change this value.
-    5) Remove or change the default values for the configuration properties in Serverside Code.
-    6) Change any and all values of aria-label attributes as necessary.
+    6) Remove or change the default values for the configuration properties in Serverside Code.
+    7) Change any and all values of aria-label attributes as necessary.
 --}}
 
 <div id="evg-recipe-product-recommendations" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}"
@@ -26,7 +29,8 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
     </h3>
     <div class="evg-container evg-product-recommendations">
         {{#each products}}
-        <div class="evg-product-recommendation" data-evg-item-id="{{id}}" data-evg-item-type="{{../itemType}}">
+        <div class="evg-product-recommendation" data-evg-item-id="{{id}}" data-evg-item-type="{{../itemType}}"
+        style="max-width: calc((1 / {{../maximumNumberOfProducts}} * 100%) - 3rem);">
             <a href="{{attributes.url.value}}">
                 <img class="evg-product-image" data-evg-product-imageUrl="{{attributes.imageUrl.value}}"
                 src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
@@ -47,12 +51,13 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
                 </div>
                 <div class="evg-product-rating{{#unless ../ratingVisibility}} evg-hide{{/unless}}"
                 data-evg-product-rating="{{attributes.rating.value}}" aria-label="Rating: {{attributes.rating.value}}">
-                    <div style="width: auto"
-                    class="evg-star-empty" eg-ratings="{{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}}">
+                    <div class="evg-star-empty"
+                    eg-ratings="{{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}}"
+                    style="width: auto">
                         ★★★★★
                     </div>
-                    <div style="width: calc({{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}} / {{../maxRatingBound}} * 100%);"
-                    class="evg-star-fill">
+                    <div class="evg-star-fill"
+                    style="width: calc({{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}} / {{../maxRatingBound}} * 100%);">
                         ★★★★★
                     </div>
                 </div>

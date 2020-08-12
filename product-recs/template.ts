@@ -26,7 +26,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     ])
     contentZone: string = "home_product_recommendations";
 
-    @title("Title")
+    @title("Recommendations Block Title")
     @subtitle("i.e. You May Also Like")
     header: string = "You May Also Like";
 
@@ -35,6 +35,8 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     recsConfig: RecommendationsConfig = new RecommendationsConfig()
         .restrictItemType("Product")
         .restrictMaxResults(this.maximumNumberOfProducts);
+
+    @header("Recommendations Attributes")
 
     @title("Show Product name")
     nameVisibility: boolean = true;

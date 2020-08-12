@@ -1,14 +1,5 @@
 (function() {
 
-    /**
-     * @function buildExperienceSelector
-     * @param {Object} context
-     * @description Concatenates selector using Experience ID from context.
-     */
-    function buildExperienceSelector(context) {
-        return `[data-evg-experience-id=${context.experience}]`;
-    }
-
     function apply(context, template) {
         /**
          * The pageElementLoaded method waits for the content zone to load into the DOM
@@ -21,15 +12,14 @@
          * https://developer.evergage.com/templates/display-utilities
          */
         const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
-        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector)
-            .then(element => {
+        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
                 const html = template(context);
                 Evergage.cashDom(element).before(html);
             });
     }
 
     function reset(context, template) {
-        Evergage.cashDom(buildExperienceSelector(context)).remove();
+        Evergage.cashDom("#evg-recipe-product-recommendations").remove();
     }
 
     function control(context) {
