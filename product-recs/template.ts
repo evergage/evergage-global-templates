@@ -36,7 +36,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
 
     @title("Title")
     @subtitle("i.e. You May Also Like")
-    title: string = "You May Also Like";
+    header: string = "You May Also Like";
 
     @title(" ")
     recsConfig: RecommendationsConfig = new RecommendationsConfig()
