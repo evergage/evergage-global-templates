@@ -12,11 +12,10 @@
          * https://developer.evergage.com/templates/display-utilities
          */
         const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
-        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector)
-            .then(element => {
-                const html = template(context);
-                Evergage.cashDom(element).html(html);
-            });
+        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
+            const html = template(context);
+            Evergage.cashDom(element).html(html);
+        });
     }
 
     function reset(context, template) {
