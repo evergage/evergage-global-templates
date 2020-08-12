@@ -11,7 +11,7 @@
     Customizations:
     1) Style options can be changed in Serverside Code.
     2) Styling and implementation can be changed in Clientside Code and CSS.
-    3) Fallback background color of the Color Theme options can be changed in CSS.
+    3) Fallback background color of the Style options can be changed in CSS.
     4) Media query breakpoints can be changed in CSS.
     5) To support rich text, add the @richtext(true) decorator to configuration properties in Serverside Code. 
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
@@ -22,38 +22,38 @@
 
 --}}
 
-<div id="evg-email-capture-popup" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}" 
-data-evg-user-group="{{userGroup}}">
-    <div class="lightbox {{overlayClass}}"></div>
+<div id="evg-exit-intent-popup-email-capture" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}" 
+data-evg-user-group="{{userGroup}}" aria-label="Popup Message">
+    <div class="evg-lightbox {{overlayClass}}"></div>
     <div class="evg-popup" style="background-image:url('{{imageUrl}}');">
         <div class="evg-main-panel">
-            <h1 class="{{style.className}} evg-header evg-h1 evg-display-2 evg-text">
+            <h1 class="{{style.className}} evg-header evg-h1 evg-text">
                 {{{title}}}
             </h1>
-            <h2 class="{{style.className}} evg-subheader evg-h4 evg-text">
+            <h2 class="{{style.className}} evg-subheader evg-text">
                 {{{subtitle}}}
             </h2>
-            <form class="evg-form" action="" method="" aria-label="Email Signup">
-                <input class="evg-input" type="text" placeholder="Email">
-                <h6 class="evg-message evg-h6 evg-text evg-hide">
+            <form class="evg-form" aria-label="Email Signup" role="form">
+                <input class="evg-input" name="email" type="email" required placeholder="Email" novalidate aria-required="true">
+                <span class="evg-message evg-text evg-hide">
                     Enter a valid email address
-                </h6>
+                </span>
                 <a class="{{style.className}} evg-cta evg-btn evg-btn-primary evg-btn-lg" type="button" aria-label="Submit">
                     {{ctaText}}
                 </a>
             </form>
-            <h5 class="{{style.className}} evg-opt-out evg-h5 evg-text">
+            <span class="{{style.className}} evg-subheader evg-opt-out evg-text">
                 {{optOutText}}
-            </h5>
+            </span>
         </div>
         <div class="evg-confirm-panel evg-hide">
-            <h1 class="{{style.className}} evg-confirm-header evg-h1 evg-display-2 evg-text">
+            <h1 class="{{style.className}} evg-confirm-header evg-h1 evg-text">
                 {{{confirmationTitle}}}
             </h1>
             <h2 class="{{style.className}} evg-confirm-subheader evg-h2 evg-text">
                 {{{confirmationSubtitle}}}
             </h2>
         </div>
-        <div class="{{style.className}} evg-btn-dismissal" data-evg-dismissal role="dismiss">&times;</div>
+        <button class="{{style.className}} evg-btn-dismissal" data-evg-dismissal aria-label="Close Popup">&times;</button>
     </div>
 </div>

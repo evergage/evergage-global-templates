@@ -8,25 +8,25 @@
 
             /** Dismisses popup */
             const dismissSelectors = [
-                "evg-email-capture-popup .evg-overlay",
-                "#evg-email-capture-popup .evg-btn-dismissal",
-                "#evg-email-capture-popup .evg-opt-out"
+                "#evg-exit-intent-popup-email-capture .evg-overlay",
+                "#evg-exit-intent-popup-email-capture .evg-btn-dismissal",
+                "#evg-exit-intent-popup-email-capture .evg-opt-out"
             ];
 
             Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
-                Evergage.cashDom("#evg-email-capture-popup").remove();
+                Evergage.cashDom("#evg-exit-intent-popup-email-capture").remove();
             });
 
             /** Shows secondary confirmation panel */
-            Evergage.cashDom("#evg-email-capture-popup .evg-cta").on("click", () => {
+            Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-cta").on("click", () => {
                 const emailAddress = Evergage.cashDom(".evg-form input[placeholder='Email']").val();
                 const regex = RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]+)$/);
                 if (emailAddress && regex.test(emailAddress)) {
-                    Evergage.cashDom("#evg-email-capture-popup .evg-main-panel").addClass("evg-hide");
-                    Evergage.cashDom("#evg-email-capture-popup .evg-confirm-panel").removeClass("evg-hide");
+                    Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-main-panel").addClass("evg-hide");
+                    Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-confirm-panel").removeClass("evg-hide");
                     Evergage.sendEvent({ user: {attributes: {emailAddress: emailAddress} } });
                 } else {
-                    Evergage.cashDom("#evg-email-capture-popup .evg-message")
+                    Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-message")
                     .removeClass("evg-hide")
                     .addClass("evg-error");
                 }
@@ -35,7 +35,7 @@
     }
 
     function reset(context, template) {
-        Evergage.cashDom("#evg-email-capture-popup").remove();
+        Evergage.cashDom("#evg-exit-intent-popup-email-capture").remove();
     }
 
     function control() {
