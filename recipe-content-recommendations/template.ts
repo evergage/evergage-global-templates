@@ -1,10 +1,5 @@
 import { RecommendationsConfig, recommend } from "recs";
 
-export class ContentRecommendationsContentZones {
-    name: string;
-    label: string;
-}
-
 export class RecipeContentRecommendationsTemplate implements CampaignTemplateComponent {
 
     /**
