@@ -17,7 +17,7 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
     ])
     contentZone: string = "home_recs";
 
-    @title("Title")
+    @title("Recommendations Block Title")
     @subtitle("i.e. You May Also Like")
     header: string = "You May Also Like";
 
@@ -26,6 +26,8 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
     recsConfig: RecommendationsConfig = new RecommendationsConfig()
         .restrictItemType("Blog")
         .restrictMaxResults(this.maximumNumberOfItems);
+
+    @header('Recommendation Attributes')
 
     @title("Show content name")
     nameVisibility: boolean = true;
