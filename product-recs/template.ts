@@ -1,10 +1,5 @@
 import { RecommendationsConfig, recommend } from "recs";
 
-export class ProductRecommendationsContentZones {
-    name: string;
-    label: string;
-}
-
 export class ProductRecommendationsTemplate implements CampaignTemplateComponent {
 
     /**
@@ -21,16 +16,13 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
      * Business-User Controls
      */
     @options([
-        "home_product_recommendations",
+        "home_recs",
         "product_detail_recs_row_1",
         "product_detail_recs_row_2",
-        "plp_recs_row",
+        "category_recs",
         "cart_recs_row_1",
         "cart_recs_row_2",
-        "order_confirmation_recs_row",
-        "arc_modal_recs_row",
-        "404_error_recs_row",
-        "search_results_recs_row",
+        "search_recs"
     ])
     contentZone: string = "home_product_recommendations";
 
