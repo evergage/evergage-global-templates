@@ -20,7 +20,7 @@
 --}}
 
 <div id="evg-recipe-product-recommendations" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}"
-data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations {{#if header}}- {{header}}{{/if}}">
+data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if header}} - {{header}}{{/if}}">
     <h3 class="evg-h3 evg-header">
         {{header}}
     </h3>
@@ -32,8 +32,8 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations {{#if he
                 src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
-                <a class="evg-product-name{{#unless ../nameVisibility}} evg-hide{{/unless}}"
-                data-evg-product-name="{{attributes.name.value}}" href="{{attributes.url.value}}">
+                <a class="evg-product-name{{#unless ../nameVisibility}} evg-hide{{/unless}}" data-evg-product-name="{{attributes.name.value}}"
+                href="{{attributes.url.value}}">
                     {{attributes.name.value}}
                 </a>
                 {{#if attributes.description.value}}

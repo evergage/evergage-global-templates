@@ -39,6 +39,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     header: string = "You May Also Like";
 
     @title(" ")
+    @subtitle("i.e. Collaborative with Trending")
     recsConfig: RecommendationsConfig = new RecommendationsConfig()
         .restrictItemType("Product")
         .restrictMaxResults(this.maximumNumberOfProducts);
