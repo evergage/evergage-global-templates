@@ -4,8 +4,8 @@
 
 #evg-recipe-product-recommendations {
     margin: 2rem auto;
-    max-width: 1440px;
     width: 100%;
+    max-width: 1440px;
     color: inherit;
     font-family: inherit;
 }
@@ -32,8 +32,8 @@
     -ms-flex-align: stretch;
     align-items: stretch;
 
-    height: 100%;
     width: auto;
+    height: 100%;
 }
 
 
@@ -93,28 +93,22 @@
 }
 
 #evg-recipe-product-recommendations .evg-product-image {
-    height: auto;
     width: 80%;
+    height: auto;
 }
 
 #evg-recipe-product-recommendations .evg-product-details {
     padding: .5rem 0;
-    min-height: 9rem;
-    height: 100%;
     width: 100%;
-}
-
-#evg-recipe-product-recommendations .evg-product-name--wrapper {
-    margin-bottom: .25rem;
-    display: flex;
-    min-height: 3rem;
+    height: 100%;
+    min-height: 9rem;
 }
 
 #evg-recipe-product-recommendations .evg-product-name {
     margin: auto auto 0;
-    min-height: 2.5rem;
-    max-width: 90%;
     display: block;
+    max-width: 90%;
+    min-height: 2.5rem;
     color:#393939;
     font-size: 1rem;
     font-weight: 600;
@@ -124,11 +118,11 @@
 
 #evg-recipe-product-recommendations .evg-product-description {
     margin: 0 auto;
-    max-height: 2rem;
     width: 95%;
+    max-height: 2rem;
+    overflow: hidden;
     font-size: .85rem;
     line-height: 1rem;
-    overflow: hidden;
 }
 
 #evg-recipe-product-recommendations .evg-product-description,
@@ -159,15 +153,15 @@
 #evg-recipe-product-recommendations .evg-star-fill {
     position: relative;
     margin-top: -1.4em;
+    overflow: hidden;
     color: #ce763c;
     background-color: transparent;
-    overflow: hidden;
 }
 
 #evg-recipe-product-recommendations .evg-hide {
     display: none;
-    height: 0;
     width: 0;
+    height: 0;
     visibility: hidden;
 }
 
@@ -193,7 +187,7 @@
     #evg-recipe-product-recommendations .evg-product-recommendation {
         padding: 1rem 0;
         margin-bottom: 2rem;
-        max-width: calc(50% - 1rem)!important;
+        max-width: calc(50% - 1rem) !important;
     }
 }
 

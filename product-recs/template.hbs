@@ -33,12 +33,10 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
                 src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
-                <div class="evg-product-name--wrapper{{#unless ../nameVisibility}} evg-hide{{/unless}}">
-                    <a class="evg-product-name{{#unless ../nameVisibility}} evg-hide{{/unless}}"
-                    data-evg-product-name="{{attributes.name.value}}" href="{{attributes.url.value}}">
-                        {{attributes.name.value}}
-                    </a>
-                </div>
+                <a class="evg-product-name{{#unless ../nameVisibility}} evg-hide{{/unless}}"
+                data-evg-product-name="{{attributes.name.value}}" href="{{attributes.url.value}}">
+                    {{attributes.name.value}}
+                </a>
                 {{#if attributes.description.value}}
                 <div class="evg-product-description{{#unless ../descriptionVisibility}} evg-hide{{/unless}}">
                     {{attributes.description.value}}

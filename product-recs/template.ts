@@ -5,7 +5,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     /**
      * Developer Controls
      */
-    // @hidden(true)
+    @hidden(true)
     maximumNumberOfProducts: 2 | 4 | 6 | 8 = 4;
 
     @hidden(true)
