@@ -24,7 +24,7 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
         "cart_recs_row_2",
         "search_recs"
     ])
-    contentZone: string = "home_product_recommendations";
+    contentZone: string = "home_recs";
 
     @title("Recommendations Block Title")
     @subtitle("i.e. You May Also Like")
