@@ -153,12 +153,14 @@
 
 #evg-recipe-product-recommendations .evg-star-empty {
     color: #dee3e8;
+    background-color: #ffffff;
 }
 
 #evg-recipe-product-recommendations .evg-star-fill {
     position: relative;
     margin-top: -1.4em;
     color: #ce763c;
+    background-color: transparent;
     overflow: hidden;
 }
 
