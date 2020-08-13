@@ -53,8 +53,8 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
                     style="width: auto">
                         ★★★★★
                     </div>
-                    <div class="evg-star-fill"
-                    style="width: calc({{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}} / {{../maxRatingBound}} * 100%);">
+                    <div style="width: calc({{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}} / {{../maxRatingBound}} * 100%);"
+                    class="evg-star-fill">
                         ★★★★★
                     </div>
                 </div>
