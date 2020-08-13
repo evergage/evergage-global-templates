@@ -22,9 +22,6 @@
      * 
      * Visit the Template Display Utilities documentation to learn more:
      * https://developer.evergage.com/templates/display-utilities
-     * 
-     * Note: To use Evergage.DisplayUtils.pageElementLoaded, you must have the 
-     * Display Utilities gear installed and enabled for your dataset.
      */
     
     return Evergage.DisplayUtils.pageElementLoaded(selector).then(function(element) {
