@@ -8,7 +8,7 @@ export class LightboxField {
     overlayClass: string
 }
 
-export class EmailCapturePopupTemplate implements CampaignTemplateComponent {
+export class ExitIntentPopupEmailCapture implements CampaignTemplateComponent {
 
     @title("Title")
     @subtitle("i.e. Don't leave yet!")
@@ -49,7 +49,7 @@ export class EmailCapturePopupTemplate implements CampaignTemplateComponent {
 
 
     @title("Background Image URL")
-    imageUrl: string = "https://www.northerntrailoutfitters.com/dw/image/v2/BDPX_PRD/on/demandware.static/-/Library-Sites-NTO-SFRASharedLibrary/default/dwc6140c96/images/homepage/home-small-gear-hero-450-600@2x.jpg";
+    imageUrl: string = "https://cdn.evergage.com/evergage-content/nto/nto_footwear.jpg";
 
     @hidden(true)
     contentZone = "global_popup"

@@ -10,22 +10,21 @@
 
     Customizations:
     1) Style options can be changed in Serverside Code.
-    2) Styling and implementation can be changed in Clientside Code and CSS.
-    3) Fallback background color of the Style options can be changed in CSS.
-    4) Media query breakpoints can be changed in CSS.
-    5) To support rich text, add the @richtext(true) decorator to configuration properties in Serverside Code. 
+    2) Styling of the Style options, including fallback background color, can be changed in CSS.
+    3) Media query breakpoints can be changed in CSS.
+    4) To support rich text, add the @richtext(true) decorator to configuration properties in Serverside Code. 
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
-    6) Remove or change the default values for the configuration properties in Serverside Code.
-    7) Change the aria-label attribute value of .evg-cta to an appropriate description.
-    8) Change the error message in the div.evg-message. Styling can be changed in CSS.
-    9) Add more input fields in handlebars and handling of those inputs in Clientside Code. 
+    5) Remove or change the default values for the configuration properties in Serverside Code.
+    6) Change the aria-label attribute value of .evg-cta to an appropriate description.
+    7) Change the error message in the span.evg-error-msg. Styling can be changed in CSS.
+    8) Add more input fields in handlebars and handling of those inputs in Clientside Code. 
 
 --}}
 
-<div id="evg-exit-intent-popup-email-capture" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}" 
-data-evg-user-group="{{userGroup}}" aria-label="Popup Message">
+<div id="evg-exit-intent-popup-email-capture" data-evg-campaign-id="{{campaign}}"
+data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Popup Message">
     <div class="evg-lightbox {{overlayClass}}"></div>
-    <div class="evg-popup" style="background-image:url('{{imageUrl}}');">
+    <div class="{{style.ClassName}} evg-popup" style="background-image:url('{{imageUrl}}')">
         <div class="evg-main-panel">
             <h1 class="{{style.className}} evg-header evg-h1 evg-text">
                 {{{title}}}
@@ -34,15 +33,17 @@ data-evg-user-group="{{userGroup}}" aria-label="Popup Message">
                 {{{subtitle}}}
             </h2>
             <form class="evg-form" aria-label="Email Signup" role="form">
-                <input class="evg-input" name="email" type="email" required placeholder="Email" novalidate aria-required="true">
-                <span class="evg-message evg-text evg-hide">
+                <input class="evg-email" name="email" type="email" required placeholder="Email" novalidate
+                aria-label="Email" aria-required="true" tabindex="0">
+                <span class="evg-error-msg evg-text evg-hide">
                     Enter a valid email address
                 </span>
-                <a class="{{style.className}} evg-cta evg-btn evg-btn-primary evg-btn-lg" type="button" aria-label="Submit">
+                <a class="{{style.className}} evg-cta evg-btn evg-btn-primary evg-btn-lg" tabindex="1" 
+                type="button" aria-label="Submit">
                     {{ctaText}}
                 </a>
             </form>
-            <span class="{{style.className}} evg-subheader evg-opt-out evg-text">
+            <span class="{{style.className}} evg-subheader evg-opt-out-msg evg-text" tabindex="2">
                 {{optOutText}}
             </span>
         </div>
@@ -54,6 +55,8 @@ data-evg-user-group="{{userGroup}}" aria-label="Popup Message">
                 {{{confirmationSubtitle}}}
             </h2>
         </div>
-        <button class="{{style.className}} evg-btn-dismissal" data-evg-dismissal aria-label="Close Popup">&times;</button>
+        <button class="{{style.className}} evg-btn-dismissal" data-evg-dismissal aria-label="Close Popup" tabindex="3">
+            &times;
+        </button>
     </div>
 </div>

@@ -1,16 +1,16 @@
 (function() {
-
+    
     function apply(context, template) {
         Evergage.DisplayUtils.pageExit(2000).then(function() {
-            context.overlayClass = context.lightboxEnabled ? "evg-overlay" : "";
-            var html = template(context);
-            Evergage.cashDom("body").append(html);
+                context.overlayClass = context.lightboxEnabled ? "evg-overlay" : "";
+                var html = template(context);
+                Evergage.cashDom("body").append(html);
 
             /** Dismisses popup */
             const dismissSelectors = [
                 "#evg-exit-intent-popup-email-capture .evg-overlay",
                 "#evg-exit-intent-popup-email-capture .evg-btn-dismissal",
-                "#evg-exit-intent-popup-email-capture .evg-opt-out"
+                "#evg-exit-intent-popup-email-capture .evg-opt-out-msg"
             ];
 
             Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
@@ -26,7 +26,7 @@
                     Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-confirm-panel").removeClass("evg-hide");
                     Evergage.sendEvent({ user: {attributes: {emailAddress: emailAddress} } });
                 } else {
-                    Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-message")
+                    Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-error-msg")
                     .removeClass("evg-hide")
                     .addClass("evg-error");
                 }
@@ -47,5 +47,5 @@
       reset: reset, 
       control: control
     });
-    
-  })();
+
+})();
