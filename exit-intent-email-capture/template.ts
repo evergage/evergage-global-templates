@@ -47,7 +47,6 @@ export class ExitIntentPopupEmailCapture implements CampaignTemplateComponent {
     ])
     style: StyleField = {label: "Light on Dark", className: "evg-light-on-dark"}
 
-
     @title("Background Image URL")
     imageUrl: string = "https://cdn.evergage.com/evergage-content/nto/nto_footwear.jpg";
 
@@ -57,5 +56,5 @@ export class ExitIntentPopupEmailCapture implements CampaignTemplateComponent {
     run(context: CampaignComponentContext) {
         return {};
     }
-    
+
 }

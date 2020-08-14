@@ -1,5 +1,5 @@
 (function() {
-    
+
     function apply(context, template) {
         Evergage.DisplayUtils.pageExit(2000).then(function() {
                 context.overlayClass = context.lightboxEnabled ? "evg-overlay" : "";
@@ -39,7 +39,7 @@
     }
 
     function control() {
-        
+ 
     }
   
     registerTemplate({

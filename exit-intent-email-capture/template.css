@@ -73,8 +73,50 @@
 }
 
 #evg-exit-intent-popup-email-capture .evg-confirm-panel {
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     text-align: center;
+    width: 100%;
 }
+
+#evg-exit-intent-popup-email-capture .evg-confirm-header {
+    display: inline-block;
+    margin: 0 0 .5rem;
+}
+
+#evg-exit-intent-popup-email-capture .evg-confirm-subheader {
+    display: inline-block;
+    margin: 0 0 .5rem;
+}
+
+#evg-exit-intent-popup-email-capture .evg-opt-out-msg {
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Form
+========================================================================== */
 
 #evg-exit-intent-popup-email-capture .evg-form {
     display: -webkit-box;
@@ -101,26 +143,12 @@
     width: 100%;
 }
 
-#evg-exit-intent-popup-email-capture .evg-form .evg-email {
-    margin: 5px 0;
+#evg-exit-intent-popup-email-capture .evg-email {
+    margin: .5rem 0;
     width: 75%;
     padding: .5rem 1rem;
     border: 1px solid #ddd;
     color: #59575c;
-}
-
-#evg-exit-intent-popup-email-capture .evg-form .evg-cta {
-    cursor: pointer;
-    font-size: 20px;
-    margin: 10px 0px;
-    padding: 10px 30px;
-    text-decoration: none;
-}
-
-#evg-exit-intent-popup-email-capture .evg-opt-out-msg {
-    cursor: pointer;
-    font-size: 12px;
-    text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -137,13 +165,13 @@
    color: inherit;
 }
 
-#evg-exit-intent-popup-email-capture .evg-header {
-   font-size: 3rem;
-   font-weight: 700;
-   line-height: 1.2;
+#evg-exit-intent-popup-email-capture .evg-h1.evg-display-4 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-#evg-exit-intent-popup-email-capture .evg-subheader {
+#evg-exit-intent-popup-email-capture .evg-h2 {
     font-size: 1.5rem;
 }
 
@@ -187,42 +215,40 @@
     font-size: 1.25rem;
 }
 
+#evg-exit-intent-popup-email-capture .evg-cta {
+    margin: .5rem 0;
+}
+
 /* ==========================================================================
    Error Message
 ========================================================================== */
 
 #evg-exit-intent-popup-email-capture .evg-error-msg {
-    color: #c23934;
-    font-size: 1.25rem;
+    color: #ff0000;
+    font-size: 1rem;
 }
 
 /* ==========================================================================
    Style
 ========================================================================== */
 
-#evg-exit-intent-popup-email-capture .evg-popup.evg-light-on-dark {
+#evg-exit-intent-popup-email-capture .evg-style-bg.evg-light-on-dark {
     background-color: #343a40;
 }
-#evg-exit-intent-popup-email-capture .evg-popup.evg-dark-on-light {
+#evg-exit-intent-popup-email-capture .evg-style-bg.evg-dark-on-light {
     background-color: #fff;
 }
 
-#evg-exit-intent-popup-email-capture .evg-header.evg-dark-on-light,
-#evg-exit-intent-popup-email-capture .evg-subheader.evg-dark-on-light,
-#evg-exit-intent-popup-email-capture .evg-btn-dismissal.evg-dark-on-light,
-#evg-exit-intent-popup-email-capture .evg-opt-out-msg.evg-dark-on-light {
+#evg-exit-intent-popup-email-capture .evg-style-color.evg-dark-on-light {
    color: #343a40;
 }
  
-#evg-exit-intent-popup-email-capture .evg-header.evg-light-on-dark,
-#evg-exit-intent-popup-email-capture .evg-subheader.evg-light-on-dark,
-#evg-exit-intent-popup-email-capture .evg-btn-dismissal.evg-light-on-dark,
-#evg-exit-intent-popup-email-capture .evg-opt-out-msg.evg-light-on-dark {
+#evg-exit-intent-popup-email-capture .evg-style-color.evg-light-on-dark {
    color: #fff;
 }
 
 /* ==========================================================================
-   Visibility
+   Panel Visibility
 ========================================================================== */
 
 #evg-exit-intent-popup-email-capture .evg-hide {
@@ -244,13 +270,20 @@
         width: 90vw;
     }
 
-    #evg-exit-intent-popup-email-capture .evg-header {
-        font-size: 3rem;
-        font-weight: 700;
-        line-height: 1.2;
+    #evg-exit-intent-popup-email-capture .evg-h1.evg-display-4 {
+        font-size: 2.75rem;
     }
 
-    #evg-exit-intent-popup-email-capture .evg-subheader {
+    #evg-exit-intent-popup-email-capture .evg-h2 {
         font-size: 1.2rem;
-    } 
+    }
+ 
+    #evg-exit-intent-popup-email-capture .evg-btn-lg {
+      font-size: 1rem;
+   }
+
+   #evg-exit-intent-popup-email-capture .evg-error-msg,
+   #evg-exit-intent-popup-email-capture .evg-opt-out-msg {
+        font-size: .85rem;
+    }
 }

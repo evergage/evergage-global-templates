@@ -24,12 +24,12 @@
 <div id="evg-exit-intent-popup-email-capture" data-evg-campaign-id="{{campaign}}"
 data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Popup Message">
     <div class="evg-lightbox {{overlayClass}}"></div>
-    <div class="{{style.className}} evg-popup" style="background-image:url('{{imageUrl}}')">
+    <div class="evg-popup evg-style-bg {{style.className}}" style="background-image:url('{{imageUrl}}')">
         <div class="evg-main-panel">
-            <h1 class="{{style.className}} evg-header evg-h1 evg-text">
+            <h1 class="evg-header evg-h1 evg-display-4 evg-text evg-style-color {{style.className}}">
                 {{{title}}}
             </h1>
-            <h2 class="{{style.className}} evg-subheader evg-h2 evg-text">
+            <h2 class="evg-subheader evg-h2 evg-text evg-style-color {{style.className}}">
                 {{{subtitle}}}
             </h2>
             <form class="evg-form" aria-label="Email Signup" role="form">
@@ -38,24 +38,24 @@ data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria
                 <span class="evg-error-msg evg-text evg-hide">
                     Enter a valid email address
                 </span>
-                <a class="{{style.className}} evg-cta evg-btn evg-btn-primary evg-btn-lg" tabindex="1" 
+                <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}" tabindex="1" 
                 type="button" aria-label="Submit">
                     {{ctaText}}
                 </a>
             </form>
-            <span class="{{style.className}} evg-subheader evg-opt-out-msg evg-text" tabindex="2">
+            <span class="evg-opt-out-msg evg-text evg-style-color {{style.className}}" tabindex="2">
                 {{optOutText}}
             </span>
         </div>
         <div class="evg-confirm-panel evg-hide">
-            <h1 class="{{style.className}} evg-confirm-header evg-h1 evg-text">
+            <h1 class="evg-confirm-header evg-h1 evg-text evg-style-color {{style.className}}">
                 {{{confirmationTitle}}}
             </h1>
-            <h2 class="{{style.className}} evg-confirm-subheader evg-h2 evg-text">
+            <h2 class="evg-confirm-subheader evg-h2 evg-text evg-style-color {{style.className}} ">
                 {{{confirmationSubtitle}}}
             </h2>
         </div>
-        <button class="{{style.className}} evg-btn-dismissal" data-evg-dismissal aria-label="Close Popup" tabindex="3">
+        <button class="evg-btn-dismissal evg-style-color {{style.className}}" data-evg-dismissal aria-label="Close Popup" tabindex="3">
             &times;
         </button>
     </div>
