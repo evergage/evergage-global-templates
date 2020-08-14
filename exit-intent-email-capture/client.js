@@ -27,8 +27,8 @@
                     Evergage.sendEvent({ user: {attributes: {emailAddress: emailAddress} } });
                 } else {
                     Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-error-msg")
-                    .removeClass("evg-hide")
-                    .addClass("evg-error");
+                        .removeClass("evg-hide")
+                        .addClass("evg-error");
                 }
             });
         });
