@@ -1,10 +1,9 @@
 {{!-- 
     Global Template: Exit Intent Popup
 
-    This global template is used for exit intent purposes. It contains a background image and a call to action.
+    This global template displays a popup when a user intends to exit the page.
     
-    There are two default Color Themes: Dark text for lighter backgrounds or
-    light text on darker backgrounds.
+    There are two default Styles: Dark text for lighter backgrounds or light text on darker backgrounds.
 
     Requirements:
     1) Set the content zone in the Serverside Code to one that is defined in your Sitemap.
@@ -38,8 +37,6 @@ role="dialog" aria-modal="true" aria-hidden="false">
                 </a>
         </div>
         <button class="evg-btn-dismissal evg-style-color {{style.className}}" data-evg-dismissal 
-        aria-label="Close Popup" tabindex="1">
-            &times;
-        </button>
+        aria-label="Close Popup" tabindex="1">&times;</button>
     </div>
 </div>
