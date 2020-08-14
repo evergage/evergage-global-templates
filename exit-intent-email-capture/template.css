@@ -213,9 +213,11 @@
    Style
 ========================================================================== */
 
-#evg-exit-intent-popup-email-capture.evg-dark-on-light {
+#evg-exit-intent-popup-email-capture .evg-popup.evg-light-on-dark {
+    background-color: #343a40;
+}
+#evg-exit-intent-popup-email-capture .evg-popup.evg-dark-on-light {
     background-color: #fff;
-    border: 2px solid #fff;
 }
 
 #evg-exit-intent-popup-email-capture .evg-h1.evg-dark-on-light,
