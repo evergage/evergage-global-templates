@@ -22,7 +22,7 @@ This global template replaces a hero banner with a new banner containing a backg
 
 
 ### Recipe Product Recommendations
-![Recipe Product Recommendations Template](https://user-images.githubusercontent.com/32201252/90220359-e8f23900-ddbc-11ea-8cc3-2d0172ade045.png)
+![Recipe Product Recommendations Template](/recipe-product-recommendations/template.png)
 
 This global template inserts a row of recommended products, based on a selected Einstein Recipe.
 
