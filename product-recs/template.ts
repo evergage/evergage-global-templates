@@ -38,16 +38,16 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
 
     @header("Recommendations Attributes")
 
-    @title("Show Product name")
+    @title("Show product name")
     nameVisibility: boolean = true;
 
-    @title("Show Product description")
+    @title("Show product description")
     descriptionVisibility: boolean = true;
 
-    @title("Show Product price")
+    @title("Show product price")
     priceVisibility: boolean = true;
 
-    @title("Show Product rating")
+    @title("Show product rating")
     ratingVisibility: boolean = false;
 
     run(context: CampaignComponentContext) {

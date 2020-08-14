@@ -36,7 +36,7 @@ This global template inserts a row of recommended products, based on a selected 
 3. Recipe
     - ex. "Collaborative with Trending"
 4. Recommendations Attributes
-    - Show Product name
-    - Show Product description
-    - Show Product price
-    - Show Product rating
+    - Show product name
+    - Show product description
+    - Show product price
+    - Show product rating
