@@ -35,9 +35,6 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
     @title("Show content description")
     descriptionVisibility: boolean = true;
 
-    @hidden(true)
-    visibilityOptions: object;
-
     run(context:CampaignComponentContext) {
 
         this.recsConfig.maxResults = this.maximumNumberOfItems;
