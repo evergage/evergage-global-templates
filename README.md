@@ -25,7 +25,7 @@ This global template replaces a hero banner with a new banner containing a backg
 This global template displays a popup with an email capture when a user intends to exit the page.
 
 #### Configuration:
-![Exit Intent Popup with Email Capture Configuration](https://user-images.githubusercontent.com/48226166/90273523-1971bb80-de2d-11ea-8971-2b01ee47a4ab.png)
+![Exit Intent Popup with Email Capture Configuration](https://user-images.githubusercontent.com/48226166/90286426-d0793180-de43-11ea-9ebd-0adc4b5f5a41.png)
 
 1. Title
     - Ex: "Don't leave yet!"
