@@ -26,7 +26,7 @@ This global template replaces a hero banner with a new banner containing a backg
 This global template inserts recommended contents in a two-column format, based on a selected Einstein Recipe.
 
 #### Configuration:
-![Hero Banner with Call-to-Action Configuration](/recipe-content-recommendations/template.png)
+![Hero Banner with Call-to-Action Configuration](https://user-images.githubusercontent.com/32201252/90226870-8acb5300-ddc8-11ea-9e2f-3477ff3e5e6e.png)
 
 1. Content Zone
     - "home_recs"
