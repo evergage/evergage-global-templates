@@ -22,7 +22,7 @@ This global template replaces a hero banner with a new banner containing a backg
 
 
 ### Recipe Product Recommendations
-![Recipe Product Recommendations Template](https://user-images.githubusercontent.com/50626880/90182161-87f84000-dd7f-11ea-921e-86ee00639966.png)
+![Recipe Product Recommendations Template](https://user-images.githubusercontent.com/32201252/90220359-e8f23900-ddbc-11ea-8cc3-2d0172ade045.png)
 
 This global template inserts a row of recommended products, based on a selected Einstein Recipe.
 
@@ -36,7 +36,7 @@ This global template inserts a row of recommended products, based on a selected 
 3. Recipe
     - ex. "Collaborative with Trending"
 4. Recommendations Attributes
-  a. Show Product name
-  b. Show Product description
-  c. Show Product price
-  d. Show Product rating
+    - Show Product name (boolean)
+    - Show Product description
+    - Show Product price
+    - Show Product rating
