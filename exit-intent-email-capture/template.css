@@ -76,19 +76,6 @@
     text-align: center;
 }
 
-#evg-exit-intent-popup-email-capture .evg-title {
-    display: inline-block;
-    font-size: 40px;
-    margin-bottom: 10px;
-    width: 400px;
-}
-
-#evg-exit-intent-popup-email-capture .evg-subtitle {
-    display: inline-block;
-    font-size: 16px;
-    width: 350px;
-}
-
 #evg-exit-intent-popup-email-capture .evg-form {
     display: -webkit-box;
     display: -moz-box;
