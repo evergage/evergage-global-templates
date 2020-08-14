@@ -220,19 +220,17 @@
     background-color: #fff;
 }
 
-#evg-exit-intent-popup-email-capture .evg-h1.evg-dark-on-light,
-#evg-exit-intent-popup-email-capture .evg-h2.evg-dark-on-light,
+#evg-exit-intent-popup-email-capture .evg-header.evg-dark-on-light,
+#evg-exit-intent-popup-email-capture .evg-subheader.evg-dark-on-light,
 #evg-exit-intent-popup-email-capture .evg-btn-dismissal.evg-dark-on-light,
-#evg-exit-intent-popup-email-capture .evg-opt-out-msg.evg-dark-on-light,
-#evg-exit-intent-popup-email-capture .evg-subheader.evg-dark-on-light {
+#evg-exit-intent-popup-email-capture .evg-opt-out-msg.evg-dark-on-light {
    color: #343a40;
 }
  
-#evg-exit-intent-popup-email-capture .evg-h1.evg-light-on-dark,
-#evg-exit-intent-popup-email-capture .evg-h2.evg-light-on-dark,
+#evg-exit-intent-popup-email-capture .evg-header.evg-light-on-dark,
+#evg-exit-intent-popup-email-capture .evg-subheader.evg-light-on-dark,
 #evg-exit-intent-popup-email-capture .evg-btn-dismissal.evg-light-on-dark,
-#evg-exit-intent-popup-email-capture .evg-opt-out-msg.evg-light-on-dark,
-#evg-exit-intent-popup-email-capture .evg-subheader.evg-light-on-dark {
+#evg-exit-intent-popup-email-capture .evg-opt-out-msg.evg-light-on-dark {
    color: #fff;
 }
 
