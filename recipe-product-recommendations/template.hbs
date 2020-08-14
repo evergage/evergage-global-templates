@@ -29,12 +29,11 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
         <div class="evg-product-recommendation" data-evg-item-id="{{id}}" data-evg-item-type="{{../itemType}}"
         style="max-width: calc((1 / {{../maximumNumberOfProducts}} * 100%));">
             <a href="{{attributes.url.value}}">
-                <img class="evg-product-image" data-evg-product-imageUrl="{{attributes.imageUrl.value}}"
-                src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
+                <img class="evg-product-image" src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
                 <a class="evg-product-name{{#unless ../nameVisibility}} evg-hide{{/unless}}"
-                data-evg-product-name="{{attributes.name.value}}" href="{{attributes.url.value}}">
+                href="{{attributes.url.value}}">
                     {{attributes.name.value}}
                 </a>
                 {{#if attributes.description.value}}
@@ -42,12 +41,11 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
                     {{attributes.description.value}}
                 </div>
                 {{/if}}
-                <div class="evg-product-price{{#unless ../priceVisibility}} evg-hide{{/unless}}"
-                data-evg-product-price="{{attributes.price.value}}">
+                <div class="evg-product-price{{#unless ../priceVisibility}} evg-hide{{/unless}}">
                     ${{attributes.price.value}}
                 </div>
                 <div class="evg-product-rating{{#unless ../ratingVisibility}} evg-hide{{/unless}}"
-                data-evg-product-rating="{{attributes.rating.value}}" aria-label="Rating: {{attributes.rating.value}}">
+                aria-label="Rating: {{attributes.rating.value}}">
                     <div class="evg-star-empty"
                     eg-ratings="{{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}}"
                     style="width: auto">
