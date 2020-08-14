@@ -117,6 +117,9 @@
 #evg-exit-intent-popup-email-capture .evg-form .evg-email {
     margin: 5px 0;
     width: 75%;
+    padding: .5rem 1rem;
+    border: 1px solid #ddd;
+    color: #59575c;
 }
 
 #evg-exit-intent-popup-email-capture .evg-form .evg-cta {
@@ -131,20 +134,6 @@
     cursor: pointer;
     font-size: 12px;
     text-decoration: underline;
-}
-
-#evg-exit-intent-popup-email-capture .evg-input {
-    display: inline-block;
-    vertical-align: middle;
-    padding: .5rem 1rem;
-    border: 2px solid #eee;
-    color: #59575c;
-    font-weight: 400;
-    text-decoration: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 /* ==========================================================================
@@ -220,10 +209,6 @@
     font-size: 1.25rem;
 }
 
-#evg-exit-intent-popup-email-capture .evg-hide {
-    display: none;
-}
-
 /* ==========================================================================
    Style
 ========================================================================== */
@@ -234,7 +219,7 @@
 }
 
 #evg-exit-intent-popup-email-capture .evg-h1.evg-dark-on-light,
-#evg-exit-intent-popup-email-capture .evg-2.evg-dark-on-light,
+#evg-exit-intent-popup-email-capture .evg-h2.evg-dark-on-light,
 #evg-exit-intent-popup-email-capture .evg-btn-dismissal.evg-dark-on-light,
 #evg-exit-intent-popup-email-capture .evg-opt-out-msg.evg-dark-on-light,
 #evg-exit-intent-popup-email-capture .evg-subheader.evg-dark-on-light {
@@ -247,6 +232,14 @@
 #evg-exit-intent-popup-email-capture .evg-opt-out-msg.evg-light-on-dark,
 #evg-exit-intent-popup-email-capture .evg-subheader.evg-light-on-dark {
    color: #fff;
+}
+
+/* ==========================================================================
+   Visibility
+========================================================================== */
+
+#evg-exit-intent-popup-email-capture .evg-hide {
+    display: none;
 }
 
 /* ==========================================================================

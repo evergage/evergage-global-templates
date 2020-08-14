@@ -16,8 +16,8 @@
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
     5) Remove or change the default values for the configuration properties in Serverside Code.
     6) Change the aria-label attribute value of .evg-cta to an appropriate description.
-    7) Change the error message in the span.evg-error-msg. Styling can be changed in CSS.
-    8) Add more input fields in handlebars and handling of those inputs in Clientside Code. 
+    7) Change the error message in the .evg-error-msg. Styling can be changed in CSS.
+    8) Add more input fields in Handlebars and handling of those inputs in Clientside Code. 
 
 --}}
 
@@ -29,7 +29,7 @@ data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria
             <h1 class="{{style.className}} evg-header evg-h1 evg-text">
                 {{{title}}}
             </h1>
-            <h2 class="{{style.className}} evg-subheader evg-text">
+            <h2 class="{{style.className}} evg-subheader evg-h2 evg-text">
                 {{{subtitle}}}
             </h2>
             <form class="evg-form" aria-label="Email Signup" role="form">
