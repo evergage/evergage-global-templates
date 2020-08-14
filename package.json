@@ -1,0 +1,24 @@
+{
+  "name": "evergage-global-templates",
+  "version": "1.0.0",
+  "description": "Evergage Global Templates Repository",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evergage/evergage-global-templates.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evergage/evergage-global-templates/issues"
+  },
+  "homepage": "https://github.com/evergage/evergage-global-templates#readme",
+  "devDependencies": {
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0"
+  },
+  "scripts": {
+    "lintcss": "./node_modules/.bin/stylelint $INIT_CWD/*.css --fix"
+  }
+}
