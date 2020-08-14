@@ -1,7 +1,7 @@
 (function() {
 
     function apply(context, template) {
-        // Evergage.DisplayUtils.pageExit(2000).then(function() {
+        Evergage.DisplayUtils.pageExit(2000).then(function() {
                 context.overlayClass = context.lightboxEnabled ? "evg-overlay" : "";
                 var html = template(context);
                 Evergage.cashDom("body").append(html);
@@ -31,7 +31,7 @@
                         .addClass("evg-error");
                 }
             });
-        // });
+        });
     }
 
     function reset(context, template) {
