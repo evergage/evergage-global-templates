@@ -21,12 +21,13 @@ This global template replaces a hero banner with a new banner containing a backg
     - Ex: "https://www.northerntrailoutfitters.com/default/men"
 
 ### Exit Intent Popup
-![exit intent popup]
+![exit intent popup](/exit-intent-popup/template.png)
 
 This global template displays a popup when a user intends to exit the page.
 
 #### Configuration:
-![Exit Intent Popup Configuration]
+![Exit Intent Popup Configuration](https://user-images.githubusercontent.com/59489053/90287024-0539b880-de45-11ea-9fdc-1f0c65e833e0.png)
+
 
 1. Title
     - Ex: "Wait, don't leave!"
