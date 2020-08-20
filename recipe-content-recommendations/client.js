@@ -3,29 +3,23 @@
     function apply(context, template) {
         /**
          * The pageElementLoaded method waits for the content zone to load into the DOM
-         * before rendering the template. The observer element that monitors for the content
-         * zone element to get inserted into its DOM node is set to "body" by default.
+         * before rendering the template. The observer element that monitors for the content 
+         * zone element to get inserted into its DOM node is set to "body" by default. 
          * For performance optimization, this default can be overridden by adding
          * a second selector argument, which will be used as the observer element instead.
-         *
+         * 
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
         const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
         return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
-<<<<<<< HEAD
             const html = template(context);
-            Evergage.cashDom(element).before(html);
+            Evergage.cashDom(element).html(html);
         });
-=======
-                const html = template(context);
-                Evergage.cashDom(element).before(html);
-            });
->>>>>>> master
     }
 
     function reset(context, template) {
-        Evergage.cashDom("#evg-recipe-product-recommendations").remove();
+        Evergage.cashDom("#evg-recipe-content-recommendations").remove();
     }
 
     function control(context) {

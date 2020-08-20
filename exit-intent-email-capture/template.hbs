@@ -1,0 +1,62 @@
+{{!-- 
+    Global Template: Exit Intent Popup with Email Capture
+
+    This global template displays a popup with an email capture when a user intends to exit the page.
+
+    There are two default Styles: Dark text for lighter backgrounds or light text on darker backgrounds.
+
+    Requirements:
+    1) Create a user attribute `emailAddress` to save the user's email to.
+
+    Customizations:
+    1) Style options can be changed in Serverside Code.
+    2) Styling of the Style options, including fallback background color, can be changed in CSS.
+    3) Media query breakpoints can be changed in CSS.
+    4) To support rich text, add the @richtext(true) decorator to configuration properties in Serverside Code. 
+    Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
+    5) Remove or change the default values for the configuration properties in Serverside Code.
+    6) Change the aria-label attribute value of .evg-cta to an appropriate description.
+    7) Change the error message in the .evg-error-msg. Styling can be changed in CSS.
+    8) Add more input fields in Handlebars and handling of those inputs in Clientside Code. 
+
+--}}
+
+<div id="evg-exit-intent-popup-email-capture" data-evg-campaign-id="{{campaign}}"
+data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Email Sign Up"
+role="dialog" aria-modal="true" aria-hidden="false">
+    <div class="evg-lightbox {{overlayClass}}"></div>
+    <div class="evg-popup evg-style-bg {{style.className}}" style="background-image:url('{{imageUrl}}')">
+        <div class="evg-main-panel">
+            <h1 class="evg-header evg-h1 evg-display-4 evg-text evg-style-color {{style.className}}">
+                {{{title}}}
+            </h1>
+            <h2 class="evg-subheader evg-h2 evg-text evg-style-color {{style.className}}">
+                {{{subtitle}}}
+            </h2>
+            <form class="evg-form" aria-label="Email Signup" role="form">
+                <input class="evg-email" name="email" type="email" required placeholder="Email" novalidate
+                aria-label="Email" aria-required="true" tabindex="0">
+                <span class="evg-error-msg evg-text evg-hide">
+                    Enter a valid email address
+                </span>
+                <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}" tabindex="1" 
+                type="button" aria-label="Submit">
+                    {{ctaText}}
+                </a>
+            </form>
+            <span class="evg-opt-out-msg evg-text evg-style-color {{style.className}}" tabindex="2">
+                {{optOutText}}
+            </span>
+        </div>
+        <div class="evg-confirm-panel evg-hide">
+            <h1 class="evg-confirm-header evg-h1 evg-text evg-style-color {{style.className}}">
+                {{{confirmationTitle}}}
+            </h1>
+            <h2 class="evg-confirm-subheader evg-h2 evg-text evg-style-color {{style.className}} ">
+                {{{confirmationSubtitle}}}
+            </h2>
+        </div>
+        <button class="evg-btn-dismissal evg-style-color {{style.className}}" data-evg-dismissal 
+        aria-label="Close Popup" tabindex="3">&times;</button>
+    </div>
+</div>

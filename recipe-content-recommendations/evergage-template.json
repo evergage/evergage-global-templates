@@ -1,13 +1,9 @@
 {
-<<<<<<< HEAD
 <<<<<<< HEAD:recipe-product-recommendations/evergage-template.json
   "name" : "Recipe Product Recommendations",
 =======
   "name" : "Recipe Content Recommendations",
 >>>>>>> master:recipe-content-recommendations/evergage-template.json
-=======
-  "name" : "Recipe Product Recommendations",
->>>>>>> master
   "description" : null,
   "imageUrl" : null,
   "category" : null
