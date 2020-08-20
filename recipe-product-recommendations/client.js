@@ -13,9 +13,9 @@
          */
         const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
         return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
-                const html = template(context);
-                Evergage.cashDom(element).before(html);
-            });
+            const html = template(context);
+            Evergage.cashDom(element).before(html);
+        });
     }
 
     function reset(context, template) {
