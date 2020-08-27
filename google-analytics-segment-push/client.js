@@ -10,7 +10,7 @@
       const gaMapping = context.gaMapping;
       for (const dimension in gaMapping) {
         const matchedSegments = gaMapping[dimension].join("|");
-        ga('set', dimension, matchedSegments);
+        window.ga('set', dimension, matchedSegments);
       }
   }
 
@@ -19,7 +19,7 @@
    * @description Sends an event to Google Analytics with segments.
    */
   function sendGaDimensions(context) {
-      ga("send", {
+      window.ga("send", {
         hitType: "event",
         eventCategory: "Evergage",
         eventAction: "Set Segments",

@@ -1,6 +1,6 @@
 import { UserSegmentLookup, UserSegmentReference } from "common";
 
-export class GAMapping {
+export class GAConfig {
     @title("Google Analytics Dimension")
     @subtitle("e.g. dimension27")
     gaDimension: string;
@@ -22,13 +22,13 @@ export class GASegmentPushTemplate implements CampaignTemplateComponent {
 
     @header("How to Use This Template")
     @headerSubtitle(`
-        This is a global template listing across any page. Choose your segment(s) from
+        This is a global template meant to execute across any page. Choose your segment(s) from
         Interaction Studio and map to a dimension in Google Analytics."
     `)
 
     @tabular()
     @title("Map Segment to Google Analytics Dimensions")
-    tabularComplexField: GAMapping[];
+    tabularComplexField: GAConfig[];
 
     run(context: CampaignComponentContext) {
 
