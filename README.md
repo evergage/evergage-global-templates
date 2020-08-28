@@ -113,3 +113,15 @@ This global template displays a popup when a user intends to exit the page.
 7. Style (Dark text on light background, light text on dark background)
 8. Background Image URL
     - "https://cdn.evergage.com/evergage-content/cumulus/cumulus_growth.jpg"
+
+
+### Google Analytics Segment Push
+
+This global template lets you push one or more segments to the specified Google Analytics dimensions. Any and all segments that match user membership will be set to the Google Analytics dimension provided.
+
+#### Configuration:
+![Google Analytics Segment Push Configuration](https://user-images.githubusercontent.com/32201252/91138016-a6a1e500-e663-11ea-8894-48c98578e4ab.png)
+
+1. Google Analytics Dimension
+    - Ex: "dimension 27"
+2. Segment Picker (multi-option)
