@@ -25,14 +25,19 @@ export class InfobarCtaTemplate implements CampaignTemplateComponent {
     ])
     style: ColorTheme = {label: "Light", className: "evg-dark-on-light"}
 
-    contentZone: "global_infobar_top_of_page" | "global_infobar_bottom_of_page" = "global_infobar_top_of_page"
+    // /* workaround */
+    readonly space1 = " "
 
+    @header('Choose Content Zone')
+    @headerSubtitle('Where will the infobar be located')
+    contentZone: "global_infobar_top_of_page" | "global_infobar_bottom_of_page" = "global_infobar_top_of_page"
+ 
     // /* workaround */
     readonly space2 = " "
 
     @title("Show message text")
     messageVisibility: boolean = true;
-
+    // /* replace @header & @headerSubtitle with markdown decorator EVG-12152 */
     @header("Message Text")
     @headerSubtitle('Message added to the bar')
     @subtitle("i.e. Become a Rewards Member for Special Offers & Discounts")
@@ -40,12 +45,12 @@ export class InfobarCtaTemplate implements CampaignTemplateComponent {
 
     @title("Show CTA")
     ctaVisibility: boolean = true;
-
+    // /* replace @header & @headerSubtitle with markdown decorator EVG-12152 */
     @header("Call-to-Action Button Text")
     @headerSubtitle('The text on the CTA button')
     @subtitle("i.e. Learn More")
     ctaText: string = "Learn More";
-
+    // /* replace @header & @headerSubtitle with markdown decorator EVG-12152 */
     @header('Call-to-Action Button URL')
     @headerSubtitle("i.e. https://cumulusfinserv.com/banking")
     @subtitle("i.e. https://cumulusfinserv.com/banking")
