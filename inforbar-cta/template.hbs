@@ -1,0 +1,41 @@
+{{!--
+    Global Template: Infobar with Call-to-Action
+
+    This global template places an infobar containing text 
+    and a call-to-action button.
+
+    There are two default Color Themes: Dark text for lighter backgrounds or
+    light text on darker backgrounds.
+
+    Requirements:
+    1) Set the content zone in the Serverside Code to one that is defined in your Sitemap.
+
+    Customizations:
+    1) Style options can be changed in Serverside Code.
+    2) Styling of the Style options, including fallback background color, can be changed in CSS.
+    3) Media query breakpoints can be changed in CSS.
+    4) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code. 
+    Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
+    5) Remove or change the default values for the configuration properties in Serverside Code.
+    6) Change the aria-label attribute value of .evg-cta to an appropriate description.
+--}}
+
+<div class="{{infobarClass}}" id="evg-infobar-cta" data-evg-campaign-id="{{campaign}}" 
+data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Infobar"
+role="dialog" aria-modal="true" aria-hidden="false">
+    <div class="evg-container evg-style-bg {{style.className}}">
+        <p class="evg-main-panel evg-style-color {{style.className}}{{#unless messageVisibility}} 
+        evg-hide{{/unless}}" aria-label="{{messageText}}" role="Message Text">
+            {{messageText}}
+        </p>
+        <a class="evg-cta evg-btn evg-style-color {{style.className}}{{#unless ctaVisibility}} 
+        evg-hide{{/unless}}" href="{{ctaUrl}}" tabindex="0" type="button" aria-label="{{ctaText}}">
+            {{ctaText}}
+        </a>
+    </div>
+        <button class="evg-btn-dismissal evg-style-color {{style.className}}" data-evg-dismissal 
+        aria-label="Close Infobar" tabindex="1">
+            &times;
+        </button>
+        
+</div>
