@@ -1,0 +1,23 @@
+{{!--
+    Add Evergage data attributes to elements you wish to track in the test experience.
+
+    Note: Using Evergage data attributes allows you to track stats with Evergage and
+    requires the "Campaign Stat Tracking Gear" installed and enabled for your dataset.
+
+    Visit the Campaign Stats Tracking documentation to learn more:
+    https://developer.evergage.com/templates/campaign-stats.
+--}}
+
+{{#if promotion}}
+<div id="evg-contextual-bandit-promotions-banner" data-evg-campaign-id="{{campaign}}"
+data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}">
+    <a href="{{promotion.attributes.url.value}}">
+        <picture>
+            <source srcset="{{promotionImageUrl}}" media="(min-width: 48rem)">
+            <source srcset="{{promotionImageUrl}}" media="(min-width: 20rem)">
+            <source srcset="{{promotionImageUrl}}" media="(min-width: 10rem)">
+            <img src="{{promotionImageUrl}}">
+        </picture>
+    </a>
+</div>
+{{/if}}
