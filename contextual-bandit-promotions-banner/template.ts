@@ -35,7 +35,7 @@ export class ContextualBanditPromotionsBannerTemplate implements CampaignTemplat
         { label: "2160x450", width: 2160, height: 450 },
         { label: "2800x400", width: 2800, height: 400 }
     ])
-    promoSelection: PromotionImageDimensions = { label: "1400x617", width: 1400, height: 617 };
+    promoSelection: PromotionImageDimensions = { label: "1440x617", width: 1440, height: 617 };
 
     @hidden(true)
     banditFeatureSubsetId: string = "TdPHw";

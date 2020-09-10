@@ -2,3 +2,7 @@
     background-color: #68CBF0;
     text-align: center;
 }
+
+#evg-contextual-bandit-promotions-banner .evg-promotion-img {
+    max-width: 100%;
+}

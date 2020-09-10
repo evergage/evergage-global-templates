@@ -11,13 +11,8 @@
 {{#if promotion}}
 <div id="evg-contextual-bandit-promotions-banner" data-evg-campaign-id="{{campaign}}"
 data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}">
-    <a href="{{promotion.attributes.url.value}}">
-        <picture>
-            <source srcset="{{promotionImageUrl}}" media="(min-width: 48rem)">
-            <source srcset="{{promotionImageUrl}}" media="(min-width: 20rem)">
-            <source srcset="{{promotionImageUrl}}" media="(min-width: 10rem)">
-            <img src="{{promotionImageUrl}}">
-        </picture>
+    <a class="evg-promotion-link" href="{{promotion.attributes.url.value}}">
+        <img class="evg-promotion-img" src="{{promotionImageUrl}}">
     </a>
 </div>
 {{/if}}
