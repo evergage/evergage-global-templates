@@ -1,11 +1,18 @@
 {{!--
-    Add Evergage data attributes to elements you wish to track in the test experience.
+    Global Template: Contextual Bandit Promotions Banner
 
-    Note: Using Evergage data attributes allows you to track stats with Evergage and
-    requires the "Campaign Stat Tracking Gear" installed and enabled for your dataset.
+    This Global Template inserts a Promotion, chosen by an Einstein Contextual Bandit.
 
-    Visit the Campaign Stats Tracking documentation to learn more:
-    https://developer.evergage.com/templates/campaign-stats.
+    Requirements:
+    1) Ensure that the available content zones are defined in your Sitemap.
+    2) Ensure that Promotions are enabled for the account/dataset.
+    3) Add any necessary image dimensions to the Serverside code.
+
+    Customizations:
+    1) For performance optimization, add an observer selector as a second argument to
+    Evergage.DisplayUtil.pageElementLoaded in Clientside Code that waits for the content zone to load into the DOM.
+    2) Remove or change the default values for the configuration properties in Serverside Code.
+    3) Change any and all values of aria-label attributes as necessary.
 --}}
 
 {{#if promotion}}

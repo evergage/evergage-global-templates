@@ -1,6 +1,16 @@
 (function() {
 
     function apply(context, template) {
+        /**
+         * The pageElementLoaded method waits for the content zone to load into the DOM
+         * before rendering the template. The observer element that monitors for the content
+         * zone element to get inserted into its DOM node is set to "body" by default.
+         * For performance optimization, this default can be overridden by adding
+         * a second selector argument, which will be used as the observer element instead.
+         *
+         * Visit the Template Display Utilities documentation to learn more:
+         * https://developer.evergage.com/templates/display-utilities
+         */
         const selector = Evergage.getContentZoneSelector(context.contentZone);
         return Evergage.DisplayUtils.pageElementLoaded(selector).then(function(element) {
             const html = template(context);
