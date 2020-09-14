@@ -17,6 +17,13 @@ export class InfobarCtaTemplate implements CampaignTemplateComponent {
     // /* workaround */
     readonly space1 = " "
 
+    @header('Choose Content Zone')
+    @headerSubtitle('Where will the infobar be located')
+    contentZone: "global_infobar_top_of_page" | "global_infobar_bottom_of_page" = "global_infobar_top_of_page"
+ 
+    // /* workaround */
+    readonly space2 = " "
+
     @header('Choose Color Theme')
     @headerSubtitle('Pick how you want your bar to display.')
     @options([
@@ -26,14 +33,7 @@ export class InfobarCtaTemplate implements CampaignTemplateComponent {
     style: ColorTheme = {label: "Light", className: "evg-dark-on-light"}
 
     // /* workaround */
-    readonly space1 = " "
-
-    @header('Choose Content Zone')
-    @headerSubtitle('Where will the infobar be located')
-    contentZone: "global_infobar_top_of_page" | "global_infobar_bottom_of_page" = "global_infobar_top_of_page"
- 
-    // /* workaround */
-    readonly space2 = " "
+    readonly space3 = " "
 
     @title("Show message text")
     messageVisibility: boolean = true;
@@ -55,7 +55,7 @@ export class InfobarCtaTemplate implements CampaignTemplateComponent {
     @headerSubtitle("i.e. https://cumulusfinserv.com/banking")
     @subtitle("i.e. https://cumulusfinserv.com/banking")
     ctaUrl: string = "https://cumulusfinserv.com/banking";
-    
+
     run(context: CampaignComponentContext) {
         return {};
     }
