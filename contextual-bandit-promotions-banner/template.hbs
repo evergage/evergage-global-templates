@@ -1,5 +1,5 @@
 {{!--
-    Global Template: Contextual Bandit Promotions Banner
+    Global Template: Einstein (Contextual Bandit) Promotions Banner
 
     This Global Template inserts a Promotion, chosen by an Einstein Contextual Bandit.
 
@@ -15,7 +15,7 @@
 --}}
 
 {{#if promotion}}
-<div id="evg-contextual-bandit-promotions-banner" data-evg-campaign-id="{{campaign}}"
+<div id="evg-einstein-promotions-banner" data-evg-campaign-id="{{campaign}}"
 data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}">
     <a class="evg-promotion-link" href="{{promotion.attributes.url.value}}">
         <img class="evg-promotion-img" src="{{promotionImageUrl}}">

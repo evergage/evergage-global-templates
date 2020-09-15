@@ -6,7 +6,7 @@ export class PromotionImageDimensions {
     height: number;
 }
 
-export class ContextualBanditPromotionsBannerTemplate implements CampaignTemplateComponent {
+export class EinsteinPromotionsBannerTemplate implements CampaignTemplateComponent {
 
     @title("Why Use This Template:")
     @subtitle("Let Einstein choose the Best Banner for your visitors.")
