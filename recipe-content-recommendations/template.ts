@@ -5,6 +5,7 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
     /**
      * Developer Controls
      */
+
     @hidden(true)
     maximumNumberOfItems: 2 | 4 | 6 = 4;
 

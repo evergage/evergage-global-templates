@@ -16,7 +16,7 @@
     width: 100%;
     height: 100%;
     background-color: #000;
-    opacity: 0.3;
+    opacity: .3;
 }
 
 #evg-exit-intent-popup-email-capture .evg-popup {
@@ -162,10 +162,11 @@
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    transition: color .15s ease-in-out,
-                background-color .15s ease-in-out,
-                border-color .15s ease-in-out,
-                box-shadow .15s ease-in-out;
+    transition:
+        color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -176,7 +177,7 @@
     color: #fff;
     border-color: #215ca0;
     background-color: #215ca0;
-    transition: background-color 0.15s, color 0.15s;
+    transition: background-color .15s, color .15s;
 }
 
 #evg-exit-intent-popup-email-capture .evg-btn-lg {

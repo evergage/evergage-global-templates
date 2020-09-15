@@ -1,10 +1,9 @@
 (function() {
-
     function apply(context, template) {
         Evergage.DisplayUtils.pageExit(2000).then(function() {
-                context.overlayClass = context.lightboxEnabled ? "evg-overlay" : "";
-                var html = template(context);
-                Evergage.cashDom("body").append(html);
+            context.overlayClass = context.lightboxEnabled ? "evg-overlay" : "";
+            var html = template(context);
+            Evergage.cashDom("body").append(html);
 
             /** Dismisses popup */
             const dismissSelectors = [
