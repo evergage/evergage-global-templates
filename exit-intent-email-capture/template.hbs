@@ -1,4 +1,4 @@
-{{!-- 
+{{!--
     Global Template: Exit Intent Popup with Email Capture
 
     This global template displays a popup with an email capture when a user intends to exit the page.
@@ -12,12 +12,12 @@
     1) Style options can be changed in Serverside Code.
     2) Styling of the Style options, including fallback background color, can be changed in CSS.
     3) Media query breakpoints can be changed in CSS.
-    4) To support rich text, add the @richtext(true) decorator to configuration properties in Serverside Code. 
+    4) To support rich text, add the @richtext(true) decorator to configuration properties in Serverside Code.
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
     5) Remove or change the default values for the configuration properties in Serverside Code.
     6) Change the aria-label attribute value of .evg-cta to an appropriate description.
     7) Change the error message in the .evg-error-msg. Styling can be changed in CSS.
-    8) Add more input fields in Handlebars and handling of those inputs in Clientside Code. 
+    8) Add more input fields in Handlebars and handling of those inputs in Clientside Code.
 
 --}}
 
@@ -39,7 +39,7 @@ role="dialog" aria-modal="true" aria-hidden="false">
                 <span class="evg-error-msg evg-text evg-hide">
                     Enter a valid email address
                 </span>
-                <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}" tabindex="1" 
+                <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}" tabindex="1"
                 type="button" aria-label="Submit">
                     {{ctaText}}
                 </a>
@@ -56,7 +56,7 @@ role="dialog" aria-modal="true" aria-hidden="false">
                 {{{confirmationSubtitle}}}
             </h2>
         </div>
-        <button class="evg-btn-dismissal evg-style-color {{style.className}}" data-evg-dismissal 
+        <button class="evg-btn-dismissal evg-style-color {{style.className}}" data-evg-dismissal
         aria-label="Close Popup" tabindex="3">&times;</button>
     </div>
 </div>
