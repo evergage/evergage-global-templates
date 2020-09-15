@@ -50,9 +50,7 @@ export class EinsteinPromotionsBannerTemplate implements CampaignTemplateCompone
         } as ContextualBanditConfig;
         let promo = decide(context, banditConfig, null)[0] as Promotion;
 
-        return promo == null
-            ? {}
-            : {
+        return promo == null ? {} : {
                 promotion: promo as Promotion,
                 promotionImageUrl: promo.images[`${banditConfig.imageWidth}x${banditConfig.imageHeight}`].imageUrl
             };
