@@ -40,9 +40,6 @@ export class ExitIntentPopupTemplate implements CampaignTemplateComponent {
     @title("Background Image URL")
     imageUrl: string = "https://cdn.evergage.com/evergage-content/cumulus/cumulus_growth.jpg";
 
-    @hidden(true)
-    contentZone = "global_popup"
-
     run(context: CampaignComponentContext) {
         return {};
     }

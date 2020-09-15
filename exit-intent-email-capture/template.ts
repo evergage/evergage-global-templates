@@ -50,9 +50,6 @@ export class ExitIntentPopupEmailCapture implements CampaignTemplateComponent {
     @title("Background Image URL")
     imageUrl: string = "https://cdn.evergage.com/evergage-content/nto/nto_footwear.jpg";
 
-    @hidden(true)
-    contentZone = "global_popup"
-
     run(context: CampaignComponentContext) {
         return {};
     }

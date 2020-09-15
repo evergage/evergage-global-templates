@@ -15,16 +15,6 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
     /**
      * Business-User Controls
      */
-    @options([
-        "home_recs",
-        "product_detail_recs_row_1",
-        "product_detail_recs_row_2",
-        "category_recs",
-        "cart_recs_row_1",
-        "cart_recs_row_2",
-        "search_recs"
-    ])
-    contentZone: string = "home_recs";
 
     @title("Recommendations Block Title")
     @subtitle("i.e. You May Also Like")
