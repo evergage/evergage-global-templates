@@ -28,15 +28,13 @@ This global template replaces a hero banner with a new banner containing a backg
 This global template inserts a row of recommended products, based on a selected Einstein Recipe.
 
 #### Configuration:
-![Recipe Product Recommendations Configuration](https://user-images.githubusercontent.com/50626880/90183167-07d2da00-dd81-11ea-8178-394fb5a5e370.png)
+![Recipe Product Recommendations Configuration](https://user-images.githubusercontent.com/32201252/93275098-d333b300-f770-11ea-84e8-863a81ce94ce.png)
 
-1. Content Zone
-    - "home_recs"
-2. Recommendations Block Title
+1. Recommendations Block Title
     - Ex: "You May Also Like"
-3. Recipe
+2. Recipe
     - Ex: "Collaborative with Trending"
-4. Recommendations Attributes
+3. Recommendations Attributes
     - Show product name
     - Show product description
     - Show product price
@@ -50,20 +48,15 @@ This global template inserts recommended contents in a two-column format, based 
 ![Recipe Content Recommendations Template](/recipe-content-recommendations/template.png)
 
 #### Configuration:
-![Hero Banner with Call-to-Action Configuration](https://user-images.githubusercontent.com/32201252/90226870-8acb5300-ddc8-11ea-9e2f-3477ff3e5e6e.png)
+![Hero Banner with Call-to-Action Configuration](https://user-images.githubusercontent.com/32201252/93275101-d3cc4980-f770-11ea-8913-9342c312463d.png)
 
-1. Content Zone
-    - "home_recs"
-2. Recommendations Block Title
+1. Recommendations Block Title
     - Ex: "You May Also Like"
-3. Recipe
+2. Recipe
     - Ex: "Collaborative with Trending"
-4. Recommendations Attributes
+3. Recommendations Attributes
     - Show content name
     - Show content description
-    - Show content price
-    - Show content rating
-
 
 ### Exit Intent Popup with Email Capture
 
