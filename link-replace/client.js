@@ -5,6 +5,14 @@
         CLICKTHROUGH: "Clickthrough"
     };
 
+    function buildTargetSelectorFromContext(context) {
+        return `
+            [href="${context.fromUrl}"],
+            [href="${context.fromUrl.replace(/s(?=:\/\/)/, "")}"],
+            [href="${context.fromUrl.replace(/http(s?):\/\/.+?(?=\/)/, "")}"]
+        `;
+    }
+
     let observer;
 
     let observerConfig = {
@@ -44,41 +52,33 @@
         });
     }
 
+    function buildStatFromContext(context, statType) {
+        return {
+            campaignStats: [
+                {
+                    control: context.userGroup === "Control",
+                    experienceId: context.experience,
+                    stat: statType
+                }
+            ]
+        };
+    }
+
     function apply(context, template) {
         if ((!context.fromUrl && !context.toUrl) || (context.fromUrl === context.toUrl)) {
             return;
         }
 
-        const fromUrlHttp = context.fromUrl.replace(/s(?=:\/\/)/, "");
-        const fromRelativePath = context.fromUrl.replace(/http(s?):\/\/.+?(?=\/)/, "");
-        const hrefWithFromUrl = `[href="${context.fromUrl}"], [href="${fromUrlHttp}"], [href="${fromRelativePath}"]`;
-        const baseStats = {
-            control: false,
-            experienceId: context.experience
-        };
+        const selector = buildTargetSelectorFromContext(context);
 
-        const bindLinkListener = () => linkListener(hrefWithFromUrl).then(elements => {
+        const bindLinkListener = () => linkListener(selector).then(elements => {
             elements.each(function() {
                 Evergage.cashDom(this).attr({ 'href': context.toUrl });
                 Evergage.cashDom(this).on('click.linkReplace', e => {
-                    Evergage.sendStat({
-                        campaignStats: [
-                            {
-                                ...baseStats,
-                                stat: CAMPAIGN_STAT_TYPE.CLICKTHROUGH
-                            }
-                        ]
-                    });
+                    Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.CLICKTHROUGH))
                 });
             });
-            Evergage.sendStat({
-                campaignStats: [
-                    {
-                        ...baseStats,
-                        stat: CAMPAIGN_STAT_TYPE.IMPRESSION
-                    }
-                ]
-            });
+            Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.IMPRESSION));
             bindLinkListener();
         });
         bindLinkListener();
@@ -89,12 +89,18 @@
     }
 
     function control(context) {
-        // TODO
-        // const selector = Evergage.getContentZoneSelector(context.contentZone);
-        // Evergage.cashDom(selector).attr("data-evg-campaign-id", context.campaign);
-        // Evergage.cashDom(selector).attr("data-evg-experience-id", context.experience);
-        // Evergage.cashDom(selector).attr("data-evg-user-group", "Control");
-        // Evergage.cashDom(selector + " a").attr("data-evg-clickthrough", "");
+        const selector = buildTargetSelectorFromContext(context);
+
+        const bindLinkListener = () => linkListener(selector).then(elements => {
+            elements.each(function() {
+                Evergage.cashDom(this).on('click.linkReplace', e => {
+                    Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.CLICKTHROUGH))
+                });
+            });
+            Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.IMPRESSION));
+            bindLinkListener();
+        });
+        bindLinkListener();
     }
 
     registerTemplate({
