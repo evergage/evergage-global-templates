@@ -1,4 +1,4 @@
-export class LinkReplaceTemplate implements CampaignTemplateComponent {
+export class PageURLReplacementTemplate implements CampaignTemplateComponent {
 
     @header("Why Use This Template")
     @headerSubtitle(`
@@ -32,12 +32,8 @@ export class LinkReplaceTemplate implements CampaignTemplateComponent {
     @subtitle("i.e. https://www.example.com/example2.html")
     toUrl: string = ""
 
-    // @hidden(true)
-    // contentZone: string = "invisible";
-
     run(context: CampaignComponentContext) {
         return {
-            // contentZone: this.contentZone,
             fromUrl: this.fromUrl,
             toUrl: this.toUrl
         };
