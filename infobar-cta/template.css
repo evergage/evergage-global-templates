@@ -6,23 +6,41 @@
     position: fixed;
     z-index: 10000000;
     left: 0;
-    box-sizing: border-box;
+
     display: -webkit-box;
-    display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
+
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+
     -webkit-box-pack: center;
-    -moz-box-pack: center;
-    -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
+
+    -webkit-box-align: center;
     -ms-flex-align: center;
+    align-items: center;
+
+    box-sizing: border-box;
     width: 100%;
-    height: 4.2rem;
+    height: 2.5rem;
     text-align: center;
+}
+
+#evg-infobar-cta .evg-message {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+#evg-infobar-cta .evg-infobar {
+    display: inline;
 }
 
 #evg-infobar-cta .evg-btn-dismissal {
@@ -38,19 +56,6 @@
     cursor: pointer;
 }
 
-#evg-infobar-cta .evg-container {
-    width: 100%;
-    padding: 1.1rem;
-}
-
-#evg-infobar-cta .evg-main-panel {
-    display: inline;
-    vertical-align: middle;
-    font-size: 1.3rem;
-    font-weight: 400;
-    line-height: 1.5;
-}
-
 /* ==========================================================================
    Infobar Position
 ========================================================================== */
@@ -64,47 +69,14 @@
 }
 
 /* ==========================================================================
-   Call-To-Action Button
+   Call-To-Action Link
 ========================================================================== */
 
 #evg-infobar-cta .evg-cta {
-    margin: .5rem 0;
-}
-
-#evg-infobar-cta .evg-btn {
-    display: inline;
-    padding: .5rem 1rem;
+    display: inline-block;
     vertical-align: middle;
-    border: 1px solid transparent;
-    border-radius: 3rem;
-    color: #215ca0;
-    background-color: transparent;
-    font-size: 1.3rem;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: color .15s ease-in-out,
-                background-color .15s ease-in-out,
-                border-color .15s ease-in-out,
-                box-shadow .15s ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-
-#evg-infobar-cta .evg-btn-primary {
-    color: #fff;
-    border-color: #215ca0;
-    background-color: #215ca0;
-    transition: background-color 0.15s, color 0.15s;
-}
-
-#evg-infobar-cta .evg-btn-sm {
-    padding: .5rem 2rem;
-    font-size: 1.25rem;
+    margin-left: 10px;
+    font-size: 1rem;
 }
 
 /* ==========================================================================
@@ -112,36 +84,38 @@
 ========================================================================== */
 
 #evg-infobar-cta .evg-hide {
+    visibility: hidden;
     display: none;
     width: 0;
     height: 0;
-    visibility: hidden;
 }
 
 /* ==========================================================================
    Style
 ========================================================================== */
 
-#evg-infobar-cta .evg-style-bg.evg-light-on-dark {
+#evg-infobar-cta.evg-light-on-dark {
+    color: #fff;
     background-color: #343a40;
 }
 
-#evg-infobar-cta .evg-style-bg.evg-dark-on-light {
-    background-color: #fff;
+#evg-infobar-cta.evg-dark-on-light {
+    color: #343a40;
+    background-color: #f8f8f8;
 }
 
-#evg-infobar-cta .evg-cta.evg-style-color.evg-light-on-dark {
+#evg-infobar-cta .evg-cta.evg-light-on-dark {
     color: #6dccee;
 }
 
-#evg-infobar-cta .evg-cta.evg-style-color.evg-dark-on-light {
+#evg-infobar-cta .evg-cta.evg-dark-on-light {
     color: #17a2b8;
 }
 
-#evg-infobar-cta .evg-style-color.evg-dark-on-light {
-    color: #343a40;
-}
- 
-#evg-infobar-cta .evg-style-color.evg-light-on-dark {
+#evg-infobar-cta .evg-btn-dismissal.evg-light-on-dark {
     color: #fff;
+}
+
+#evg-infobar-cta .evg-btn-dismissal.evg-dark-on-light {
+    color:#343a40;
 }
