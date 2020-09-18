@@ -5,17 +5,6 @@ export class StyleField {
 
 export class HeroBannerCtaTemplate implements CampaignTemplateComponent {
 
-    @header("Why Use This Template")
-    @headerSubtitle("Easily swap out a hero image and test different headers and CTA copy.")
-
-    readonly spacing = " ";
-
-    @header("How to Use This Template")
-    @headerSubtitle(`
-        Enter the image URL for your asset, select your text styling, and then 
-        configure your copy, CTA, and image destination.
-    `)
-
     @title("Background Image URL")
     @subtitle("Replace the placeholder image URL with the image URL for your background image.")
     imageURL: string = "https://cdn.evergage.com/evergage-content/nto/nto_hero_banner_bike.jpg";
@@ -27,26 +16,22 @@ export class HeroBannerCtaTemplate implements CampaignTemplateComponent {
     @subtitle("Define header and subheader text styling.")
     style: StyleField = {label: "Light on Dark", className: "evg-light-on-dark"};  
 
-    header: string = "New Arrivals in Men's";
+    header: string = "Header Text";
 
     @title("Header Visibility")
     headerVisibility: boolean = true;
 
-    subheader: string = "Check out the latest styles in jackets, footwear, and more!";
+    subheader: string = "Subheader Text";
 
     @title("Subheader Visibility")
     subheaderVisibility: boolean = true;
 
     @title("CTA Text")
-    @subtitle("e.g. Shop Now")
-    ctaText: string = "SHOP NOW";
+    ctaText: string = "Call To Action";
 
     @title("CTA Destination URL")
-    @subtitle(`
-        Enter a fully qualified destination URL for the CTA 
-        (e.g. https://www.northerntrailoutfitters.com).
-    `)
-    ctaUrl: string = "https://www.northerntrailoutfitters.com/default/men";
+    @subtitle("Requires full URL string including https://")
+    ctaUrl: string = "https://www.northerntrailoutfitters.com";
 
     run(context: CampaignComponentContext) {
         return {};
