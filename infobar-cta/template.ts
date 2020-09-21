@@ -8,10 +8,10 @@ export class InfobarCtaTemplate implements CampaignTemplateComponent {
     @title('Infobar Style')
     @subtitle("Define infobar background & text styling.")
     @options([
-        {label: "Light on Dark", className: "evg-light-on-dark"},
-        {label: "Dark on Light", className: "evg-dark-on-light" }
+        { label: "Light on Dark", className: "evg-light-on-dark" },
+        { label: "Dark on Light", className: "evg-dark-on-light" }
     ])
-    style: StyleField = {label: "Light on Dark", className: "evg-light-on-dark"};
+    style: StyleField = { label: "Light on Dark", className: "evg-light-on-dark" };
 
     @title('Message Text')
     messageText: string = "Infobar Message Text";

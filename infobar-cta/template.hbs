@@ -7,8 +7,7 @@
     light text on darker backgrounds.
 
     Requirements:
-    1) Select the content zone(s), which is defined in your Sitemap, that this template applies to from the drop down
-    list in the template settings pane in the left bottom corner of the screen.
+    1) Select the content zone(s), which is defined in your Sitemap.
 
     Customizations:
     1) Style options can be changed in Serverside Code.
@@ -26,13 +25,10 @@ data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria
         aria-label="{{messageText}}" role="Message Text">
             {{messageText}}
         </p>
-        <a class="evg-cta {{style.className}}{{#unless ctaVisibility}} 
-        evg-hide{{/unless}}" href="{{ctaUrl}}" aria-label="{{ctaText}}">
+        <a class="evg-cta {{style.className}}{{#unless ctaVisibility}} evg-hide{{/unless}}"
+        href="{{ctaUrl}}" aria-label="{{ctaText}}">
             {{ctaText}}
         </a>
     </div>
-    <button class="evg-btn-dismissal {{style.className}}" data-evg-dismissal 
-    aria-label="Close Infobar" tabindex="0">
-        &times;
-    </button>
+    <button class="evg-btn-dismissal {{style.className}}" data-evg-dismissal aria-label="Close Infobar">&times;</button>
 </div>
