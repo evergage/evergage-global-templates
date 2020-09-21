@@ -125,3 +125,25 @@ This global template lets you push one or more segments to the specified Google 
 1. Google Analytics Dimension
     - Ex: "dimension 27"
 2. Segment Picker (multi-option)
+
+
+### Infobar with Call-To-Action
+
+This global template places an infobar containing text and a call-to-action button.
+
+![Infobar with Call to Action](/infobar-cta/template.png)
+
+### Configuration:
+![Infobar Configuration](https://user-images.githubusercontent.com/59489053/93824093-e3e09f00-fc30-11ea-84d3-75e359b068f7.png)
+
+1. Content Zone
+    - "global_infobar_top_of_page"
+2. Infobar Style (Dark text on light background, light text on dark background)
+3. Message Text
+    - Ex: "Become a Rewards Member for Special Offers & Discounts"
+4. Message Visibility (enable or disable)
+5. CTA Text
+    - Ex: "Learn More!"
+6. CTA Visibility (enable or disable)
+7. CTA Destination URL
+    - Ex: "https://cumulusfinserv.com/banking/checking-and-savings"
