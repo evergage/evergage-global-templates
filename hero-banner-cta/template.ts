@@ -1,32 +1,37 @@
-export class ColorTheme {
+export class StyleField {
     label: string;
     className: string;
 }
 
 export class HeroBannerCtaTemplate implements CampaignTemplateComponent {
 
-    @title('Background Image URL')
-    imageURL: string = "https://www.northerntrailoutfitters.com/dw/image/v2/BDPX_PRD/on/demandware.static/-/Library-Sites-NTO-SFRASharedLibrary/default/dw37eb7010/images/homepage/home-banner-hero-04-1905-600.jpg"
-
-    @hidden(true)
-    contentZone: string = "home_hero";
+    @title("Background Image URL")
+    @subtitle("Replace the placeholder image URL with the image URL for your background image.")
+    imageURL: string = "https://cdn.evergage.com/evergage-content/nto/nto_hero_banner_bike.jpg";
   
     @options([
-        {label: "Light text on dark background", className: "evg-light-on-dark"},
-        {label: "Dark text on light background", className: "evg-dark-on-light"}
+        {label: "Light on Dark", className: "evg-light-on-dark"},
+        {label: "Dark on Light", className: "evg-dark-on-light" }
     ])
-    colorTheme: ColorTheme = {label: "Light text on dark background", className: "evg-light-on-dark"};
+    @subtitle("Define header and subheader text styling.")
+    style: StyleField = {label: "Light on Dark", className: "evg-light-on-dark"};  
 
-    header: string = "New Arrivals in Men's";
+    header: string = "Header Text";
 
-    subheader: string = "Check out the latest styles in jackets, footwear, and more!";
+    @title("Header Visibility")
+    headerVisibility: boolean = true;
 
-    @title('CTA Text')
-    ctaText: string = "SHOP NOW";
+    subheader: string = "Subheader Text";
 
-    @title('CTA Destination URL')
-    @subtitle("Enter a fully qualified destination URL for the CTA (e.g., https://www.northerntrailoutfitters.com)")
-    ctaUrl: string = "/default/men";
+    @title("Subheader Visibility")
+    subheaderVisibility: boolean = true;
+
+    @title("CTA Text")
+    ctaText: string = "Call To Action";
+
+    @title("CTA Destination URL")
+    @subtitle("Requires full URL string including https://")
+    ctaUrl: string = "https://www.northerntrailoutfitters.com";
 
     run(context: CampaignComponentContext) {
         return {};
