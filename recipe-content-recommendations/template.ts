@@ -5,17 +5,13 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
     /**
      * Developer Controls
      */
+
     @hidden(true)
     maximumNumberOfItems: 2 | 4 | 6 = 4;
 
     /**
      * Business-User Controls
      */
-    @options([
-        "home_recs",
-        "search_recs"
-    ])
-    contentZone: string = "home_recs";
 
     @title("Recommendations Block Title")
     @subtitle("i.e. You May Also Like")

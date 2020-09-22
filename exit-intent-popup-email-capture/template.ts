@@ -45,13 +45,10 @@ export class ExitIntentPopupEmailCapture implements CampaignTemplateComponent {
         {label: "Light on Dark", className: "evg-light-on-dark"},
         {label: "Dark on Light", className: "evg-dark-on-light" }
     ])
-    style: StyleField = {label: "Light on Dark", className: "evg-light-on-dark"}
+    style: StyleField = {label: "Light on Dark", className: "evg-light-on-dark"};
 
     @title("Background Image URL")
     imageUrl: string = "https://cdn.evergage.com/evergage-content/nto/nto_footwear.jpg";
-
-    @hidden(true)
-    contentZone = "global_popup"
 
     run(context: CampaignComponentContext) {
         return {};
