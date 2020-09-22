@@ -5,14 +5,6 @@
         CLICKTHROUGH: "Clickthrough"
     };
 
-    function buildTargetSelectorFromContext(context) {
-        return `
-            [href="${context.fromUrl}"],
-            [href="${context.fromUrl.replace(/s(?=:\/\/)/, "")}"],
-            [href="${context.fromUrl.replace(/http(s?):\/\/.+?(?=\/)/, "")}"]
-        `;
-    }
-
     let observer;
 
     let observerConfig = {
@@ -24,32 +16,21 @@
     function attachObserver({ selector, config, callback }) {
         let MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
         let targetNode = Evergage.cashDom(selector)[0];
-        let observerConfig = config || { childList: true };
+        config = config || { childList: true };
 
         observer = new MutationObserver(callback);
 
-        observer.observe(targetNode, observerConfig);
+        observer.observe(targetNode, config);
 
         return observer;
     };
 
-    function linkListener(selector) {
-        return new Promise(function(resolve) {
-            if (Evergage.cashDom(selector).length > 0) {
-                resolve(Evergage.cashDom(selector));
-            } else {
-                attachObserver({
-                    selector: 'body',
-                    config: observerConfig,
-                    callback: function(mutationsList) {
-                        if (Evergage.cashDom(selector).length > 0) {
-                            observer.disconnect();
-                            resolve(Evergage.cashDom(selector));
-                        }
-                    }
-                });
-            }
-        });
+    function buildTargetSelectorFromContext(context) {
+        return `
+            [href="${context.fromUrl}"],
+            [href="${context.fromUrl.replace(/s(?=:\/\/)/, "")}"],
+            [href="${context.fromUrl.replace(/http(s?):\/\/.+?(?=\/)/, "")}"]
+        `;
     }
 
     function buildStatFromContext(context, statType) {
@@ -71,17 +52,22 @@
 
         const selector = buildTargetSelectorFromContext(context);
 
-        const bindLinkListener = () => linkListener(selector).then(elements => {
-            elements.each(function() {
-                Evergage.cashDom(this).attr({ 'href': context.toUrl });
-                Evergage.cashDom(this).on('click.linkReplace', e => {
-                    Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.CLICKTHROUGH))
-                });
-            });
-            Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.IMPRESSION));
-            bindLinkListener();
+        attachObserver({
+            selector: 'body',
+            config: observerConfig,
+            callback: function(mutationsList) {
+                if (Evergage.cashDom(selector).length > 0) {
+                    Evergage.cashDom(selector).each(function() {
+                        Evergage.cashDom(this).attr({ 'href': context.toUrl });
+                        Evergage.cashDom(this).off('click.linkReplace');
+                        Evergage.cashDom(this).on('click.linkReplace', e => {
+                            Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.CLICKTHROUGH))
+                        });
+                    });
+                    Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.IMPRESSION));
+                }
+            }
         });
-        bindLinkListener();
     }
 
     function reset(context, template) {
@@ -91,16 +77,21 @@
     function control(context) {
         const selector = buildTargetSelectorFromContext(context);
 
-        const bindLinkListener = () => linkListener(selector).then(elements => {
-            elements.each(function() {
-                Evergage.cashDom(this).on('click.linkReplace', e => {
-                    Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.CLICKTHROUGH))
-                });
-            });
-            Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.IMPRESSION));
-            bindLinkListener();
+        attachObserver({
+            selector: 'body',
+            config: observerConfig,
+            callback: function(mutationsList) {
+                if (Evergage.cashDom(selector).length > 0) {
+                    Evergage.cashDom(selector).each(function() {
+                        Evergage.cashDom(this).off('click.linkReplace');
+                        Evergage.cashDom(this).on('click.linkReplace', e => {
+                            Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.CLICKTHROUGH))
+                        });
+                    });
+                    Evergage.sendStat(buildStatFromContext(context, CAMPAIGN_STAT_TYPE.IMPRESSION));
+                }
+            }
         });
-        bindLinkListener();
     }
 
     registerTemplate({
