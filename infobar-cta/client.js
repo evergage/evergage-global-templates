@@ -18,6 +18,7 @@
 
     /**
      * @function setDismissal
+     * @param {Object} context
      * @description Sets the area within the template that removes the template from view upon a dismissal.
      */
     function setDismissal(context) {
