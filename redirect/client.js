@@ -10,6 +10,11 @@
     }
 
     function apply(context, template) {
+        clearTimeout(window.evergageReshowPersonalizationsTimeout);
+        window.evergageReshowPersonalizationsTimeout = setTimeout(function() {
+            removeTemplateCss(context);
+        }, (Evergage.getConfig().hideContentSectionsMillis || 2500));
+
         if ((context.redirectUrl
             && window.location.href !== context.redirectUrl
             && (window.frameElement || {}).id !== "sideEditorFrame")) {
@@ -27,11 +32,6 @@
                     }
                 ]
             });
-
-            clearTimeout(window.evergageReshowPersonalizationsTimeout);
-            window.evergageReshowPersonalizationsTimeout = setTimeout(function() {
-                removeTemplateCss(context);
-            }, (Evergage.getConfig().hideContentSectionsMillis || 2500));
         }
     }
 
