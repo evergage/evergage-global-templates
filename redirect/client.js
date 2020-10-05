@@ -2,6 +2,11 @@
 
     let currentHref;
 
+    /**
+     * @function removeTemplateCss
+     * @param {Object} context
+     * @description Removes the inserted style tag inserted by this template
+     */
     function removeTemplateCss(context) {
         const selector = `style[evg-experience=${context.experience}][evg-campaign=${context.campaign}]`;
         if (Evergage.cashDom(selector).length > 0) {
