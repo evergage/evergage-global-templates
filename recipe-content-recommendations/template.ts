@@ -1,6 +1,6 @@
 import { RecommendationsConfig, recommend } from "recs";
 
-export class RecipeContentRecommendationsTemplate implements CampaignTemplateComponent {
+export class EinsteinContentRecsTemplate implements CampaignTemplateComponent {
 
     /**
      * Developer Controls
@@ -14,16 +14,14 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
      */
 
     @title("Recommendations Block Title")
-    @subtitle("i.e. You May Also Like")
-    header: string = "You May Also Like";
+    header: string = "Title Text";
 
     @title(" ")
-    @subtitle("i.e. Collaborative with Trending")
     recsConfig: RecommendationsConfig = new RecommendationsConfig()
         .restrictItemType("Blog")
         .restrictMaxResults(this.maximumNumberOfItems);
 
-    @header('Recommendation Attributes')
+    @header('Recommendation Display Options')
 
     @title("Show content name")
     nameVisibility: boolean = true;
@@ -32,7 +30,6 @@ export class RecipeContentRecommendationsTemplate implements CampaignTemplateCom
     descriptionVisibility: boolean = true;
 
     run(context:CampaignComponentContext) {
-
         this.recsConfig.maxResults = this.maximumNumberOfItems;
 
         return {

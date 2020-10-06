@@ -1,15 +1,15 @@
 /* ==========================================================================
-   Containers
+   Recommendations Block
 ========================================================================== */
 
-#evg-recipe-content-recommendations {
-    padding: 1em 0;
+#evg-einstein-content-recs {
     width: 100%;
+    padding: 1em 0;
     color: inherit;
     font-family: inherit;
 }
 
-#evg-recipe-content-recommendations .evg-container {
+#evg-einstein-content-recs .evg-content-recs {
     position: relative;
     z-index: 2;
 
@@ -30,12 +30,12 @@
     -ms-flex-align: start;
     align-items: flex-start;
 
-    margin: 0 auto;
     width: auto;
     max-width: 960px;
+    margin: 0 auto;
 }
 
-#evg-recipe-content-recommendations .evg-card-container {
+#evg-einstein-content-recs .evg-container {
     width: 50%;
 }
 
@@ -43,67 +43,72 @@
    Headers
 ========================================================================== */
 
-#evg-recipe-content-recommendations .evg-h3 {
-    padding: 0;
+#evg-einstein-content-recs .evg-h3 {
     margin: 0 0 .5rem;
+    padding: 0;
     color: inherit;
-    font-family: inherit;
     font-size: 1.75rem;
     font-weight: 500;
+    font-family: inherit;
     line-height: 1.2;
 }
 
-#evg-recipe-content-recommendations .evg-header {
-    margin: 1rem 0 2rem;
+#evg-einstein-content-recs .evg-header {
     width: 100%;
+    margin: 1rem 0 2rem;
     text-align: center;
 }
 
 /* ==========================================================================
-   Content Recommendations
+   Individual Content Recommendation
 ========================================================================== */
 
-#evg-recipe-content-recommendations .evg-card {
+#evg-einstein-content-recs .evg-content-rec {
     margin: 1.5rem;
 }
 
-#evg-recipe-content-recommendations .evg-card-image {
-    margin: 0;
+#evg-einstein-content-recs .evg-content-img {
     display: block;
     width: 100%;
     height: auto;
+    margin: 0;
 }
 
-#evg-recipe-content-recommendations .evg-card-body {
-    padding: 1rem;
-    width: 100%;
+#evg-einstein-content-recs .evg-content-details {
     overflow: hidden;
+    width: 100%;
+    padding: 1rem;
     background-color: #fff;
     text-align: left;
 }
 
-#evg-recipe-content-recommendations .evg-card-title {
-    margin: 0 auto .75rem auto;
-    height: 2.5rem;
+#evg-einstein-content-recs .evg-content-title {
+    display: block;
     overflow: hidden;
+    height: 2.5rem;
+    margin: 0 auto .75rem auto;
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 2.5rem;
     text-decoration: none;
 }
 
-#evg-recipe-content-recommendations .evg-card-text {
-    height: 8rem;
+#evg-einstein-content-recs .evg-content-description {
     overflow: hidden;
+    height: 8rem;
     font-size: 1.25rem;
     line-height: 2rem;
 }
 
-#evg-recipe-content-recommendations .evg-hide {
-    display: none;
-    height: 0;
-    width: 0;
+/* ==========================================================================
+   Visibility
+========================================================================== */
+
+#evg-einstein-content-recs .evg-hide {
     visibility: hidden;
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 /* ==========================================================================
@@ -111,21 +116,21 @@
 ========================================================================== */
 
 @media screen and (max-width: 575px) {
-    #evg-recipe-content-recommendations .evg-card-title {
+    #evg-einstein-content-recs .evg-content-title {
         font-size: 1.25rem;
     }
 
-    #evg-recipe-content-recommendations .evg-card-text {
+    #evg-einstein-content-recs .evg-content-description {
         font-size: 1rem;
     }
 
-    #evg-recipe-content-recommendations .evg-h3 {
-        padding: 0;
+    #evg-einstein-content-recs .evg-h3 {
         margin: 0 0 .5rem;
+        padding: 0;
         color: inherit;
-        font-family: inherit;
         font-size: 1.5rem;
         font-weight: 500;
+        font-family: inherit;
         line-height: 1.2;
     }
 }

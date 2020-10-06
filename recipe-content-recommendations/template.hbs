@@ -1,41 +1,42 @@
 {{!--
-    Global Template: Recipe Content Recommendations
+    Global Template: Einstein Content Recommendations
     
     This global template inserts recommended contents in a two-column format, based on a selected Einstein Recipe.
     
     Requirements:
-    1) Ensure that the available content zones are defined in your Sitemap.
-    
+    1) Set the content zone(s) to that defined in your Sitemap.
+
     Customizations:
     1) Item type to promote can be changed in Serverside Code (See 'recsConfig').
-    2) Media query breakpoints can be changed in CSS.
-    3) For performance optimization, add an observer selector as a second argument to
+    2) For performance optimization, add an observer selector as a second argument to
     Evergage.DisplayUtil.pageElementLoaded in Clientside Code that waits for the content zone to load into the DOM.
+    3) Use .before(html) or .after(html) in Clientside Code to insert the generated HTML content before or after the 
+    content zone, respectively, instead of replacing the content of the content zone with .html(html).
     4) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code.
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
     5) Remove or change the default values for the configuration properties in Serverside Code.
     6) Change the value of the aria-label attribute as necessary.
+    7) Media query breakpoints can be changed in CSS.
 --}}
 
-<article id="evg-recipe-content-recommendations" data-evg-campaign-id="{{campaign}}" 
-data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" 
-aria-label="Content Recommendations {{#if header}}- {{header}}{{/if}}">
+<section id="evg-einstein-content-recs" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}"
+data-evg-user-group="{{userGroup}}" aria-label="Content Recommendations {{#if header}}- {{header}}{{/if}}">
     <h3 class="evg-header evg-h3">{{header}}</h3>
-    <div class="evg-content-recommendations evg-container">
+    <div class="evg-content-recs">
         {{#each blogs}}
-        <div class="evg-card-container">
-            <article class="evg-content-recommendation evg-card" data-evg-item-id="{{id}}" 
+        <div class="evg-container">
+            <article class="evg-content-rec" data-evg-item-id="{{id}}" 
             data-evg-item-type="{{../itemType}}">
                 <a href="{{attributes.url.value}}">
-                    <img class="evg-content-image evg-card-image" src="{{attributes.imageUrl.value}}" 
+                    <img class="evg-content-img" src="{{attributes.imageUrl.value}}" 
                     alt="{{attributes.name.value}}"/>
                 </a>
-                <div class="evg-content-details evg-card-body">
-                    <div class="evg-content-name evg-card-title{{#unless ../nameVisibility}} evg-hide{{/unless}}">
-                        <a href="{{attributes.url.value}}">{{attributes.name.value}}</a>
-                    </div>
+                <div class="evg-content-details">
+                    <a class="evg-content-title{{#unless ../nameVisibility}} evg-hide{{/unless}}" href="{{attributes.url.value}}">
+                        {{attributes.name.value}}
+                    </a>
                     {{#if attributes.description.value}}
-                    <div class="evg-content-description evg-card-text{{#unless ../descriptionVisibility}} evg-hide{{/unless}}">
+                    <div class="evg-content-description{{#unless ../descriptionVisibility}} evg-hide{{/unless}}">
                         {{attributes.description.value}}
                     </div>
                     {{/if}}
@@ -44,4 +45,4 @@ aria-label="Content Recommendations {{#if header}}- {{header}}{{/if}}">
         </div>
         {{/each}}
     </div>
-</article>
+</section>
