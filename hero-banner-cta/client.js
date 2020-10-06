@@ -1,7 +1,7 @@
 (function() {
 
     function apply(context, template) {
-        var selector = Evergage.getContentZoneSelector(context.contentZone);
+        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
 
         /**
          * The pageElementLoaded method waits for the content zone to load into the DOM
@@ -13,22 +13,23 @@
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
-        return Evergage.DisplayUtils.pageElementLoaded(selector).then(element => {
-            var html = template(context);
+        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
+            const html = template(context);
             Evergage.cashDom(element).html(html);
         });
     }
 
     function reset(context, template) {
-        Evergage.cashDom("#evg-hero-banner").remove();
+        Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+            .remove();
     }
 
     function control(context) {
-        var selector = Evergage.getContentZoneSelector(context.contentZone);
-        Evergage.cashDom(selector).attr("data-evg-campaign-id", context.campaign);
-        Evergage.cashDom(selector).attr("data-evg-experience-id", context.experience);
-        Evergage.cashDom(selector).attr("data-evg-user-group", "Control");
-        Evergage.cashDom(selector + " a").attr("data-evg-clickthrough", "");
+        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
+        Evergage.cashDom(contentZoneSelector).attr("data-evg-campaign-id", context.campaign);
+        Evergage.cashDom(contentZoneSelector).attr("data-evg-experience-id", context.experience);
+        Evergage.cashDom(contentZoneSelector).attr("data-evg-user-group", "Control");
+        Evergage.cashDom(contentZoneSelector + " a").attr("data-evg-clickthrough", "");
     }
 
     registerTemplate({

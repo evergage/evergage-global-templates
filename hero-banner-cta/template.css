@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Hero Banner
+   Banner
 ========================================================================== */
 
-#evg-hero-banner.evg-jumbotron {
+#evg-banner-with-cta.evg-jumbotron {
     position: relative;
     z-index: 2;
 
@@ -29,43 +29,36 @@
     background-size: cover;
 }
 
-#evg-hero-banner .evg-hide {
-    display: none;
-    width: 0;
-    height: 0;
-    visibility: hidden;
-}
-
 /* ==========================================================================
    Headers
 ========================================================================== */
 
-#evg-hero-banner .evg-h1,
-#evg-hero-banner .evg-h2 {
-    padding: 0;
+#evg-banner-with-cta .evg-h1,
+#evg-banner-with-cta .evg-h2 {
     margin: 0 0 .5rem;
+    padding: 0;
     color: inherit;
     font-weight: 500;
     font-family: inherit;
     line-height: 1.2;
 }
 
-#evg-hero-banner .evg-h1 {
+#evg-banner-with-cta .evg-h1 {
     font-size: 2.5rem;
 }
 
-#evg-hero-banner .evg-h2 {
+#evg-banner-with-cta .evg-h2 {
     font-size: 2rem;
 }
 
-#evg-hero-banner .evg-display-2 {
+#evg-banner-with-cta .evg-display-2 {
     font-size: 5.5rem;
     font-weight: 700;
     line-height: 1.2;
 }
 
-#evg-hero-banner .evg-header,
-#evg-hero-banner .evg-subheader {
+#evg-banner-with-cta .evg-header,
+#evg-banner-with-cta .evg-subheader {
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -74,7 +67,7 @@
    Call-To-Action Button
 ========================================================================== */
 
-#evg-hero-banner .evg-btn {
+#evg-banner-with-cta .evg-btn {
     display: inline-block;
     vertical-align: middle;
     padding: .5rem 1rem;
@@ -99,44 +92,55 @@
     user-select: none;
 }
 
-#evg-hero-banner .evg-btn-lg {
+#evg-banner-with-cta .evg-btn-lg {
     padding: .5rem 2rem;
     font-size: 1.25rem;
 }
 
-#evg-hero-banner .evg-btn-primary {
+#evg-banner-with-cta .evg-btn-primary {
     border-color: #215ca0;
     color: #fff;
     background-color: #215ca0;
     transition: background-color .15s, color .15s;
 }
 
-#evg-hero-banner .evg-btn-primary:hover {
+#evg-banner-with-cta .evg-btn-primary:hover {
     border-color: #1c4e88;
     color: #fff;
     background-color: #1c4e88;
 }
 
 /* ==========================================================================
-   Color Theme
+   Style
 ========================================================================== */
 
-#evg-hero-banner.evg-dark-on-light {
+#evg-banner-with-cta.evg-dark-on-light {
     background-color: #fff;
 }
 
-#evg-hero-banner.evg-light-on-dark {
+#evg-banner-with-cta.evg-light-on-dark {
     background-color: #343a40;
 }
 
-#evg-hero-banner .evg-h1.evg-dark-on-light,
-#evg-hero-banner .evg-h2.evg-dark-on-light {
+#evg-banner-with-cta .evg-h1.evg-dark-on-light,
+#evg-banner-with-cta .evg-h2.evg-dark-on-light {
     color: #343a40;
 }
 
-#evg-hero-banner .evg-h1.evg-light-on-dark,
-#evg-hero-banner .evg-h2.evg-light-on-dark {
+#evg-banner-with-cta .evg-h1.evg-light-on-dark,
+#evg-banner-with-cta .evg-h2.evg-light-on-dark {
     color: #fff;
+}
+
+/* ==========================================================================
+   Visibility
+========================================================================== */
+
+#evg-banner-with-cta .evg-hide {
+    visibility: hidden;
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 /* ==========================================================================
@@ -144,15 +148,15 @@
 ========================================================================== */
 
 @media screen and (max-width: 991px) {
-    #evg-hero-banner .evg-h2 {
+    #evg-banner-with-cta .evg-h2 {
         font-size: 1.5rem;
     }
 
-    #evg-hero-banner .evg-display-2 {
+    #evg-banner-with-cta .evg-display-2 {
         font-size: 3.75rem;
     }
 
-    #evg-hero-banner .evg-btn-lg {
+    #evg-banner-with-cta .evg-btn-lg {
         font-size: 1rem;
     }
 }

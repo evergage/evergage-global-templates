@@ -3,7 +3,7 @@ export class StyleField {
     className: string;
 }
 
-export class HeroBannerCtaTemplate implements CampaignTemplateComponent {
+export class BannerWithCTATemplate implements CampaignTemplateComponent {
 
     @title("Background Image URL")
     @subtitle("Replace the placeholder image URL with the image URL for your background image.")
