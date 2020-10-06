@@ -2,7 +2,7 @@
 
 This global template displays a popup when a user intends to exit the page.
 
-![Exit Intent Pop-Up Template](/exit-intent-popup/template.png)
+![Exit Intent Pop-Up Template](template.png)
 
 #### Configuration:
 <img src="config.png" alt="Exit Intent Pop-Up Configuration" width="350px"/>
