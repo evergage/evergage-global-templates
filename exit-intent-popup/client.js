@@ -1,25 +1,50 @@
 (function() {
 
+    /**
+     * @function getBindId
+     * @param {Object} context
+     * @description Create unique bind ID based on the campaign and experience IDs.
+     */
+    function getBindId(context) {
+        return `${context.campaign}:${context.experience}`;
+    }
+
+    /**
+     * @function setDismissal
+     * @description Adds click listener to the overlay and "X" button that removes the template from the DOM.
+     */
+    function setDismissal() {
+        const dismissSelectors = [
+            "#evg-exit-intent-popup .evg-overlay",
+            "#evg-exit-intent-popup .evg-btn-dismissal",
+        ];
+
+        Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
+            Evergage.cashDom("#evg-exit-intent-popup").remove();
+        });
+    }
+
     function apply(context, template) {
-        Evergage.DisplayUtils.pageExit(2000).then(function() {
-            context.overlayClass = context.lightboxEnabled ? "evg-overlay" : "";
-            var html = template(context);
+        
+        /**
+         * The pageExit method waits for the user's cursor to exit through the top edge of the page before rendering the
+         * template after a set delay.
+         * 
+         * Visit the Template Display Utilities documentation to learn more:
+         * https://developer.evergage.com/templates/display-utilities
+         */
+        Evergage.DisplayUtils.bind(getBindId(context)).pageExit(500).then(() => {
+            context.overlayClass = context.lightbox ? "evg-overlay" : "";
+            const html = template(context);
             Evergage.cashDom("body").append(html);
-
-            /** Dismisses popup */
-            const dismissSelectors = [
-                "#evg-exit-intent-popup .evg-overlay",
-                "#evg-exit-intent-popup .evg-btn-dismissal",
-            ];
-
-            Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
-                Evergage.cashDom("#evg-exit-intent-popup").remove();
-            });
+            setDismissal();
         });
     }
 
     function reset(context, template) {
-        Evergage.cashDom("#evg-exit-intent-popup").remove();
+        Evergage.DisplayUtils.unbind(getBindId(context));
+        Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+            .remove();
     }
 
     function control() {
