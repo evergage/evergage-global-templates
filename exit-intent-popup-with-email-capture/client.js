@@ -59,7 +59,7 @@
          */
         Evergage.DisplayUtils.bind(getBindId(context)).pageExit(500).then(() => {
             context.overlayClass = context.lightbox ? "evg-overlay" : "";
-            var html = template(context);
+            const html = template(context);
             Evergage.cashDom("body").append(html);
             setConfirmationPanel();
             setDismissal();

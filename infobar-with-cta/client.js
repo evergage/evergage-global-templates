@@ -30,7 +30,7 @@
 
     function apply(context, template) {
         setInfobarPosition(context);
-        var html = template(context);
+        const html = template(context);
         Evergage.cashDom("body").append(html);
         setDismissal(context);
     }
