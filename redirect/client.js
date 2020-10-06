@@ -1,7 +1,5 @@
 (function() {
 
-    let currentHref;
-
     /**
      * @function removeTemplateCss
      * @param {Object} context
@@ -20,13 +18,11 @@
             removeTemplateCss(context);
         }, (Evergage.getConfig().hideContentSectionsMillis || 2500));
 
-        if ((context.redirectUrl
-            && window.location.href !== context.redirectUrl
-            && (window.frameElement || {}).id !== "sideEditorFrame")) {
+        if ((context.targetPage && context.urlForRedirect)
+            && window.location.href !== context.urlForRedirect
+            && (window.frameElement || {}).id !== "siteEditorFrame") {
 
-            currentHref = window.location.href;
-
-            window.location.href = context.redirectUrl;
+            window.location.href = context.urlForRedirect;
 
             Evergage.sendStat({
                 campaignStats: [
@@ -42,9 +38,10 @@
 
     function reset(context, template) {
         removeTemplateCss(context);
-        if ((currentHref
-            && (context.redirectUrl === currentHref
-            || context.redirectUrl === window.location.href))) {
+
+        if ((context.targetPage && context.urlForRedirect)
+            && window.location.href === context.urlForRedirect
+            && (window.frameElement || {}).id !== "siteEditorFrame") {
 
             window.location.href = currentHref;
         }
