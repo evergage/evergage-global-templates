@@ -2,7 +2,7 @@
    Infobar
 ========================================================================== */
 
-#evg-infobar-cta {
+#evg-infobar-with-cta {
     position: fixed;
     z-index: 10000000;
     left: 0;
@@ -30,7 +30,7 @@
     text-align: center;
 }
 
-#evg-infobar-cta .evg-message {
+#evg-infobar-with-cta .evg-message {
     display: inline-block;
     vertical-align: middle;
     margin-bottom: 0;
@@ -39,11 +39,11 @@
     line-height: 1;
 }
 
-#evg-infobar-cta .evg-infobar {
+#evg-infobar-with-cta .evg-infobar {
     display: inline;
 }
 
-#evg-infobar-cta .evg-btn-dismissal {
+#evg-infobar-with-cta .evg-btn-dismissal {
     position: absolute;
     top: 0;
     right: 0;
@@ -60,11 +60,11 @@
    Infobar Position
 ========================================================================== */
 
-#evg-infobar-cta.evg-infobar-top {
+#evg-infobar-with-cta.evg-infobar-top {
     top: 0;
 }
 
-#evg-infobar-cta.evg-infobar-bottom {
+#evg-infobar-with-cta.evg-infobar-bottom {
     bottom: 0;
 }
 
@@ -72,7 +72,7 @@
    Call-To-Action Link
 ========================================================================== */
 
-#evg-infobar-cta .evg-cta {
+#evg-infobar-with-cta .evg-cta {
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
@@ -83,7 +83,7 @@
    Visibility
 ========================================================================== */
 
-#evg-infobar-cta .evg-hide {
+#evg-infobar-with-cta .evg-hide {
     visibility: hidden;
     display: none;
     width: 0;
@@ -94,28 +94,28 @@
    Style
 ========================================================================== */
 
-#evg-infobar-cta.evg-light-on-dark {
+#evg-infobar-with-cta.evg-light-on-dark {
     color: #fff;
     background-color: #343a40;
 }
 
-#evg-infobar-cta.evg-dark-on-light {
+#evg-infobar-with-cta.evg-dark-on-light {
     color: #343a40;
     background-color: #f8f8f8;
 }
 
-#evg-infobar-cta .evg-cta.evg-light-on-dark {
+#evg-infobar-with-cta .evg-cta.evg-light-on-dark {
     color: #6dccee;
 }
 
-#evg-infobar-cta .evg-cta.evg-dark-on-light {
+#evg-infobar-with-cta .evg-cta.evg-dark-on-light {
     color: #17a2b8;
 }
 
-#evg-infobar-cta .evg-btn-dismissal.evg-light-on-dark {
+#evg-infobar-with-cta .evg-btn-dismissal.evg-light-on-dark {
     color: #fff;
 }
 
-#evg-infobar-cta .evg-btn-dismissal.evg-dark-on-light {
+#evg-infobar-with-cta .evg-btn-dismissal.evg-dark-on-light {
     color:#343a40;
 }

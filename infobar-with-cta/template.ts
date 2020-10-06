@@ -3,9 +3,8 @@ export class StyleField {
     className: string;
 }
 
-export class InfobarCtaTemplate implements CampaignTemplateComponent {
+export class InfobarWithCTATemplate implements CampaignTemplateComponent {
 
-    @title('Infobar Style')
     @subtitle("Define infobar background & text styling.")
     @options([
         { label: "Light on Dark", className: "evg-light-on-dark" },
@@ -13,10 +12,8 @@ export class InfobarCtaTemplate implements CampaignTemplateComponent {
     ])
     style: StyleField = { label: "Light on Dark", className: "evg-light-on-dark" };
 
-    @title('Message Text')
     messageText: string = "Infobar Message Text";
 
-    @title('Message Visibility')
     messageVisibility: boolean = true;
 
     @title('CTA Text')
@@ -26,7 +23,7 @@ export class InfobarCtaTemplate implements CampaignTemplateComponent {
     ctaVisibility: boolean = true;
 
     @title('CTA Destination URL')
-    @subtitle("Requires full URL string including HTTPS://")
+    @subtitle("Requires full URL string including https://")
     ctaUrl: string = "https://cumulusfinserv.com/banking";
 
     run(context: CampaignComponentContext) {

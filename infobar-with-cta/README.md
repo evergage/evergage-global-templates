@@ -1,8 +1,8 @@
-### Infobar with Call-To-Action
+### Infobar With Call-To-Action
 
 This global template places an infobar containing text and a call-to-action button.
 
-![Infobar with Call to Action](template.png)
+![Infobar With Call-To-Action](template.png)
 
 ### Configuration:
 <img src="config.png" alt="Infobar with Call-To-Action Configuration" width="350px"/>

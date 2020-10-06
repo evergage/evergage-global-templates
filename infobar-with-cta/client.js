@@ -19,11 +19,12 @@
     /**
      * @function setDismissal
      * @param {Object} context
-     * @description Sets the area within the template that removes the template from view upon a dismissal.
+     * @description Adds click listener to the "X" button that removes the template from the DOM.
      */
     function setDismissal(context) {
-        Evergage.cashDom("#evg-infobar-cta .evg-btn-dismissal").on("click", () => {
-            Evergage.cashDom("#evg-infobar-cta").remove();
+        Evergage.cashDom("#evg-infobar-with-cta .evg-btn-dismissal").on("click", () => {
+            Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+                .remove();
             Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
         });
     }
@@ -36,7 +37,8 @@
     }
 
     function reset(context, template) {
-        Evergage.cashDom("#evg-infobar-cta").remove();
+        Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+            .remove();
         Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
     }
 
