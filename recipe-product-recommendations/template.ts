@@ -1,6 +1,6 @@
 import { RecommendationsConfig, recommend } from "recs";
 
-export class ProductRecommendationsTemplate implements CampaignTemplateComponent {
+export class EinsteinProductRecsTemplate implements CampaignTemplateComponent {
 
     /**
      * Developer Controls
@@ -17,16 +17,14 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
      */
 
     @title("Recommendations Block Title")
-    @subtitle("i.e. You May Also Like")
-    header: string = "You May Also Like";
+    header: string = "Title Text";
 
     @title(" ")
-    @subtitle("i.e. Collaborative with Trending")
     recsConfig: RecommendationsConfig = new RecommendationsConfig()
         .restrictItemType("Product")
         .restrictMaxResults(this.maximumNumberOfProducts);
 
-    @header("Recommendations Attributes")
+    @header("Recommendation Display Attributes")
 
     @title("Show product name")
     nameVisibility: boolean = true;
@@ -42,9 +40,11 @@ export class ProductRecommendationsTemplate implements CampaignTemplateComponent
 
     run(context: CampaignComponentContext) {
         this.recsConfig.maxResults = this.maximumNumberOfProducts;
+
         return {
             itemType: this.recsConfig.itemType,
             products: recommend(context, this.recsConfig)
         };
     }
+    
 }

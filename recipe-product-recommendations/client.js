@@ -1,6 +1,8 @@
 (function() {
 
     function apply(context, template) {
+        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
+
         /**
          * The pageElementLoaded method waits for the content zone to load into the DOM
          * before rendering the template. The observer element that monitors for the content
@@ -11,15 +13,15 @@
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
-        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
         return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
                 const html = template(context);
-                Evergage.cashDom(element).before(html);
+                Evergage.cashDom(element).html(html);
             });
     }
 
     function reset(context, template) {
-        Evergage.cashDom("#evg-recipe-product-recommendations").remove();
+        Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+            .remove();
     }
 
     function control(context) {

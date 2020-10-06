@@ -1,35 +1,35 @@
 {{!--
-    Global Template: Recipe Product Recommendations
+    Global Template: Einstein Product Recommendations
 
     This global template inserts a row of recommended products, based on a selected Einstein Recipe.
 
     Requirements:
-    1) Ensure that the available content zones are defined in your Sitemap.
+    1) Set the content zone(s) to that defined in your Sitemap.
 
     Customizations:
-    1) Media query breakpoints can be changed in CSS.
-    2) For performance optimization, add an observer selector as a second argument to
+    1) For performance optimization, add an observer selector as a second argument to
     Evergage.DisplayUtil.pageElementLoaded in Clientside Code that waits for the content zone to load into the DOM.
+    2) Use .before(html) or .after(html) in Clientside Code to insert the generated HTML content before or after the 
+    content zone, respectively, instead of replacing the content of the content zone with .html(html).
     3) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code.
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
     4) Ratings are styled using the current rating value and a maxRatingBound, which is defined in the configuration
     properties in Serverside Code and defaults to 5. If you know that ratings captured in the sitemap are on a scale
     of 5, then there's no need to change this value.
     5) Remove or change the default values for the configuration properties in Serverside Code.
-    6) Change any and all values of aria-label attributes as necessary.
+    6) Change the values of aria-label attributes as necessary.
+    7) Media query breakpoints can be changed in CSS.
 --}}
 
-<div id="evg-recipe-product-recommendations" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}"
+<section id="evg-einstein-product-recs" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}"
 data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if header}} - {{header}}{{/if}}">
-    <h3 class="evg-h3 evg-header">
-        {{header}}
-    </h3>
-    <div class="evg-container evg-product-recommendations">
+    <h3 class="evg-header evg-h3">{{header}}</h3>
+    <div class="evg-product-recs">
         {{#each products}}
-        <div class="evg-product-recommendation" data-evg-item-id="{{id}}" data-evg-item-type="{{../itemType}}"
+        <article class="evg-product-rec" data-evg-item-id="{{id}}" data-evg-item-type="{{../itemType}}"
         style="max-width: calc((1 / {{../maximumNumberOfProducts}} * 100%));">
             <a href="{{attributes.url.value}}">
-                <img class="evg-product-image" src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
+                <img class="evg-product-img" src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
                 <a class="evg-product-name{{#unless ../nameVisibility}} evg-hide{{/unless}}"
@@ -57,7 +57,7 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
         {{/each}}
     </div>
-</div>
+</section>

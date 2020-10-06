@@ -1,19 +1,18 @@
 /* ==========================================================================
-   Containers
+   Recommendations Block
 ========================================================================== */
 
-#evg-recipe-product-recommendations {
-    margin: 2rem auto;
+#evg-einstein-product-recs {
     width: 100%;
     max-width: 1440px;
+    margin: 2rem auto;
     color: inherit;
     font-family: inherit;
 }
 
-#evg-recipe-product-recommendations .evg-container {
+#evg-einstein-product-recs .evg-product-recs {
     position: relative;
     z-index: 2;
-    padding: 0;
 
     display: -webkit-box;
     display: -ms-flexbox;
@@ -34,36 +33,34 @@
 
     width: auto;
     height: 100%;
+    padding: 0;
 }
 
 /* ==========================================================================
    Headers
 ========================================================================== */
 
-#evg-recipe-product-recommendations .evg-h3 {
-    padding: 0;
+#evg-einstein-product-recs .evg-h3 {
     margin: 0 0 .5rem;
+    padding: 0;
     color: inherit;
-    font-family: inherit;
-    font-weight: 500;
     font-size: 1.75rem;
+    font-weight: 500;
+    font-family: inherit;
     line-height: 1.2;
 }
 
-#evg-recipe-product-recommendations .evg-header {
-    margin: 1rem 0 2rem;
+#evg-einstein-product-recs .evg-header {
     width: 100%;
+    margin: 1rem 0 2rem;
     text-align: center;
 }
 
 /* ==========================================================================
-   Product Recommendations
+   Individual Product Recommendation
 ========================================================================== */
 
-#evg-recipe-product-recommendations .evg-product-recommendation {
-    padding: 0 .5rem;
-    margin: 0;
-
+#evg-einstein-product-recs .evg-product-rec {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -82,31 +79,32 @@
     align-items: flex-end;
 
     width: auto;
+    margin: 0;
+    padding: 0 .5rem;
     text-align: center;
 }
 
-#evg-recipe-product-recommendations .evg-product-recommendation > a,
-#evg-recipe-product-recommendations .evg-product-recommendation .evg-product-details {
-    background-color: #ffffff;
+#evg-einstein-product-recs .evg-product-rec > a,
+#evg-einstein-product-recs .evg-product-rec .evg-product-details {
+    background-color: #fff;
 }
 
-#evg-recipe-product-recommendations .evg-product-image {
+#evg-einstein-product-recs .evg-product-img {
     width: 80%;
     height: auto;
 }
 
-#evg-recipe-product-recommendations .evg-product-details {
-    padding: .5rem 0;
+#evg-einstein-product-recs .evg-product-details {
     width: 100%;
     height: 100%;
     min-height: 9rem;
+    padding: .5rem;
 }
 
-#evg-recipe-product-recommendations .evg-product-name {
-    margin: auto auto .25rem;
+#evg-einstein-product-recs .evg-product-name {
     display: block;
-    max-width: 90%;
     min-height: 2.5rem;
+    margin: auto auto .25rem;
     color:#393939;
     font-size: 1rem;
     font-weight: 600;
@@ -114,53 +112,56 @@
     text-decoration: none;
 }
 
-#evg-recipe-product-recommendations .evg-product-description {
-    margin: 0 auto;
-    width: 95%;
-    max-height: 2rem;
+#evg-einstein-product-recs .evg-product-description {
     overflow: hidden;
+    max-height: 2rem;
+    margin: 0 auto;
     font-size: .85rem;
     line-height: 1rem;
 }
 
-#evg-recipe-product-recommendations .evg-product-description,
-#evg-recipe-product-recommendations .evg-product-price,
-#evg-recipe-product-recommendations .evg-product-rating {
+#evg-einstein-product-recs .evg-product-description,
+#evg-einstein-product-recs .evg-product-price,
+#evg-einstein-product-recs .evg-product-rating {
     margin-bottom: .5rem;
 }
 
-#evg-recipe-product-recommendations .evg-product-rating {
+#evg-einstein-product-recs .evg-product-rating {
+    width: 5rem;
     margin-right: auto;
     margin-left: auto;
-    width: 5rem;
     text-align: left;
     text-decoration: none;
 }
 
-#evg-recipe-product-recommendations .evg-star-empty,
-#evg-recipe-product-recommendations .evg-star-full {
+#evg-einstein-product-recs .evg-star-empty,
+#evg-einstein-product-recs .evg-star-full {
     text-align: left;
     text-decoration: none;
 }
 
-#evg-recipe-product-recommendations .evg-star-empty {
+#evg-einstein-product-recs .evg-star-empty {
     color: #dee3e8;
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
-#evg-recipe-product-recommendations .evg-star-fill {
+#evg-einstein-product-recs .evg-star-fill {
     position: relative;
-    margin-top: -1.4em;
     overflow: hidden;
+    margin-top: -1.4em;
     color: #ce763c;
     background-color: transparent;
 }
 
-#evg-recipe-product-recommendations .evg-hide {
+/* ==========================================================================
+   Visibility
+========================================================================== */
+
+#evg-einstein-product-recs .evg-hide {
+    visibility: hidden;
     display: none;
     width: 0;
     height: 0;
-    visibility: hidden;
 }
 
 /* ==========================================================================
@@ -168,38 +169,34 @@
 ========================================================================== */
 
 @media screen and (max-width: 991px) {
-    #evg-recipe-product-recommendations .evg-container {
+    #evg-einstein-product-recs .evg-product-recs {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-flow: row wrap;
         flex-flow: row wrap;
 
-        padding-right: 15px;
-        padding-left: 15px;
+        max-width: 720px;
         margin-right: auto;
         margin-left: auto;
-        max-width: 720px;
+        padding-right: 15px;
+        padding-left: 15px;
     }
 
-    #evg-recipe-product-recommendations .evg-product-recommendation {
-        padding: 1rem 0;
-        margin-bottom: 2rem;
+    #evg-einstein-product-recs .evg-product-rec {
         max-width: calc(50% - 1rem) !important;
+        margin-bottom: 2rem;
+        padding: 1rem 0;
     }
 }
 
 @media screen and (max-width: 767px) {
-    #evg-recipe-product-recommendations .evg-container {
+    #evg-einstein-product-recs .evg-product-recs {
         max-width: 540px;
     }
 }
 
 @media screen and (max-width: 575px) {
-    #evg-recipe-product-recommendations .evg-product-name--wrapper {
-        min-height: 4rem;
-    }
-
-    #evg-recipe-product-recommendations .evg-product-name {
+    #evg-einstein-product-recs .evg-product-name {
         min-height: 3rem;
     }
 }
