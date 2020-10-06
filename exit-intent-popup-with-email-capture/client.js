@@ -33,10 +33,11 @@
 
     /**
      * @function setDismissal
+     * @param {Object} context
      * @description Adds click listener to the overlay, "X" button, and opt-out text that removes the 
      * template from the DOM.
      */
-    function setDismissal() {
+    function setDismissal(context) {
         const dismissSelectors = [
             "#evg-exit-intent-popup-email-capture .evg-overlay",
             "#evg-exit-intent-popup-email-capture .evg-btn-dismissal",
@@ -44,7 +45,8 @@
         ];
 
         Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
-            Evergage.cashDom("#evg-exit-intent-popup-email-capture").remove();
+            Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+                .remove();
         });
     }
 
@@ -62,7 +64,7 @@
             const html = template(context);
             Evergage.cashDom("body").append(html);
             setConfirmationPanel();
-            setDismissal();
+            setDismissal(context);
         });
     }
 

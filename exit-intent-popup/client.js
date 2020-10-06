@@ -11,16 +11,18 @@
 
     /**
      * @function setDismissal
+     * @param {Object} context
      * @description Adds click listener to the overlay and "X" button that removes the template from the DOM.
      */
-    function setDismissal() {
+    function setDismissal(context) {
         const dismissSelectors = [
             "#evg-exit-intent-popup .evg-overlay",
             "#evg-exit-intent-popup .evg-btn-dismissal",
         ];
 
         Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
-            Evergage.cashDom("#evg-exit-intent-popup").remove();
+            Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+                .remove();
         });
     }
 
@@ -37,7 +39,7 @@
             context.overlayClass = context.lightbox ? "evg-overlay" : "";
             const html = template(context);
             Evergage.cashDom("body").append(html);
-            setDismissal();
+            setDismissal(context);
         });
     }
 
