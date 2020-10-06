@@ -8,47 +8,45 @@ export class LightboxField {
     overlayClass: string
 }
 
-export class ExitIntentPopupEmailCapture implements CampaignTemplateComponent {
+export class ExitIntentPopupWithEmailCapture implements CampaignTemplateComponent {
 
-    @title("Title")
-    @subtitle("i.e. Don't leave yet!")
-    @richText(true)
-    title: string = "Don't leave yet!";
+    @header("Pop-Up Type")
 
-    @title("Subtitle")
-    @subtitle("i.e. Do you want to learn more about our special summer offers?")
-    @richText(true)
-    subtitle: string = "Do you want to learn more about our special summer offers?";
+    lightbox: boolean = true;
 
-    @title("Confirmation Title")
-    @subtitle("i.e. Thanks for subscribing!")
-    @richText(true)
-    confirmationTitle: string = "Thanks for subscribing!";
-
-    @title("Confirmation Subtitle")
-    @subtitle("i.e. We're excited to have you")
-    @richText(true)
-    confirmationSubtitle: string = "We're excited to have you";
-
-    @title("CTA Text")
-    @subtitle("i.e. Definitely!")
-    ctaText: string = "Definitely!";
-
-    @title("Opt-out Text")
-    @subtitle("i.e. No Thanks")
-    optOutText: string = "No Thanks";
-
-    @title("Lightbox")
-    lightboxEnabled: boolean = true;
+    @title("Background Image URL")
+    imageUrl: string = "https://cdn.evergage.com/evergage-content/nto/nto_footwear.jpg";
 
     @options([
         {label: "Light on Dark", className: "evg-light-on-dark"},
         {label: "Dark on Light", className: "evg-dark-on-light" }
     ])
+    @subtitle("Define header and subheader text styling.")
     style: StyleField = {label: "Light on Dark", className: "evg-light-on-dark"};
 
-    @title("Background Image URL")
-    imageUrl: string = "https://cdn.evergage.com/evergage-content/nto/nto_footwear.jpg";
+    header: string = "Header Text";
+
+    subheader: string = "Subheader Text";
+
+    @title("Subheader Visibility")
+    mainSubheaderVisibility: boolean = true;
+
+    @title("CTA Text")
+    ctaText: string = "Call To Action";
+
+    @title("Opt-Out Text")
+    @subtitle("Clicking this text closes the pop-up.")
+    optOutText: string = "No Thanks";
+
+    @title("Confirmation Screen Header")
+    @subtitle("Text appears upon successful email submission. Click CTA to preview.")
+    confirmationHeader: string = "Confirmation Header Text";
+
+    @title("Confirmation Screen Subheader")
+    confirmationSubheader: string = "Confirmation Subheader Text";
+
+    @title("Subheader Visibility")
+    confSubheaderVisibility: boolean = true;
 
     run(context: CampaignComponentContext) {
         return {};
