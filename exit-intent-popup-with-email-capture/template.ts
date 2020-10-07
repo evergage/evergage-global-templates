@@ -17,12 +17,12 @@ export class ExitIntentPopupWithEmailCapture implements CampaignTemplateComponen
     @title("Background Image URL")
     imageUrl: string = "https://cdn.evergage.com/evergage-content/nto/nto_footwear.jpg";
 
-    @options([
-        {label: "Light on Dark", className: "evg-light-on-dark"},
-        {label: "Dark on Light", className: "evg-dark-on-light" }
-    ])
     @subtitle("Define header and subheader text styling.")
-    style: StyleField = {label: "Light on Dark", className: "evg-light-on-dark"};
+    @options([
+        { label: "Light on Dark", className: "evg-light-on-dark" },
+        { label: "Dark on Light", className: "evg-dark-on-light" }
+    ])
+    style: StyleField = { label: "Light on Dark", className: "evg-light-on-dark" };
 
     header: string = "Header Text";
 

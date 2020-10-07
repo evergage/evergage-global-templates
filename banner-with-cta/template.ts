@@ -8,13 +8,13 @@ export class BannerWithCTATemplate implements CampaignTemplateComponent {
     @title("Background Image URL")
     @subtitle("Replace the placeholder image URL with the image URL for your background image.")
     imageURL: string = "https://cdn.evergage.com/evergage-content/nto/nto_hero_banner_bike.jpg";
-  
-    @options([
-        {label: "Light on Dark", className: "evg-light-on-dark"},
-        {label: "Dark on Light", className: "evg-dark-on-light" }
-    ])
+
     @subtitle("Define header and subheader text styling.")
-    style: StyleField = {label: "Light on Dark", className: "evg-light-on-dark"};  
+    @options([
+        { label: "Light on Dark", className: "evg-light-on-dark" },
+        { label: "Dark on Light", className: "evg-dark-on-light" }
+    ])
+    style: StyleField = { label: "Light on Dark", className: "evg-light-on-dark" };
 
     header: string = "Header Text";
 

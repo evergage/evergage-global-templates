@@ -17,12 +17,12 @@ export class ExitIntentPopupTemplate implements CampaignTemplateComponent {
     @title("Background Image URL")
     imageUrl: string = "https://cdn.evergage.com/evergage-content/cumulus/cumulus_growth.jpg";
 
-    @options([
-        {label: "Light on Dark", className: "evg-light-on-dark"},
-        {label: "Dark on Light", className: "evg-dark-on-light" }
-    ])
     @subtitle("Define header and subheader text styling.")
-    style: StyleField = {label: "Dark on Light", className: "evg-dark-on-light"};
+    @options([
+        { label: "Light on Dark", className: "evg-light-on-dark" },
+        { label: "Dark on Light", className: "evg-dark-on-light" }
+    ])
+    style: StyleField = { label: "Dark on Light", className: "evg-dark-on-light" };
 
     @richText(true)
     header: string = "Header Text";

@@ -11,7 +11,7 @@
 
     Customizations:
     1) As a best practice, set the content zone to "global_popup". See https://developer.evergage.com/websdk/contentzones
-    for recommended names for content zones to map via Sitemap.
+    for recommended names for content zones mapped via Sitemap.
     2) Style options can be changed in Serverside Code.
     3) Styling of the Style options, including fallback background color, can be changed in CSS.
     4) Remove or change the default values for the configuration properties in Serverside Code.
@@ -25,7 +25,7 @@
 --}}
 
 <div id="evg-exit-intent-popup-email-capture" data-evg-campaign-id="{{campaign}}"
-data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Email Sign Up"
+data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Popup{{#if header}} - {{header}}{{/if}}"
 role="dialog" aria-modal="true" aria-hidden="false">
     <div class="{{overlayClass}}"></div>
     <div class="evg-popup evg-style-bg {{style.className}}" style="background-image:url('{{imageUrl}}')">
