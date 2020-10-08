@@ -13,38 +13,34 @@
     }
 
     function apply(context, template) {
-        clearTimeout(window.evergageReshowPersonalizationsTimeout);
-        window.evergageReshowPersonalizationsTimeout = setTimeout(function() {
+        if ((window.frameElement || {}).id === "siteEditorFrame") {
             removeTemplateCss(context);
-        }, (Evergage.getConfig().hideContentSectionsMillis || 2500));
+        } else if (context.targetPage.includes(window.location.hostname + window.location.pathname)) {
+            clearTimeout(window.evergageReshowPersonalizationsTimeout);
+            window.evergageReshowPersonalizationsTimeout = setTimeout(function() {
+                removeTemplateCss(context);
+            }, (Evergage.getConfig().hideContentSectionsMillis || 2500));
 
-        if ((context.targetPage && context.urlForRedirect)
-            && window.location.href !== context.urlForRedirect
-            && (window.frameElement || {}).id !== "siteEditorFrame") {
+            if ((context.targetPage && context.urlForRedirect)
+                && window.location.href !== context.urlForRedirect) {
 
-            window.location.href = context.urlForRedirect;
+                window.location.href = context.urlForRedirect + (context.maintainQueryParams ? window.location.search : "");
 
-            Evergage.sendStat({
-                campaignStats: [
-                    {
-                        control: context.userGroup === "Control",
-                        experienceId: context.experience,
-                        stat: "Impression"
-                    }
-                ]
-            });
+                Evergage.sendStat({
+                    campaignStats: [
+                        {
+                            control: context.userGroup === "Control",
+                            experienceId: context.experience,
+                            stat: "Impression"
+                        }
+                    ]
+                });
+            }
         }
     }
 
     function reset(context, template) {
         removeTemplateCss(context);
-
-        if ((context.targetPage && context.urlForRedirect)
-            && window.location.href === context.urlForRedirect
-            && (window.frameElement || {}).id !== "siteEditorFrame") {
-
-            window.location.href = currentHref;
-        }
     }
 
     function control(context) {
