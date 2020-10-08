@@ -8,26 +8,6 @@ export class PromotionImageDimensions {
 
 export class EinsteinPromotionsBannerTemplate implements CampaignTemplateComponent {
 
-    @title("Why Use This Template:")
-    @subtitle("Let Einstein choose the Best Banner for your visitors.")
-
-    readonly spacing1 = " ";
-
-    @title("How To Use This Template")
-    @subtitle("Choose your content zone and let Einstein do the rest.")
-
-    readonly spacing2 = " ";
-
-    @title("Choose Content Zone")
-    @subtitle("Where the banner will be located")
-    @options([
-        "home_hero",
-        "home_sub_hero",
-        "category_hero",
-        "category_sub_hero",
-    ])
-    contentZone: string = "home_hero";
-
     @title("Choose Image Size")
     @options([
         { label: "700x300", width: 700, height: 300 },
@@ -42,7 +22,6 @@ export class EinsteinPromotionsBannerTemplate implements CampaignTemplateCompone
 
     run(context: CampaignComponentContext) {
         let banditConfig: ContextualBanditConfig = {
-            contentZone: this.contentZone,
             maxResults: 1,
             banditFeatureSubsetId: this.banditFeatureSubsetId,
             imageWidth: this.promoSelection.width,
