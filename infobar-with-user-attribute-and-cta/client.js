@@ -1,6 +1,10 @@
 (function() {
 
-
+    /**
+     * @function buildMsgSelectorFromContext
+     * @param {Object} context
+     * @description Creates CSS selector for template's message by using values from context
+     */
     function buildMsgSelectorFromContext(context) {
         return `[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`;
     }

@@ -13,18 +13,16 @@ export class InfobarWithUserAttrAndCTATemplate implements CampaignTemplateCompon
     style: StyleField = { label: "Light on Dark", className: "evg-light-on-dark" };
 
     @title('Pre-Attribute Message Text')
-    @subtitle('Insert message text to appear before the dynamic attribute')
-    preAttrMessageText: string = "Message Text";
+    @subtitle('Optional text input field')
+    preAttrMessageText: string = "Message Text, ";
 
     @title('User Attribute Default')
     @subtitle('Text to appear in place of the user attribute (in this case, first name)')
     userAttrDefault: string = "Default";
 
     @title('Post-Attribute Message Text')
-    @subtitle('Insert message text to appear after the dynamic attribute')
-    postAttrMessageText: string = "Additional Message Text";
-
-    messageVisibility: boolean = true;
+    @subtitle('Optional text input field')
+    postAttrMessageText: string = ", Additional Message Text";
 
     @title('CTA Text')
     ctaText: string = "Call To Action";
@@ -38,7 +36,6 @@ export class InfobarWithUserAttrAndCTATemplate implements CampaignTemplateCompon
 
     run(context: CampaignComponentContext) {
         return {
-            userAttrDefault: this.userAttrDefault,
             user: context.user
         };
     }
