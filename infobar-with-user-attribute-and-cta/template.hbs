@@ -26,18 +26,20 @@ data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}"
 aria-label="Infobar{{#if messageText}} - {{messageText}}{{/if}}" role="alert">
     <div class="evg-infobar">
         <p class="evg-message {{style.className}}{{#unless messageVisibility}} evg-hide{{/unless}}">
-            {{preAttrMessageText}}
-            {{#if user.attribute.firstName}}
-                {{user.attribute.firstName}}
-            {{else}}
-                {{#if userAttrDefault}}{{userAttrDefault}}{{else}} {{/if}}
-            {{/if}}
-            {{#if postAttrMessageText}}
-            {{postAttrMessageText}}
-            {{/if}}
+            {{~#if preAttrMessageText~}}
+                {{~preAttrMessageText~}}
+            {{/if~}}
+            {{~#if user.attribute.firstName~}}
+                {{~user.attribute.firstName~}}
+            {{~else~}}
+                {{~#if userAttrDefault~}}{{~userAttrDefault~}}{{~else}} {{/if~}}
+            {{~/if}}
+            {{~#if postAttrMessageText~}}
+                {{~postAttrMessageText~}}
+            {{~/if~}}
         </p>
         <a class="evg-cta {{style.className}}{{#unless ctaVisibility}} evg-hide{{/unless}}" href="{{ctaUrl}}">
-            {{ctaText}}
+            {{~ctaText~}}
         </a>
     </div>
     <button class="evg-btn-dismissal {{style.className}}" data-evg-dismissal aria-label="Close Infobar">&times;</button>

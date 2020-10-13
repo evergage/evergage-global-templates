@@ -1,5 +1,10 @@
 (function() {
 
+
+    function buildMsgSelectorFromContext(context) {
+        return `[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`;
+    }
+
     /**
      * @function setInfobarPosition
      * @param {Object} context
@@ -23,7 +28,7 @@
      */
     function setDismissal(context) {
         Evergage.cashDom("#evg-infobar-with-cta .evg-btn-dismissal").on("click", () => {
-            Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+            Evergage.cashDom(buildMsgSelectorFromContext(context))
                 .remove();
             Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
         });
@@ -37,7 +42,7 @@
     }
 
     function reset(context, template) {
-        Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+        Evergage.cashDom(buildMsgSelectorFromContext(context))
             .remove();
         Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
     }

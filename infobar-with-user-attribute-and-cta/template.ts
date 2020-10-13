@@ -14,15 +14,15 @@ export class InfobarWithUserAttrAndCTATemplate implements CampaignTemplateCompon
 
     @title('Pre-Attribute Message Text')
     @subtitle('Insert message text to appear before the dynamic attribute')
-    preAttrMessageText: string = "Infobar Message Text";
+    preAttrMessageText: string = "Message Text";
 
     @title('User Attribute Default')
     @subtitle('Text to appear in place of the user attribute (in this case, first name)')
-    userAttrDefault: string = "";
+    userAttrDefault: string = "Default";
 
     @title('Post-Attribute Message Text')
     @subtitle('Insert message text to appear after the dynamic attribute')
-    postAttrMessageText: string = "Infobar Message Text";
+    postAttrMessageText: string = "Additional Message Text";
 
     messageVisibility: boolean = true;
 
