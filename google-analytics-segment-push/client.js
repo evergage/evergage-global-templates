@@ -34,11 +34,13 @@
             setGaDimension(context);
             sendGaDimensions(context);
             Evergage.sendStat({
-                campaignStats: [{
-                    control: false,
-                    experienceId: context.experience,
-                    stat: "Impression"
-                }]
+                campaignStats: [
+                    {
+                        control: false,
+                        experienceId: context.experience,
+                        stat: "Impression"
+                    }
+                ]
             });
         }
     }

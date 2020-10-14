@@ -1,6 +1,6 @@
 ### Einstein Content Recommendations
 
-This global template inserts recommended contents in a two-column format, based on a selected Einstein Recipe.
+This global template inserts recommended content in a two-column format, based on a selected Einstein Recipe.
 
 ![Einstein Content Recommendations Template](template.png)
 

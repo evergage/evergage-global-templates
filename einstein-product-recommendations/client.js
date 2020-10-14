@@ -14,9 +14,9 @@
          * https://developer.evergage.com/templates/display-utilities
          */
         return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
-                const html = template(context);
-                Evergage.cashDom(element).html(html);
-            });
+            const html = template(context);
+            Evergage.cashDom(element).html(html);
+        });
     }
 
     function reset(context, template) {
