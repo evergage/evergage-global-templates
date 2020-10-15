@@ -3,6 +3,10 @@
     function apply(context, template) {
         switch (context.triggerOptions.name) {
             case "timeOnPage":
+                setTimeout(() => {
+                    const html = template(context);
+                    Evergage.cashDom("body").append(html);
+                }, context.triggerOptionsNumber)
                 break;
             case "pageScroll":
                 return Evergage.DisplayUtils
