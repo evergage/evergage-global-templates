@@ -8,8 +8,24 @@
     https://developer.evergage.com/templates/campaign-stats.
 --}}
 
-<div
-    id="evg-slide-in" data-evg-campaign-id="{{campaign}}"
+<div class="{{style.className}}" id="evg-slide-in-cta" data-evg-campaign-id="{{campaign}}"
     data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}">
-    New template
+    <div class="evg-slide-in">
+        {{#if showHeader~}}
+        <h1 class="{{style.className}} evg-header">
+            {{~header~}}
+        </h1>
+        {{~/if}}
+        {{#if showSubheader~}}
+        <h2 class="{{style.className}} evg-subheader">
+            {{~subheader~}}
+        </h2>
+        {{~/if}}
+        {{#if showCta~}}
+        <a class="{{style.className}} evg-cta evg-btn evg-btn-primary" href="{{ctaUrl}}" aria-label="{{ctaText}}">
+            {{~ctaText~}}
+        </a>
+        {{~/if}}
+        <button class="evg-btn-dismissal {{style.className}}" data-evg-dismissal aria-label="Close Slide-In">&times;</button>
+    </div>
 </div>

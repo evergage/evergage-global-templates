@@ -1,25 +1,171 @@
+/* ==========================================================================
+   Slide-In
+========================================================================== */
+
+#evg-slide-in-cta {
+    position: absolute;
+    z-index: 10000;
+    top: auto !important;
+    right: 10%;
+    bottom: 10vh !important;
+    left: auto;
+    width: 300px;
+    max-width: 90vw;
+    height: 300px;
+    max-height: 90vh;
+    border-color: #000;
+    color: #fff;
+    background-color: #000;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    animation-name: slideInDesktopMessage;
+    animation-duration: 3s;
+}
+
+#evg-slide-in-cta .evg-slide-in {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 1px;
+}
+
+#evg-slide-in-cta .evg-header,
+#evg-slide-in-cta .evg-subheader,
+#evg-slide-in-cta .evg-cta {
+    display: block;
+    width: 60%;
+    height: fit-content;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Headers
+========================================================================== */
+
+#evg-slide-in-cta .evg-header {
+    font-size: 2rem;
+}
+
+#evg-slide-in-cta .evg-subheader {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   Call-To-Action Button
+========================================================================== */
+
+#evg-slide-in-cta .evg-btn {
+    vertical-align: middle;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 3rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#evg-slide-in-cta .evg-btn-primary {
+    border-color: #fff;
+    color: #000;
+    background-color: #fff;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+#evg-slide-in-cta .evg-cta:hover {
+    text-decoration: none;
+}
+
+#evg-slide-in-cta .evg-btn-dismissal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 0.5rem;
+    border: 1px solid transparent;
+    color: #fff;
+    background-color: transparent;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Color Theme
+========================================================================== */
+
+#evg-slide-in-cta.evg-dark-on-light {
+    background-color: #fff;
+}
+
+#evg-slide-in-cta.evg-light-on-dark {
+    background-color: #000;
+}
+
+#evg-slide-in-cta .evg-header.evg-dark-on-light,
+#evg-slide-in-cta .evg-subheader.evg-dark-on-light,
+#evg-slide-in-cta .evg-btn-dismissal.evg-dark-on-light,
+#evg-slide-in-cta .evg-cta.evg-light-on-dark {
+    color: #000;
+    background-color: #fff;
+}
+
+#evg-slide-in-cta .evg-header.evg-light-on-dark,
+#evg-slide-in-cta .evg-subheader.evg-light-on-dark,
+#evg-slide-in-cta .evg-btn-dismissal.evg-light-on-dark,
+#evg-slide-in-cta .evg-cta.evg-dark-on-light {
+    color: #fff;
+    background-color: #000;
+}
+
+/* ==========================================================================
+   Media Queries
+========================================================================== */
+
+@media only screen and (max-width: 767px) {
+    #evg-slide-in-cta {
+        right: 10%;
+        font-size: 14px;
+        animation-name: slideInMobileMessage;
+        animation-duration: 3s;
+    }
+
+    #evg-slide-in-cta .evg-header {
+        font-size: 17px;
+    }
+}
+
 @keyframes slideInDesktopMessage {
     from {
-        /* left: 110%; */
         right: -90%;
     }
 
     to {
-        /* left: auto; */
-        /* left: 70%; */
         right: 10%;
     }
 }
 
 @keyframes slideInMobileMessage {
     from {
-        /* left: 110%; */
         right: -90%;
     }
 
     to {
-        /* left: auto; */
-        /* left: 10%; */
         right: 10%;
     }
 }

@@ -1,6 +1,9 @@
 (function() {
 
     function apply(context, template) {
+        context.showHeader = context.headerVisibility && context.header;
+        context.showSubheader = context.subheaderVisibility && context.subheader;
+        context.showCta = context.ctaVisibility && context.ctaText && context.ctaUrl;
         switch (context.triggerOptions.name) {
             case "timeOnPage":
                 setTimeout(() => {
