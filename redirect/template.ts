@@ -11,7 +11,7 @@ export class RedirectTemplate implements CampaignTemplateComponent {
     @title("Redirect with query parameters from original URL")
     maintainQueryParams: boolean = true;
 
-    private prepareUrlForRedirect() {
+    private prepareUrlForRedirect(): string {
         return (this.urlForRedirect || "").replace(/(http:)|([^\/]$)/gim, (match, p1, p2) => {
             if (p1) {
                 return "https:"
