@@ -1,7 +1,7 @@
 {{!--
-    Global Template: Infobar with Call-to-Action
+    Global Template: Infobar with User Attribute and Call-to-Action
 
-    This global template places an infobar containing text and a call-to-action button.
+    This global template places an infobar containing text, which includes a user attribute, and a call-to-action button.
 
     There are two default Styles: Dark text for lighter backgrounds or light text on darker backgrounds.
 
@@ -21,16 +21,16 @@
     6) Change the value of the aria-label attributes as necessary.
 --}}
 
-<div class="{{infobarClass}} {{style.className}}" id="evg-infobar-with-cta" data-evg-campaign-id="{{campaign}}"
+<div class="{{infobarClass}} {{style.className}}" id="evg-infobar-with-user-attr" data-evg-campaign-id="{{campaign}}"
 data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}"
-aria-label="Infobar{{#if messageText}} - {{messageText}}{{/if}}" role="alert">
+aria-label="Infobar - TODO: constructed message text" role="alert">
     <div class="evg-infobar">
         <p class="evg-message {{style.className}}">
             {{~#if preAttrMessageText~}}
                 {{~preAttrMessageText~}}
             {{/if~}}
-            {{~#if user.attribute.firstName~}}
-                {{~user.attribute.firstName~}}
+            {{~#if user.attributes.firstName~}}
+                {{~user.attributes.firstName~}}
             {{~else~}}
                 {{~#if userAttrDefault~}}{{~userAttrDefault~}}{{~else}} {{/if~}}
             {{~/if}}

@@ -1,11 +1,11 @@
 (function() {
 
     /**
-     * @function buildMsgSelectorFromContext
+     * @function buildTemplateSelector
      * @param {Object} context
-     * @description Creates CSS selector for template's message by using values from context
+     * @description Creates unique selector that targets the template.
      */
-    function buildMsgSelectorFromContext(context) {
+    function buildTemplateSelector(context) {
         return `[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`;
     }
 
@@ -32,8 +32,7 @@
      */
     function setDismissal(context) {
         Evergage.cashDom("#evg-infobar-with-cta .evg-btn-dismissal").on("click", () => {
-            Evergage.cashDom(buildMsgSelectorFromContext(context))
-                .remove();
+            Evergage.cashDom(buildTemplateSelector(context)).remove();
             Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
         });
     }
@@ -46,8 +45,7 @@
     }
 
     function reset(context, template) {
-        Evergage.cashDom(buildMsgSelectorFromContext(context))
-            .remove();
+        Evergage.cashDom(buildTemplateSelector(context)).remove();
         Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
     }
 
