@@ -11,7 +11,7 @@
 
     /**
      * @function setConfirmationPanel
-     * @description Adds click listener to the Call-To-Action button that validates the user email address, 
+     * @description Adds click listener to the Call-To-Action button that validates the user email address,
      * shows the Confirmation Panel, and sends an event to Interaction Studio to set the emailAddress attribute to
      * the user email address.
      */
@@ -34,7 +34,7 @@
     /**
      * @function setDismissal
      * @param {Object} context
-     * @description Adds click listener to the overlay, "X" button, and opt-out text that removes the 
+     * @description Adds click listener to the overlay, "X" button, and opt-out text that removes the
      * template from the DOM.
      */
     function setDismissal(context) {
@@ -51,11 +51,11 @@
     }
 
     function apply(context, template) {
-        
+
         /**
          * The pageExit method waits for the user's cursor to exit through the top edge of the page before rendering the
          * template after a set delay.
-         * 
+         *
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
@@ -75,12 +75,12 @@
     }
 
     function control() {
- 
+
     }
-  
+
     registerTemplate({
       apply: apply,
-      reset: reset, 
+      reset: reset,
       control: control
     });
 

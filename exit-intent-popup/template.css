@@ -149,7 +149,7 @@
 #evg-exit-intent-popup .evg-style-bg.evg-dark-on-light {
     background-color: #fff;
 }
- 
+
 #evg-exit-intent-popup .evg-style-text.evg-light-on-dark {
     color: #fff;
 }
@@ -172,7 +172,7 @@
 /* ==========================================================================
    Media Queries
 ========================================================================== */
- 
+
 @media screen and (max-height: 500px) {
     #evg-exit-intent-popup .evg-popup {
         height: 90vh;
@@ -191,7 +191,7 @@
     #evg-exit-intent-popup .evg-h2 {
         font-size: 1.2rem;
     }
- 
+
     #evg-exit-intent-popup .evg-btn-lg {
         font-size: 1rem;
     }

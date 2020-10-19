@@ -46,5 +46,5 @@ export class EinsteinProductRecsTemplate implements CampaignTemplateComponent {
             products: recommend(context, this.recsConfig)
         };
     }
-    
+
 }

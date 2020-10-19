@@ -1,5 +1,5 @@
 (function() {
- 
+
     /**
      * @function setInfobarPosition
      * @param {Object} context
@@ -51,5 +51,5 @@
         reset: reset,
         control: control
     });
-      
+
   })();

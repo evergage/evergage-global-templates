@@ -3,7 +3,7 @@
     /**
      * @function setGaDimension
      * @param {Object} context
-     * @description Sets one or more segments, for which users are members of, to each dimension. 
+     * @description Sets one or more segments, for which users are members of, to each dimension.
      * The segment names will be concatenated into one pipe (|) delimited string (e.g. "Segment 1|Segment 2|Segment 3")
      * when more than one segment per dimension are assigned.
      */

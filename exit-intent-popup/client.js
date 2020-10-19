@@ -27,11 +27,11 @@
     }
 
     function apply(context, template) {
-        
+
         /**
          * The pageExit method waits for the user's cursor to exit through the top edge of the page before rendering the
          * template after a set delay.
-         * 
+         *
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
@@ -50,12 +50,12 @@
     }
 
     function control() {
- 
+
     }
-  
+
     registerTemplate({
       apply: apply,
-      reset: reset, 
+      reset: reset,
       control: control
     });
 

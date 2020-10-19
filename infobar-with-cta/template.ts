@@ -29,5 +29,5 @@ export class InfobarWithCTATemplate implements CampaignTemplateComponent {
     run(context: CampaignComponentContext) {
         return {};
     }
-    
+
 }

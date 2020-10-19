@@ -55,7 +55,7 @@
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
-    flex-direction: column;    
+    flex-direction: column;
 
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -98,7 +98,7 @@
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
-    flex-direction: column;    
+    flex-direction: column;
 
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -232,7 +232,7 @@
 /* ==========================================================================
    Media Queries
 ========================================================================== */
- 
+
 @media screen and (max-height: 500px) {
     #evg-exit-intent-popup-email-capture .evg-popup {
         height: 90vh;
@@ -251,7 +251,7 @@
     #evg-exit-intent-popup-email-capture .evg-h2 {
         font-size: 1.2rem;
     }
- 
+
     #evg-exit-intent-popup-email-capture .evg-btn-lg {
         font-size: 1rem;
     }

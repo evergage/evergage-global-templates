@@ -75,7 +75,7 @@
 #evg-infobar-with-cta .evg-cta {
     display: inline-block;
     vertical-align: middle;
-    margin-left: 10px;
+    margin-left: .5rem;
     font-size: 1rem;
 }
 
