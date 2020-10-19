@@ -1,11 +1,11 @@
 (function() {
 
     /**
-     * @function getBindId
+     * @function buildBindId
      * @param {Object} context
      * @description Create unique bind ID based on the campaign and experience IDs.
      */
-    function getBindId(context) {
+    function buildBindId(context) {
         return `${context.campaign}:${context.experience}`;
     }
 
@@ -35,7 +35,7 @@
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
-        return Evergage.DisplayUtils.bind(getBindId(context)).pageExit(500).then(() => {
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
             context.overlayClass = context.lightbox ? "evg-overlay" : "";
             const html = template(context);
             Evergage.cashDom("body").append(html);
@@ -44,7 +44,7 @@
     }
 
     function reset(context, template) {
-        Evergage.DisplayUtils.unbind(getBindId(context));
+        Evergage.DisplayUtils.unbind(buildBindId(context));
         Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
             .remove();
     }
