@@ -8,11 +8,17 @@
     Requirements:
     1) Set the content zone(s) to that defined in your Sitemap. This template assumes a top infobar with the
     name "global_infobar_top_of_page" in Clientside Code for dynamic positioning of the infobar.
+    2) Unless you want the 'userAttrDefault' value to render in place of the 'firstName' attribute, then a user attribute
+    with the name 'firstName' will need to be created. Additionally, 'userAttrDefault' will function as a fallback, in
+    the event that a given user seeing a Campaign using this Template does not have a value for the 'firstName' attribute.
 
     Customizations:
     1) As a best practice, set the content zone to "global_infobar_top_of_page" for top infobar and
     "global_infobar_bottom_of_page" for bottom infobar. See https://developer.evergage.com/websdk/contentzones
     for recommended names for content zones mapped via Sitemap.
+    2) If you'd like to reference a different user attribute, you will need to change the references of 'firstName' to
+    the name of the new attribute. More on user attributes here:
+    https://doc.evergage.com/display/EKB/Modify+Attributes+at+the+User+or+Account+Level
     2) Style options can be changed in Serverside Code.
     3) Styling of the Style options can be changed in CSS.
     4) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code.
@@ -32,7 +38,7 @@ aria-label="Infobar - TODO: constructed message text" role="alert">
             {{~#if user.attributes.firstName~}}
                 {{~user.attributes.firstName~}}
             {{~else~}}
-                {{~#if userAttrDefault~}}{{~userAttrDefault~}}{{~else}} {{/if~}}
+                {{~userAttrDefault~}}
             {{~/if}}
             {{~#if postAttrMessageText~}}
                 {{postAttrMessageText}}
