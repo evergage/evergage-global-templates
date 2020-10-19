@@ -50,7 +50,15 @@
     }
 
     function control() {
-
+        Evergage.sendStat({
+            campaignStats: [
+                {
+                    control: true,
+                    experienceId: context.experience,
+                    stat: "Impression"
+                }
+            ]
+        });
     }
 
     registerTemplate({
