@@ -36,7 +36,6 @@
          * https://developer.evergage.com/templates/display-utilities
          */
         return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
-            context.overlayClass = context.lightbox ? "evg-overlay" : "";
             const html = template(context);
             Evergage.cashDom("body").append(html);
             setDismissal(context);

@@ -25,7 +25,11 @@
 <div id="evg-exit-intent-popup" data-evg-campaign-id="{{campaign}}"
 data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Popup{{#if header}} - {{header}}{{/if}}"
 role="dialog" aria-modal="true" aria-hidden="false">
-    <div class="{{overlayClass}}"></div>
+
+    {{#if lightbox}}
+    <div class="evg-overlay"></div>
+    {{/if}}
+
     <div class="evg-popup evg-style-bg {{style.className}}" style="background-image:url('{{imageUrl}}')">
         <div class="evg-main-panel">
             <h1 class="evg-header evg-h1 evg-display-4 evg-style-color {{style.className}}">

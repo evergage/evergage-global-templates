@@ -3,11 +3,6 @@ export class StyleField {
     className: string;
 }
 
-export class LightboxField {
-    label: boolean;
-    overlayClass: string
-}
-
 export class ExitIntentPopupTemplate implements CampaignTemplateComponent {
 
     @header("Pop-Up Type")
