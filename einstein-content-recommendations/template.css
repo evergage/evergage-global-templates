@@ -2,14 +2,14 @@
    Recommendations Block
 ========================================================================== */
 
-#evg-einstein-content-recs {
+.evg-einstein-content-recs {
     width: 100%;
     padding: 1em 0;
     color: inherit;
     font-family: inherit;
 }
 
-#evg-einstein-content-recs .evg-content-recs {
+.evg-einstein-content-recs .evg-content-recs {
     position: relative;
     z-index: 2;
 
@@ -35,7 +35,7 @@
     margin: 0 auto;
 }
 
-#evg-einstein-content-recs .evg-container {
+.evg-einstein-content-recs .evg-container {
     width: 50%;
 }
 
@@ -43,7 +43,7 @@
    Headers
 ========================================================================== */
 
-#evg-einstein-content-recs .evg-h3 {
+.evg-einstein-content-recs .evg-h3 {
     margin: 0 0 .5rem;
     padding: 0;
     color: inherit;
@@ -53,7 +53,7 @@
     line-height: 1.2;
 }
 
-#evg-einstein-content-recs .evg-header {
+.evg-einstein-content-recs .evg-header {
     width: 100%;
     margin: 1rem 0 2rem;
     text-align: center;
@@ -63,18 +63,18 @@
    Individual Content Recommendation
 ========================================================================== */
 
-#evg-einstein-content-recs .evg-content-rec {
+.evg-einstein-content-recs .evg-content-rec {
     margin: 1.5rem;
 }
 
-#evg-einstein-content-recs .evg-content-img {
+.evg-einstein-content-recs .evg-content-img {
     display: block;
     width: 100%;
     height: auto;
     margin: 0;
 }
 
-#evg-einstein-content-recs .evg-content-details {
+.evg-einstein-content-recs .evg-content-details {
     overflow: hidden;
     width: 100%;
     padding: 1rem;
@@ -82,7 +82,7 @@
     text-align: left;
 }
 
-#evg-einstein-content-recs .evg-content-title {
+.evg-einstein-content-recs .evg-content-title {
     display: block;
     overflow: hidden;
     height: 2.5rem;
@@ -93,7 +93,7 @@
     text-decoration: none;
 }
 
-#evg-einstein-content-recs .evg-content-description {
+.evg-einstein-content-recs .evg-content-description {
     overflow: hidden;
     height: 8rem;
     font-size: 1.25rem;
@@ -104,7 +104,7 @@
    Visibility
 ========================================================================== */
 
-#evg-einstein-content-recs .evg-hide {
+.evg-einstein-content-recs .evg-hide {
     visibility: hidden;
     display: none;
     width: 0;
@@ -116,15 +116,15 @@
 ========================================================================== */
 
 @media screen and (max-width: 575px) {
-    #evg-einstein-content-recs .evg-content-title {
+    .evg-einstein-content-recs .evg-content-title {
         font-size: 1.25rem;
     }
 
-    #evg-einstein-content-recs .evg-content-description {
+    .evg-einstein-content-recs .evg-content-description {
         font-size: 1rem;
     }
 
-    #evg-einstein-content-recs .evg-h3 {
+    .evg-einstein-content-recs .evg-h3 {
         margin: 0 0 .5rem;
         padding: 0;
         color: inherit;

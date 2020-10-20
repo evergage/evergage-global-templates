@@ -1,15 +1,6 @@
 (function() {
 
     /**
-     * @function buildTemplateSelector
-     * @param {Object} context
-     * @description Creates unique selector that targets the template.
-     */
-    function buildTemplateSelector(context) {
-        return `[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`;
-    }
-
-    /**
      * @function setInfobarPosition
      * @param {Object} context
      * @description Sets the position of the infobar via class assignments, based on content zone selected.
@@ -32,7 +23,7 @@
      */
     function setDismissal(context) {
         Evergage.cashDom("#evg-infobar-with-cta .evg-btn-dismissal").on("click", () => {
-            Evergage.cashDom(buildTemplateSelector(context)).remove();
+            Evergage.cashDom("#evg-infobar-with-cta").remove();
             Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
         });
     }
@@ -45,7 +36,7 @@
     }
 
     function reset(context, template) {
-        Evergage.cashDom(buildTemplateSelector(context)).remove();
+        Evergage.cashDom("#evg-infobar-with-cta").remove();
         Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
     }
 
