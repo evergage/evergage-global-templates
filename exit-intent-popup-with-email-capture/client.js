@@ -35,7 +35,13 @@
                     #evg-exit-intent-popup-email-capture .evg-overlay,
                     #evg-exit-intent-popup-email-capture .evg-btn-dismissal
                 `).removeAttr("data-evg-dismissal");
-                Evergage.sendEvent({ user: { attributes: { emailAddress: emailAddress } } });
+                Evergage.sendEvent({
+                    user: {
+                        attributes: {
+                            emailAddress: emailAddress
+                        }
+                    }
+                });
             } else {
                 Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-error-msg")
                     .removeClass("evg-hide")
