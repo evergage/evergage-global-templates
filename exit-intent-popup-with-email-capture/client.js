@@ -21,8 +21,8 @@
     /**
      * @function setConfirmationPanel
      * @description Adds click listener to the Call-To-Action button that validates the user email address,
-     * shows the Confirmation Panel, and sends an event to Interaction Studio to set the emailAddress attribute to
-     * the user email address.
+     * shows the Confirmation Panel, removes dismissal tracking from the "X" button and overlay, and sends
+     * an event to Interaction Studio to set the emailAddress attribute to the user email address.
      */
     function setConfirmationPanel() {
         Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-cta").on("click", () => {
@@ -31,6 +31,10 @@
             if (emailAddress && regex.test(emailAddress)) {
                 Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-main-panel").addClass("evg-hide");
                 Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-confirm-panel").removeClass("evg-hide");
+                Evergage.cashDom(`
+                    #evg-exit-intent-popup-email-capture .evg-overlay,
+                    #evg-exit-intent-popup-email-capture .evg-btn-dismissal
+                `).removeAttr("data-evg-dismissal");
                 Evergage.sendEvent({ user: { attributes: { emailAddress: emailAddress } } });
             } else {
                 Evergage.cashDom("#evg-exit-intent-popup-email-capture .evg-error-msg")
