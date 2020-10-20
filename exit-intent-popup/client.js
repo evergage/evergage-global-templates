@@ -1,6 +1,15 @@
 (function() {
 
     /**
+     * @function buildTemplateSelector
+     * @param {Object} context
+     * @description Creates unique selector that targets the template.
+     */
+    function buildTemplateSelector(context) {
+        return `[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`;
+    }
+
+    /**
      * @function buildBindId
      * @param {Object} context
      * @description Create unique bind ID based on the campaign and experience IDs.
@@ -21,8 +30,7 @@
         ];
 
         Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
-            Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
-                .remove();
+            Evergage.cashDom(buildTemplateSelector(context)).remove();
         });
     }
 
@@ -44,8 +52,7 @@
 
     function reset(context, template) {
         Evergage.DisplayUtils.unbind(buildBindId(context));
-        Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
-            .remove();
+        Evergage.cashDom(buildTemplateSelector(context)).remove();
     }
 
     function control() {
