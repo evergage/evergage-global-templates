@@ -59,4 +59,4 @@
         control: control
     });
 
-  })();
+})();

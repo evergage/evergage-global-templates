@@ -60,9 +60,9 @@
     }
 
     registerTemplate({
-      apply: apply,
-      reset: reset,
-      control: control
+        apply: apply,
+        reset: reset,
+        control: control
     });
 
 })();
