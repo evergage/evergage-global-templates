@@ -29,20 +29,10 @@
 
 <div class="{{infobarClass}} {{style.className}}" id="evg-infobar-with-user-attr" data-evg-campaign-id="{{campaign}}"
 data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}"
-aria-label="Infobar - TODO: constructed message text" role="alert">
+aria-label="Infobar{{#if messageText}} - {{messageText}}{{/if}}" role="alert">
     <div class="evg-infobar">
         <p class="evg-message {{style.className}}">
-            {{~#if preAttrMessageText~}}
-                {{~preAttrMessageText~}}
-            {{/if~}}
-            {{~#if user.attributes.firstName~}}
-                {{~user.attributes.firstName~}}
-            {{~else~}}
-                {{~userAttrDefault~}}
-            {{~/if}}
-            {{~#if postAttrMessageText~}}
-                {{postAttrMessageText}}
-            {{~/if~}}
+            {{~messageText~}}
         </p>
         {{#if ctaVisibility~}}
         <a class="evg-cta {{style.className}}" href="{{ctaUrl}}">

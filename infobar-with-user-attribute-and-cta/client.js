@@ -31,13 +31,17 @@
      * @description Adds click listener to the "X" button that removes the template from the DOM.
      */
     function setDismissal(context) {
-        Evergage.cashDom("#evg-infobar-with-cta .evg-btn-dismissal").on("click", () => {
+        Evergage.cashDom("#evg-infobar-with-user-attr .evg-btn-dismissal").on("click", () => {
             Evergage.cashDom(buildTemplateSelector(context)).remove();
             Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
         });
     }
 
     function apply(context, template) {
+        const { preAttrMessageText, userAttrDefault, postAttrMessageText } = context;
+        const { firstName } = context.user.attributes;
+        const userAttr = firstName || userAttrDefault;
+        context.messageText = `${preAttrMessageText}${userAttr}${postAttrMessageText}`;
         setInfobarPosition(context);
         const html = template(context);
         Evergage.cashDom("body").append(html);
@@ -67,4 +71,4 @@
         control: control
     });
 
-  })();
+})();
