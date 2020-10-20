@@ -29,7 +29,7 @@ data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria
 role="dialog" aria-modal="true" aria-hidden="false">
 
     {{#if lightbox}}
-    <div class="evg-overlay"></div>
+    <div class="evg-overlay" data-evg-dismissal></div>
     {{/if}}
 
     <div class="evg-popup evg-style-bg {{style.className}}" style="background-image:url('{{imageUrl}}')">
