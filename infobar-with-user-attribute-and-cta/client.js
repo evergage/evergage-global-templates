@@ -19,8 +19,8 @@
      * @description Adds click listener to the "X" button that removes the template from the DOM.
      */
     function setDismissal(context) {
-        Evergage.cashDom(`#evg-infobar-with-user-attr${context.infobarClass} .evg-btn-dismissal`).on("click", () => {
-            Evergage.cashDom(`#evg-infobar-with-user-attr${context.infobarClass}`).remove();
+        Evergage.cashDom(`#evg-infobar-with-user-attr.${context.infobarClass} .evg-btn-dismissal`).on("click", () => {
+            Evergage.cashDom(`#evg-infobar-with-user-attr.${context.infobarClass}`).remove();
             Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
         });
     }
@@ -41,7 +41,7 @@
     }
 
     function reset(context, template) {
-        Evergage.cashDom(`#evg-infobar-with-user-attr${context.infobarClass}`).remove();
+        Evergage.cashDom(`#evg-infobar-with-user-attr.${context.infobarClass}`).remove();
         Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
     }
 
