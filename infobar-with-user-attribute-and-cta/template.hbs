@@ -16,7 +16,7 @@
     1) As a best practice, set the content zone to "global_infobar_top_of_page" for top infobar and
     "global_infobar_bottom_of_page" for bottom infobar. See https://developer.evergage.com/websdk/contentzones
     for recommended names for content zones mapped via Sitemap.
-    2) If you'd like to reference a different user attribute, you will need to change the references of 'firstName' to
+    2) To reference a different user attribute, change the references of 'firstName' to
     the name of the new attribute. More on user attributes here:
     https://doc.evergage.com/display/EKB/Modify+Attributes+at+the+User+or+Account+Level
     2) Style options can be changed in Serverside Code.
@@ -32,10 +32,10 @@ data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}"
 aria-label="Infobar{{#if messageText}} - {{messageText}}{{/if}}" role="alert">
     <div class="evg-infobar">
         <p class="evg-message {{style.className}}">
-            {{~messageText~}}
+            {{messageText}}
         </p>
         <a class="evg-cta {{style.className}}{{#unless ctaVisibility}} evg-hide{{/unless}}" href="{{ctaUrl}}">
-            {{~ctaText~}}
+            {{ctaText}}
         </a>
     </div>
     <button class="evg-btn-dismissal {{style.className}}" data-evg-dismissal aria-label="Close Infobar">&times;</button>
