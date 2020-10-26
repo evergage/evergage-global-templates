@@ -2,7 +2,7 @@
    Slide-In
 ========================================================================== */
 
-#evg-slide-in-cta {
+#evg-slide-in-with-cta {
     position: absolute;
     z-index: 10000;
     top: auto !important;
@@ -21,7 +21,7 @@
     animation-duration: 3s;
 }
 
-#evg-slide-in-cta .evg-slide-in {
+#evg-slide-in-with-cta .evg-slide-in {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -31,9 +31,9 @@
     min-height: 1px;
 }
 
-#evg-slide-in-cta .evg-header,
-#evg-slide-in-cta .evg-subheader,
-#evg-slide-in-cta .evg-cta {
+#evg-slide-in-with-cta .evg-header,
+#evg-slide-in-with-cta .evg-subheader,
+#evg-slide-in-with-cta .evg-cta {
     display: block;
     width: 60%;
     height: fit-content;
@@ -44,11 +44,11 @@
    Headers
 ========================================================================== */
 
-#evg-slide-in-cta .evg-header {
+#evg-slide-in-with-cta .evg-header {
     font-size: 2rem;
 }
 
-#evg-slide-in-cta .evg-subheader {
+#evg-slide-in-with-cta .evg-subheader {
     font-size: 1.5rem;
     font-weight: 300;
 }
@@ -57,7 +57,7 @@
    Call-To-Action Button
 ========================================================================== */
 
-#evg-slide-in-cta .evg-btn {
+#evg-slide-in-with-cta .evg-btn {
     vertical-align: middle;
     margin-top: 1rem;
     padding: 0.5rem 1rem;
@@ -80,18 +80,18 @@
     user-select: none;
 }
 
-#evg-slide-in-cta .evg-btn-primary {
+#evg-slide-in-with-cta .evg-btn-primary {
     border-color: #fff;
     color: #000;
     background-color: #fff;
     transition: background-color 0.15s, color 0.15s;
 }
 
-#evg-slide-in-cta .evg-cta:hover {
+#evg-slide-in-with-cta .evg-cta:hover {
     text-decoration: none;
 }
 
-#evg-slide-in-cta .evg-btn-dismissal {
+#evg-slide-in-with-cta .evg-btn-dismissal {
     position: absolute;
     top: 0;
     right: 0;
@@ -106,29 +106,40 @@
 }
 
 /* ==========================================================================
+   Visibility
+========================================================================== */
+
+#evg-slide-in-with-cta .evg-hide {
+    visibility: hidden;
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* ==========================================================================
    Color Theme
 ========================================================================== */
 
-#evg-slide-in-cta.evg-dark-on-light {
+#evg-slide-in-with-cta.evg-dark-on-light {
     background-color: #fff;
 }
 
-#evg-slide-in-cta.evg-light-on-dark {
+#evg-slide-in-with-cta.evg-light-on-dark {
     background-color: #000;
 }
 
-#evg-slide-in-cta .evg-header.evg-dark-on-light,
-#evg-slide-in-cta .evg-subheader.evg-dark-on-light,
-#evg-slide-in-cta .evg-btn-dismissal.evg-dark-on-light,
-#evg-slide-in-cta .evg-cta.evg-light-on-dark {
+#evg-slide-in-with-cta .evg-header.evg-dark-on-light,
+#evg-slide-in-with-cta .evg-subheader.evg-dark-on-light,
+#evg-slide-in-with-cta .evg-btn-dismissal.evg-dark-on-light,
+#evg-slide-in-with-cta .evg-cta.evg-light-on-dark {
     color: #000;
     background-color: #fff;
 }
 
-#evg-slide-in-cta .evg-header.evg-light-on-dark,
-#evg-slide-in-cta .evg-subheader.evg-light-on-dark,
-#evg-slide-in-cta .evg-btn-dismissal.evg-light-on-dark,
-#evg-slide-in-cta .evg-cta.evg-dark-on-light {
+#evg-slide-in-with-cta .evg-header.evg-light-on-dark,
+#evg-slide-in-with-cta .evg-subheader.evg-light-on-dark,
+#evg-slide-in-with-cta .evg-btn-dismissal.evg-light-on-dark,
+#evg-slide-in-with-cta .evg-cta.evg-dark-on-light {
     color: #fff;
     background-color: #000;
 }
@@ -138,14 +149,14 @@
 ========================================================================== */
 
 @media only screen and (max-width: 767px) {
-    #evg-slide-in-cta {
+    #evg-slide-in-with-cta {
         right: 10%;
         font-size: 14px;
         animation-name: slideInMobileMessage;
         animation-duration: 3s;
     }
 
-    #evg-slide-in-cta .evg-header {
+    #evg-slide-in-with-cta .evg-header {
         font-size: 17px;
     }
 }

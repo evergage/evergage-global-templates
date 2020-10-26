@@ -64,11 +64,12 @@ export class SlideInWithCTATemplate implements CampaignTemplateComponent {
     @title("CTA Text")
     ctaText: string = "Call To Action";
 
+    @title("CTA Visibility")
+    ctaVisibility: boolean = true;
+
     @title("CTA Destination URL")
     @subtitle("Requires full URL string including https://")
     ctaUrl: string = "https://www.northerntrailoutfitters.com";
-
-    ctaVisibility: boolean = true;
 
     run(context: CampaignComponentContext) {
         switch (this.triggerOptions.name) {

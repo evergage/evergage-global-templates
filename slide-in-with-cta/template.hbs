@@ -1,31 +1,42 @@
 {{!--
-    Add Evergage data attributes to elements you wish to track in the test experience.
+    Global Template: Slide-In with Call-to-Action
 
-    Note: Using Evergage data attributes allows you to track stats with Evergage and
-    requires the "Campaign Stat Tracking Gear" installed and enabled for your dataset.
+    This global template creates a message that slides in from the bottom-right corner of the screen. It contains a
+    header, subheader, and call-to-action button, though each of these is optional.
 
-    Visit the Campaign Stats Tracking documentation to learn more:
-    https://developer.evergage.com/templates/campaign-stats.
+    There are three different triggers for the slide-in: time on page, page sroll, and inactivity on page.
+
+    There are two default Styles: dark text for lighter backgrounds or light text on darker backgrounds.
+
+    Requirements:
+    1) Set the content zone(s) to that defined in your Sitemap. This template uses logical content zones which do not
+    have selectors, such as one like "global_slide-in".
+
+    Customizations:
+    1) For content zone best-practices, see https://developer.evergage.com/websdk/contentzones
+    for recommended names for content zones mapped via Sitemap.
+    2) Style options can be changed in Serverside Code.
+    3) Styling of the Style options can be changed in CSS.
+    4) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code.
+    Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
+    5) Remove or change the default values for the configuration properties in Serverside Code.
+    6) Change the value of the aria-label attributes as necessary.
 --}}
 
 <div class="{{style.className}}" id="evg-slide-in-cta" data-evg-campaign-id="{{campaign}}"
-    data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}">
+    data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}"
+    aria-label="Slide-In Message{{#if header}} {{header}}{{/if}}{{#if subheader}} {{subheader}}{{/if}}">
     <div class="evg-slide-in">
-        {{#if showHeader~}}
-        <h1 class="{{style.className}} evg-header">
-            {{~header~}}
-        </h1>
-        {{~/if}}
-        {{#if showSubheader~}}
-        <h2 class="{{style.className}} evg-subheader">
-            {{~subheader~}}
-        </h2>
-        {{~/if}}
-        {{#if showCta~}}
-        <a class="{{style.className}} evg-cta evg-btn evg-btn-primary" href="{{ctaUrl}}" aria-label="{{ctaText}}">
-            {{~ctaText~}}
+        <p class="evg-header {{style.className}}{{#unless headerVisibility}} evg-hide{{/unless}}" aria-label="{{header}}">
+            {{header}}
+        </p>
+        <p class="evg-subheader {{style.className}}{{#unless subheaderVisibility}} evg-hide{{/unless}}" aria-label="{{subheader}}">
+            {{subheader}}
+        </p>
+        <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}{{#unless ctaVisibility}} evg-hide{{/unless}}"
+            href="{{ctaUrl}}" aria-label="{{ctaText}}">
+            {{ctaText}}
         </a>
-        {{~/if}}
         <button class="evg-btn-dismissal {{style.className}}" data-evg-dismissal aria-label="Close Slide-In">&times;</button>
     </div>
 </div>
