@@ -26,9 +26,7 @@
     }
 
     function apply(context, template) {
-        const { preAttrMessageText, userAttrDefault, postAttrMessageText } = context;
-        const { firstName } = context.user.attributes;
-        const userAttr = firstName || userAttrDefault;
+        const { preAttrMessageText, userAttr, postAttrMessageText } = context;
         context.messageText = `${preAttrMessageText}${userAttr}${postAttrMessageText}`;
         context.infobarClass = context.contentZone == "global_infobar_top_of_page"
             ? "evg-infobar-top"

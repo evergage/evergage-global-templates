@@ -35,8 +35,10 @@ export class InfobarWithUserAttrAndCTATemplate implements CampaignTemplateCompon
     ctaUrl: string = "https://cumulusfinserv.com/banking";
 
     run(context: CampaignComponentContext) {
+        const firstNameAttribute = context?.user?.attributes?.firstName as Attribute;
+        const firstName = firstNameAttribute?.value;
         return {
-            user: context.user
+            userAttr: firstName || this.userAttrDefault
         };
     }
 
