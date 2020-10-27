@@ -38,7 +38,7 @@ export class SlideInWithCTATemplate implements CampaignTemplateComponent {
 
     @shownIf(this, self => self.triggerOptions.name === "inactivity")
     @title(" ")
-    @subtitle("Seconds of inactivity on page")
+    @subtitle("Second(s) of inactivity on page")
     secondsInactive: number = 0;
 
     @hidden(true)
