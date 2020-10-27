@@ -38,7 +38,7 @@
                     setDismissal(context);
                 }, context.triggerOptionsNumber)
                 break;
-            case "pageScroll":
+            case "scrollDepth":
                 return Evergage.DisplayUtils
                     .bind(buildBindId(context))
                     .pageScroll(context.triggerOptionsNumber)

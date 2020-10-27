@@ -16,8 +16,8 @@ export class SlideInWithCTATemplate implements CampaignTemplateComponent {
             label: "Time on Page (Delay)"
         },
         {
-            name: "pageScroll",
-            label: "Page Scroll"
+            name: "scrollDepth",
+            label: "Scroll Depth"
         },
         {
             name: "inactivity",
@@ -28,10 +28,10 @@ export class SlideInWithCTATemplate implements CampaignTemplateComponent {
 
     @shownIf(this, self => self.triggerOptions.name === "timeOnPage")
     @title(" ")
-    @subtitle("Seconds on page")
+    @subtitle("Second(s) on page")
     secondsOnPage: number = 0;
 
-    @shownIf(this, self => self.triggerOptions.name === "pageScroll")
+    @shownIf(this, self => self.triggerOptions.name === "scrollDepth")
     @title(" ")
     @subtitle("% of page the user has scrolled")
     percentageScrolled: number = 0;
@@ -44,7 +44,7 @@ export class SlideInWithCTATemplate implements CampaignTemplateComponent {
     @hidden(true)
     triggerOptionsNumber: number;
 
-    @subtitle("Define infobar background & text styling.")
+    @subtitle("Define slide-in background & text styling.")
     @options([
         { label: "Light on Dark", className: "evg-light-on-dark" },
         { label: "Dark on Light", className: "evg-dark-on-light" }
@@ -76,7 +76,7 @@ export class SlideInWithCTATemplate implements CampaignTemplateComponent {
             case "timeOnPage":
                 this.triggerOptionsNumber = this.secondsOnPage * 1000;
                 break;
-            case "pageScroll":
+            case "scrollDepth":
                 this.triggerOptionsNumber = (this.percentageScrolled / 100);
                 break;
             case "inactivity":
