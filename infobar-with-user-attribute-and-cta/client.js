@@ -26,16 +26,18 @@
     }
 
     function apply(context, template) {
-        const { preAttrMessageText, userAttr, postAttrMessageText } = context;
-        context.messageText = `${preAttrMessageText}${userAttr}${postAttrMessageText}`;
         context.infobarClass = context.contentZone == "global_infobar_top_of_page"
             ? "evg-infobar-top"
             : "evg-infobar-bottom";
+        if (Evergage.cashDom(`#evg-infobar-with-user-attr.${context.infobarClass}`).length === 0) {
+            const { preAttrMessageText, userAttr, postAttrMessageText } = context;
+            context.messageText = `${preAttrMessageText}${userAttr}${postAttrMessageText}`;
 
-        setInfobarPosition(context);
-        const html = template(context);
-        Evergage.cashDom("body").append(html);
-        setDismissal(context);
+            setInfobarPosition(context);
+            const html = template(context);
+            Evergage.cashDom("body").append(html);
+            setDismissal(context);
+        }
     }
 
     function reset(context, template) {
