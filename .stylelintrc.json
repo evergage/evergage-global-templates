@@ -1,8 +1,8 @@
 {
-    "extends": "stylelint-config-standard",
-    "plugins": [
-        "stylelint-order"
-    ],
+	"extends": "stylelint-config-standard",
+	"plugins": [
+		"stylelint-order"
+	],
 	"rules": {
 		"indentation": 4,
 		"number-leading-zero": "never",
@@ -33,8 +33,8 @@
 				"rules"
 			],
 			{
-                "severity": "warning"
-            }
+				"severity": "warning"
+			}
 		],
 		"order/properties-order": [
 			[
