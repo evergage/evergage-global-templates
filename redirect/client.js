@@ -15,7 +15,10 @@
     function apply(context, template) {
         if ((window.frameElement || {}).id === "siteEditorFrame") {
             removeTemplateCss(context);
-        } else if (context.targetPage.includes(window.location.hostname + window.location.pathname)) {
+            return;
+        }
+
+        if (context.targetPage.includes(window.location.hostname + window.location.pathname)) {
             clearTimeout(window.evergageReshowPersonalizationsTimeout);
             window.evergageReshowPersonalizationsTimeout = setTimeout(function() {
                 removeTemplateCss(context);
@@ -24,17 +27,17 @@
             if ((context.targetPage && context.urlForRedirect)
                 && window.location.href !== context.urlForRedirect) {
 
-                window.location.href = context.urlForRedirect + (context.maintainQueryParams ? window.location.search : "");
-
                 Evergage.sendStat({
                     campaignStats: [
                         {
-                            control: context.userGroup === "Control",
+                            control: false,
                             experienceId: context.experience,
                             stat: "Impression"
                         }
                     ]
                 });
+
+                window.location.href = context.urlForRedirect + (context.maintainQueryParams ? window.location.search : "");
             }
         }
     }
@@ -43,16 +46,8 @@
         removeTemplateCss(context);
     }
 
-    function control(context) {
-        Evergage.sendStat({
-            campaignStats: [
-                {
-                    control: context.userGroup === "Control",
-                    experienceId: context.experience,
-                    stat: "Impression"
-                }
-            ]
-        });
+    function control() {
+
     }
 
     registerTemplate({
