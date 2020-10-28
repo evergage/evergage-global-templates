@@ -18,27 +18,29 @@
             return;
         }
 
-        if (context.targetPage.includes(window.location.hostname + window.location.pathname)) {
-            clearTimeout(window.evergageReshowPersonalizationsTimeout);
-            window.evergageReshowPersonalizationsTimeout = setTimeout(function() {
-                removeTemplateCss(context);
-            }, (Evergage.getConfig().hideContentSectionsMillis || 2500));
+        if (!context.targetPage.includes(window.location.hostname + window.location.pathname)) {
+            return;
+        }
 
-            if ((context.targetPage && context.urlForRedirect)
-                && window.location.href !== context.urlForRedirect) {
+        clearTimeout(window.evergageReshowPersonalizationsTimeout);
+        window.evergageReshowPersonalizationsTimeout = setTimeout(function() {
+            removeTemplateCss(context);
+        }, (Evergage.getConfig().hideContentSectionsMillis || 2500));
 
-                Evergage.sendStat({
-                    campaignStats: [
-                        {
-                            control: false,
-                            experienceId: context.experience,
-                            stat: "Impression"
-                        }
-                    ]
-                });
+        if ((context.targetPage && context.urlForRedirect)
+            && window.location.href !== context.urlForRedirect) {
 
-                window.location.href = context.urlForRedirect + (context.maintainQueryParams ? window.location.search : "");
-            }
+            Evergage.sendStat({
+                campaignStats: [
+                    {
+                        control: false,
+                        experienceId: context.experience,
+                        stat: "Impression"
+                    }
+                ]
+            });
+
+            window.location.href = context.urlForRedirect + (context.maintainQueryParams ? window.location.search : "");
         }
     }
 
