@@ -7,7 +7,7 @@
          * occurring while in either the Template Editor or Campaign Editor.
          */
         if ((window.frameElement || {}).id === "siteEditorFrame"
-            || !context.targetPage.includes(window.location.hostname + window.location.pathname)) {
+            || !context.targetPage.includes(window.location.hostname + window.location.pathname.replace(/\/$/gim, ""))) {
             return;
         }
 
@@ -25,7 +25,7 @@
                     ]
                 });
 
-                window.location.href = context.urlForRedirect + (context.maintainQueryParams ? window.location.search : "");
+                window.location.href = context.urlForRedirect + ((context.maintainQueryParams && window.location.href.match(/\?.*/gim)[0]) || "");
             }
         });
     }
