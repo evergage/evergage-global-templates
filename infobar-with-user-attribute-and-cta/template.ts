@@ -17,7 +17,7 @@ export class InfobarWithUserAttrAndCTATemplate implements CampaignTemplateCompon
     preAttrMessageText: string = "Message Text, ";
 
     @title('User Attribute Default')
-    @subtitle('Text to appear in place of the user attribute (in this case, first name)')
+    @subtitle('Default text to appear if attribute is blank or null on the user profile')
     userAttrDefault: string = "Default";
 
     @title('Post-Attribute Message Text')
