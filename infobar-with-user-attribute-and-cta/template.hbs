@@ -19,12 +19,12 @@
     2) To reference a different user attribute, change the references of 'firstName' to
     the name of the new attribute. More on user attributes here:
     https://doc.evergage.com/display/EKB/Modify+Attributes+at+the+User+or+Account+Level
-    2) Style options can be changed in Serverside Code.
-    3) Styling of the Style options can be changed in CSS.
-    4) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code.
+    3) Style options can be changed in Serverside Code.
+    4) Styling of the Style options can be changed in CSS.
+    5) To support rich text, add the @richText(true) decorator to configuration properties in Serverside Code.
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
-    5) Remove or change the default values for the configuration properties in Serverside Code.
-    6) Change the value of the aria-label attributes as necessary.
+    6) Remove or change the default values for the configuration properties in Serverside Code.
+    7) Change the value of the aria-label attributes as necessary.
 --}}
 
 <div class="{{infobarClass}} {{style.className}}" id="evg-infobar-with-user-attr" data-evg-campaign-id="{{campaign}}"
