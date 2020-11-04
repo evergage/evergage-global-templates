@@ -15,6 +15,8 @@
             if ((context.targetPage && context.urlForRedirect)
                 && window.location.href !== context.urlForRedirect) {
 
+                Evergage.cashDom("body").css("visibility", "hidden");
+
                 Evergage.sendStat({
                     campaignStats: [
                         {
