@@ -41,9 +41,6 @@ export class SlideInWithCTATemplate implements CampaignTemplateComponent {
     @subtitle("Second(s) of inactivity on page")
     secondsInactive: number = 0;
 
-    @hidden(true)
-    triggerOptionsNumber: number;
-
     @subtitle("Define slide-in background & text styling.")
     @options([
         { label: "Light on Dark", className: "evg-light-on-dark" },
@@ -74,18 +71,20 @@ export class SlideInWithCTATemplate implements CampaignTemplateComponent {
     run(context: CampaignComponentContext) {
         switch (this.triggerOptions.name) {
             case "timeOnPage":
-                this.triggerOptionsNumber = this.secondsOnPage * 1000;
-                break;
+                return {
+                    triggerOptionsNumber: this.secondsOnPage * 1000
+                };
             case "scrollDepth":
-                this.triggerOptionsNumber = (this.percentageScrolled / 100);
-                break;
+                return {
+                    triggerOptionsNumber: (this.percentageScrolled / 100)
+                };
             case "inactivity":
-                this.triggerOptionsNumber = this.secondsInactive * 1000;
-                break;
+                return {
+                    triggerOptionsNumber: this.secondsInactive * 1000
+                };
+            default:
+                return {};
         }
-        return {
-            triggerOptionsNumber: this.triggerOptionsNumber
-        };
     }
 
 }
