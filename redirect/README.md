@@ -1,6 +1,6 @@
 ### Redirect
 
-This global template redirects the target webpage to another wepage, based on the URLs provided for each.
+This global template redirects the target webpage to another webpage, based on the URLs provided for each.
 
 ### Configuration:
 <img src="config.png" alt="Redirect" width="350px">

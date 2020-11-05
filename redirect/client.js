@@ -3,8 +3,7 @@
     function apply(context, template) {
 
         /**
-         * (window.frameElement || {}).id === "siteEditorFrame" is present in order to prevent redirection from
-         * occurring while in either the Template Editor or Campaign Editor.
+         * Prevent redirect from occurring while in either the Template Editor or Campaign Editor.
          */
         if ((window.frameElement || {}).id === "siteEditorFrame"
             || !context.targetPage.includes(window.location.hostname + window.location.pathname.replace(/\/$/gim, ""))) {
@@ -27,7 +26,11 @@
                     ]
                 });
 
-                window.location.href = context.urlForRedirect + ((context.maintainQueryParams && window.location.href.match(/\?.*/gim)[0]) || "");
+                context.paramsForRedirect = (context.maintainQueryParams && window.location.href.match(/\?.*/gim))
+                    ? window.location.href.match(/\?.*/gim)[0]
+                    : "";
+
+                window.location.href = context.urlForRedirect + context.paramsForRedirect;
             }
         });
     }
