@@ -6,8 +6,10 @@
          * (window.frameElement || {}).id === "siteEditorFrame" is present in order to prevent redirection from
          * occurring while in either the Template Editor or Campaign Editor.
          */
+        const currentPage = window.location.hostname + window.location.pathname.replace(/\/$/, "");
+        const targetPage = context.targetPageUrl.replace(/http(s)?\:\/\//, "");
         if ((window.frameElement || {}).id === "siteEditorFrame"
-            || !context.targetPageUrl.includes(window.location.hostname + window.location.pathname.replace(/\/$/, ""))) {
+            || !(currentPage.includes(targetPage) && targetPage.includes(currentPage))) {
             return;
         }
 
