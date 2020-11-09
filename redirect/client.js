@@ -3,7 +3,8 @@
     function apply(context, template) {
 
         /**
-         * Prevent redirect from occurring while in either the Template Editor or Campaign Editor.
+         * (window.frameElement || {}).id === "siteEditorFrame" is present in order to prevent redirection from
+         * occurring while in either the Template Editor or Campaign Editor.
          */
         if ((window.frameElement || {}).id === "siteEditorFrame"
             || !context.targetPage.includes(window.location.hostname + window.location.pathname.replace(/\/$/gim, ""))) {
