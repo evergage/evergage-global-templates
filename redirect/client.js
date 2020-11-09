@@ -7,13 +7,13 @@
          * occurring while in either the Template Editor or Campaign Editor.
          */
         if ((window.frameElement || {}).id === "siteEditorFrame"
-            || !context.targetPage.includes(window.location.hostname + window.location.pathname.replace(/\/$/gim, ""))) {
+            || !context.targetPageUrl.includes(window.location.hostname + window.location.pathname.replace(/\/$/, ""))) {
             return;
         }
 
         return new Promise((resolve, reject) => {
-            if ((context.targetPage && context.urlForRedirect)
-                && window.location.href !== context.urlForRedirect) {
+            if ((context.targetPageUrl && context.redirectUrl)
+                && window.location.href !== context.redirectUrl) {
 
                 Evergage.cashDom("body").css("visibility", "hidden");
 
@@ -27,11 +27,11 @@
                     ]
                 });
 
-                context.paramsForRedirect = (context.maintainQueryParams && window.location.href.match(/\?.*/gim))
+                context.paramsForRedirect = (context.maintainQueryParams && window.location.href.match(/\?.*/))
                     ? window.location.href.match(/\?.*/gim)[0]
                     : "";
 
-                window.location.href = context.urlForRedirect + context.paramsForRedirect;
+                window.location.href = context.redirectUrl + context.paramsForRedirect;
             }
         });
     }
