@@ -11,9 +11,14 @@ export class RedirectTemplate implements CampaignTemplateComponent {
     @title("Redirect with query parameters from original URL")
     maintainQueryParams: boolean = true;
 
+    private stripParams(url: string): string {
+        return url.replace(/(\/)?(\?.*)?$/, "");
+    }
+
     run(context: CampaignComponentContext) {
         return {
-            targetPageUrl: this.targetPageUrl.replace(/(\/)?((\?|\#).*)?$/g, "")
+            targetPageUrl: this.stripParams(this.targetPageUrl),
+            redirectUrl: this.stripParams(this.redirectUrl)
         };
     }
 
