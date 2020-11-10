@@ -8,8 +8,7 @@
          */
         const currentPage = window.location.hostname + window.location.pathname.replace(/\/$/, "");
         const targetPage = context.targetPageUrl.replace(/http(s)?\:\/\//, "");
-        if ((window.frameElement || {}).id === "siteEditorFrame"
-            || !(currentPage.includes(targetPage) && targetPage.includes(currentPage))) {
+        if ((window.frameElement || {}).id === "siteEditorFrame" || currentPage !== targetPage) {
             return;
         }
 
@@ -30,7 +29,7 @@
                 });
 
                 context.paramsForRedirect = (context.maintainQueryParams && window.location.href.match(/\?.*/))
-                    ? window.location.href.match(/\?.*/gim)[0]
+                    ? window.location.href.match(/\?.*/)[0]
                     : "";
 
                 window.location.href = context.redirectUrl + context.paramsForRedirect;

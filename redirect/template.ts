@@ -12,7 +12,9 @@ export class RedirectTemplate implements CampaignTemplateComponent {
     maintainQueryParams: boolean = true;
 
     run(context: CampaignComponentContext) {
-        return {};
+        return {
+            targetPageUrl: this.targetPageUrl.replace(/(\/)?((\?|\#).*)?$/g, "")
+        };
     }
 
 }
