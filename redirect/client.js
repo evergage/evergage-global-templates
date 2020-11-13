@@ -2,9 +2,7 @@
 
     function apply(context, template) {
 
-        /**
-         * Prevent redirect from occurring while in either the Template Editor or Campaign Editor.
-         */
+        /** Prevent redirect from occurring while in either the Template Editor or Campaign Editor. */
         if ((window.frameElement || {}).id === "siteEditorFrame") {
             return;
         }
@@ -12,7 +10,8 @@
         const currentPage = window.location.hostname + window.location.pathname.replace(/\/$/, "");
         const targetPage = context.targetPageUrl.replace(/http(s)?\:\/\//, "");
         const redirectPage = context.redirectUrl.replace(/http(s)?\:\/\//, "");
-        if ((context.targetPageUrl && context.redirectUrl) && (currentPage !== targetPage && currentPage === redirectPage)) {
+        if ((context.targetPageUrl && context.redirectUrl) &&
+            (currentPage !== targetPage && currentPage === redirectPage)) {
             return;
         }
 
