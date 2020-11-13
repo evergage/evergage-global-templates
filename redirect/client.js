@@ -3,37 +3,37 @@
     function apply(context, template) {
 
         /**
-         * (window.frameElement || {}).id === "siteEditorFrame" is present in order to prevent redirection from
-         * occurring while in either the Template Editor or Campaign Editor.
+         * Prevent redirect from occurring while in either the Template Editor or Campaign Editor.
          */
+        if ((window.frameElement || {}).id === "siteEditorFrame") {
+            return;
+        }
+
         const currentPage = window.location.hostname + window.location.pathname.replace(/\/$/, "");
         const targetPage = context.targetPageUrl.replace(/http(s)?\:\/\//, "");
-        if ((window.frameElement || {}).id === "siteEditorFrame" || currentPage !== targetPage) {
+        const redirectPage = context.redirectUrl.replace(/http(s)?\:\/\//, "");
+        if ((context.targetPageUrl && context.redirectUrl) && (currentPage !== targetPage && currentPage === redirectPage)) {
             return;
         }
 
         return new Promise((resolve, reject) => {
-            if ((context.targetPageUrl && context.redirectUrl)
-                && window.location.href !== context.redirectUrl) {
+            Evergage.cashDom("body").css("visibility", "hidden");
 
-                Evergage.cashDom("body").css("visibility", "hidden");
+            Evergage.sendStat({
+                campaignStats: [
+                    {
+                        control: false,
+                        experienceId: context.experience,
+                        stat: "Impression"
+                    }
+                ]
+            });
 
-                Evergage.sendStat({
-                    campaignStats: [
-                        {
-                            control: false,
-                            experienceId: context.experience,
-                            stat: "Impression"
-                        }
-                    ]
-                });
+            context.paramsForRedirect = (context.maintainQueryParams && window.location.href.match(/\?.*/))
+                ? window.location.href.match(/\?.*/)[0]
+                : "";
 
-                context.paramsForRedirect = (context.maintainQueryParams && window.location.href.match(/\?.*/))
-                    ? window.location.href.match(/\?.*/)[0]
-                    : "";
-
-                window.location.href = context.redirectUrl + context.paramsForRedirect;
-            }
+            window.location.href = context.redirectUrl + context.paramsForRedirect;
         });
     }
 
