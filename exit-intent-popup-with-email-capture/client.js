@@ -48,13 +48,13 @@
      * template from the DOM.
      */
     function setDismissal(context) {
-        const dismissSelectors = [
-            "#evg-exit-intent-popup-email-capture .evg-overlay",
-            "#evg-exit-intent-popup-email-capture .evg-btn-dismissal",
-            "#evg-exit-intent-popup-email-capture .evg-opt-out-msg"
-        ];
+        const dismissSelectors = `
+            #evg-exit-intent-popup-email-capture .evg-overlay,
+            #evg-exit-intent-popup-email-capture .evg-btn-dismissal,
+            #evg-exit-intent-popup-email-capture .evg-opt-out-msg
+        `;
 
-        Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
+        Evergage.cashDom(dismissSelectors).on("click", () => {
             Evergage.cashDom("#evg-exit-intent-popup-email-capture").remove();
         });
     }
