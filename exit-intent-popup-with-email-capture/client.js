@@ -69,10 +69,12 @@
          * https://developer.evergage.com/templates/display-utilities
          */
         return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
-            const html = template(context);
-            Evergage.cashDom("body").append(html);
-            setConfirmationPanel();
-            setDismissal(context);
+            if (Evergage.cashDom("#evg-exit-intent-popup").length === 0) {
+                const html = template(context);
+                Evergage.cashDom("body").append(html);
+                setConfirmationPanel();
+                setDismissal(context);
+            }
         });
     }
 
