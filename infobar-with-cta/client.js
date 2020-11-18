@@ -30,12 +30,12 @@
             ? "evg-infobar-top"
             : "evg-infobar-bottom";
 
-        if (Evergage.cashDom(`#evg-infobar-with-cta.${context.infobarClass}`).length === 0) {
-            setInfobarPosition(context);
-            const html = template(context);
-            Evergage.cashDom("body").append(html);
-            setDismissal(context);
-        }
+        if (Evergage.cashDom(`#evg-infobar-with-cta.${context.infobarClass}`).length > 0) return;
+
+        setInfobarPosition(context);
+        const html = template(context);
+        Evergage.cashDom("body").append(html);
+        setDismissal(context);
     }
 
     function reset(context, template) {
