@@ -81,8 +81,10 @@
         Evergage.cashDom("#evg-exit-intent-popup-email-capture").remove();
     }
 
-    function control() {
-
+    function control(context) {
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
+            return true;
+        });
     }
 
     registerTemplate({
