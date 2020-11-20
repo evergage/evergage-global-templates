@@ -20,16 +20,19 @@
     }
 
     function reset(context, template) {
-        Evergage.cashDom(`[data-evg-campaign-id=${context.campaign}][data-evg-experience-id=${context.experience}]`)
+        Evergage.cashDom(`[data-evg-campaign-id="${context.campaign}"][data-evg-experience-id="${context.experience}"]`)
             .remove();
     }
 
     function control(context) {
         const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
-        Evergage.cashDom(contentZoneSelector).attr("data-evg-campaign-id", context.campaign);
-        Evergage.cashDom(contentZoneSelector).attr("data-evg-experience-id", context.experience);
-        Evergage.cashDom(contentZoneSelector).attr("data-evg-user-group", "Control");
-        Evergage.cashDom(contentZoneSelector + " a").attr("data-evg-clickthrough", "");
+        return Evergage.DisplayUtils.pageElementLoaded(contentZoneSelector).then(element => {
+            Evergage.cashDom(element).attr({
+                "data-evg-campaign-id": context.campaign,
+                "data-evg-experience-id": context.experience,
+                "data-evg-user-group": "Control"
+            });
+        });
     }
 
     registerTemplate({
