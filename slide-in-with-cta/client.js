@@ -32,17 +32,19 @@
     function apply(context, template) {
         switch (context.triggerOptions.name) {
             case "timeOnPage":
-                setTimeout(() => {
-                    const html = template(context);
-                    Evergage.cashDom("body").append(html);
-                    setDismissal(context);
-                }, context.triggerOptionsNumber)
-                break;
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const html = template(context);
+                        Evergage.cashDom("body").append(html);
+                        setDismissal(context);
+                        resolve(true);
+                    }, context.triggerOptionsNumber);
+                });
             case "scrollDepth":
                 return Evergage.DisplayUtils
                     .bind(buildBindId(context))
                     .pageScroll(context.triggerOptionsNumber)
-                    .then(function(event) {
+                    .then((event) => {
                         const html = template(context);
                         Evergage.cashDom("body").append(html);
                         setDismissal(context);
@@ -51,7 +53,7 @@
                 return Evergage.DisplayUtils
                     .bind(buildBindId(context))
                     .pageInactive(context.triggerOptionsNumber)
-                    .then(function(event) {
+                    .then((event) => {
                         const html = template(context);
                         Evergage.cashDom("body").append(html);
                         setDismissal(context);
