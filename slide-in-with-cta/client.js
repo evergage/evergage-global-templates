@@ -12,7 +12,7 @@
     /**
      * @function buildTemplateSelector
      * @param {Object} context
-     * @description Creates unique selector that targets the template.
+     * @description Create unique selector that targets the template.
      */
     function buildTemplateSelector(context) {
         return `[data-evg-campaign-id="${context.campaign}"][data-evg-experience-id="${context.experience}"]`;
@@ -21,7 +21,7 @@
     /**
      * @function setDismissal
      * @param {Object} context
-     * @description Adds click listener to the "X" button that removes the template from the DOM.
+     * @description Add click listener to the "X" button that removes the template from the DOM.
      */
     function setDismissal(context) {
         Evergage.cashDom(`${buildTemplateSelector(context)} .evg-btn-dismissal`).on("click", () => {
@@ -29,44 +29,69 @@
         });
     }
 
-    function apply(context, template) {
-        switch (context.triggerOptions.name) {
+    /**
+     * @function handleTemplateContent
+     * @param {Object} context
+     * @description Build and insert Template HTML, attach dismissal listener
+     */
+    function handleTemplateContent({ context, template }) {
+        const html = template(context);
+        Evergage.cashDom("body").append(html);
+        setDismissal(context);
+    }
+
+    /**
+     * @function handleTriggerEvent
+     * @param {Object} context
+     * @description Create trigger event based on context
+     */
+    function handleTriggerEvent({ context, template }) {
+        const { userGroup, triggerOptions, triggerOptionsNumber } = context || {};
+
+        switch (triggerOptions.name) {
             case "timeOnPage":
                 return new Promise((resolve, reject) => {
                     setTimeout(() => {
-                        const html = template(context);
-                        Evergage.cashDom("body").append(html);
-                        setDismissal(context);
+                        if (userGroup === "Control") return true;
+
+                        handleTemplateContent({ context, template });
                         resolve(true);
-                    }, context.triggerOptionsNumber);
+                    }, triggerOptionsNumber);
                 });
             case "scrollDepth":
                 return Evergage.DisplayUtils
                     .bind(buildBindId(context))
-                    .pageScroll(context.triggerOptionsNumber)
+                    .pageScroll(triggerOptionsNumber)
                     .then((event) => {
-                        const html = template(context);
-                        Evergage.cashDom("body").append(html);
-                        setDismissal(context);
+                        if (userGroup === "Control") return true;
+
+                        handleTemplateContent({ context, template });
                     });
             case "inactivity":
                 return Evergage.DisplayUtils
                     .bind(buildBindId(context))
-                    .pageInactive(context.triggerOptionsNumber)
+                    .pageInactive(triggerOptionsNumber)
                     .then((event) => {
-                        const html = template(context);
-                        Evergage.cashDom("body").append(html);
-                        setDismissal(context);
+                        if (userGroup === "Control") return true;
+
+                        handleTemplateContent({ context, template });
                     });
         }
     }
 
+    function apply(context, template) {
+        if (Evergage.cashDom(buildTemplateSelector(context)).length > 0) return;
+
+        return handleTriggerEvent({ context, template });
+    }
+
     function reset(context, template) {
+        Evergage.DisplayUtils.unbind(buildBindId(context));
         Evergage.cashDom(buildTemplateSelector(context)).remove();
     }
 
-    function control() {
-
+    function control(context) {
+        return handleTriggerEvent({ context });
     }
 
     registerTemplate({
