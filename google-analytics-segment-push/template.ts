@@ -5,29 +5,15 @@ export class GAConfig {
     @subtitle("e.g. dimension27")
     gaDimension: string;
 
-    @title("Segment Picker")
+    @title("Associated IS Segment(s)")
+    @subtitle("Select one or more segments to associate to the above GA dimension.")
     @lookupOptions(() => new UserSegmentLookup())
     segments: UserSegmentReference[]
 }
 
 export class GASegmentPushTemplate implements CampaignTemplateComponent {
 
-    @header("Why Use This Template")
-    @headerSubtitle(`
-        (1) Inform Google Analytics about visitors' interactions and
-        (2) transfer pre-defined segments to Google Analytics.
-    `)
-
-    readonly spacing = " ";
-
-    @header("How to Use This Template")
-    @headerSubtitle(`
-        This is a global template meant to execute across any page. Choose your segment(s) from
-        Interaction Studio and map to a dimension in Google Analytics."
-    `)
-
-    @tabular()
-    @title("Map Segment to Google Analytics Dimensions")
+    @title("Map IS Segment(s) to Google Analytics")
     tabularComplexField: GAConfig[];
 
     run(context: CampaignComponentContext) {

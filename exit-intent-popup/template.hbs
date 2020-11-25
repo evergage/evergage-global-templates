@@ -1,38 +1,45 @@
 {{!--
-    Global Template: Exit Intent Popup
+    Global Template: Exit Intent Pop-Up
 
     This global template displays a popup when a user intends to exit the page.
 
     There are two default Styles: Dark text for lighter backgrounds or light text on darker backgrounds.
 
     Requirements:
-    1) Set the content zone in the Serverside Code to one that is defined in your Sitemap.
+    1) Set the content zone(s) to that defined in your Sitemap.
 
     Customizations:
-    1) Style options can be changed in Serverside Code.
-    2) Styling of the Style options, including fallback background color, can be changed in CSS.
-    3) Media query breakpoints can be changed in CSS.
-    4) To support rich text, add the @richtext(true) decorator to configuration properties in Serverside Code.
+    1) As a best practice, set the content zone to "global_popup". See https://developer.evergage.com/websdk/contentzones
+    for recommended names for content zones mapped via Sitemap.
+    2) Style options can be changed in Serverside Code.
+    3) Styling of the Style options, including fallback background color, can be changed in CSS.
+    4) Remove or change the default values for the configuration properties in Serverside Code.
+    5) Once validated, the user's email address will be sent to Interaction Studio and set to the user's
+    emailAddress attribute.
+    6) Media query breakpoints can be changed in CSS.
+    7) To support rich text, add the @richtext(true) decorator to configuration properties in Serverside Code.
     Handlebars expressions for these properties must be wrapped in three sets of curly braces (e.g. {{{expression}}} ).
-    5) Remove or change the default values for the configuration properties in Serverside Code.
-    6) Change the aria-label attribute value of .evg-cta to an appropriate description.
-
+    8) Change the value of the aria-label attributes as necessary.
 --}}
 
 <div id="evg-exit-intent-popup" data-evg-campaign-id="{{campaign}}"
-data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Popup Message"
+data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Popup{{#if header}} - {{header}}{{/if}}"
 role="dialog" aria-modal="true" aria-hidden="false">
-    <div class="evg-lightbox {{overlayClass}}"></div>
+
+    {{#if lightbox}}
+    <div class="evg-overlay" data-evg-dismissal></div>
+    {{/if}}
+
     <div class="evg-popup evg-style-bg {{style.className}}" style="background-image:url('{{imageUrl}}')">
         <div class="evg-main-panel">
-            <h1 class="evg-header evg-h1 evg-display-4 evg-text evg-style-color {{style.className}}">
-                {{{title}}}
+            <h1 class="evg-header evg-h1 evg-display-4 evg-style-color {{style.className}}">
+                {{{header}}}
             </h1>
-            <h2 class="evg-subheader evg-h2 evg-text evg-style-color {{style.className}}">
-                {{{subtitle}}}
+            <h2 class="evg-subheader evg-h2 evg-style-color {{style.className}}{{#unless subheaderVisibility}} evg-hide{{/unless}}">
+                {{{subheader}}}
             </h2>
             <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}" tabindex="0" href="{{ctaUrl}}"
-            type="button" aria-label="Learn More">
+            type="button" aria-label="{{ctaText}}">
                 {{ctaText}}
             </a>
         </div>
