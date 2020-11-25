@@ -10,22 +10,12 @@
     }
 
     /**
-     * @function buildTemplateSelector
-     * @param {Object} context
-     * @description Create unique selector that targets the template.
-     */
-    function buildTemplateSelector(context) {
-        return `[data-evg-campaign-id="${context.campaign}"][data-evg-experience-id="${context.experience}"]`;
-    }
-
-    /**
      * @function setDismissal
-     * @param {Object} context
      * @description Add click listener to the "X" button that removes the template from the DOM.
      */
-    function setDismissal(context) {
-        Evergage.cashDom(`${buildTemplateSelector(context)} .evg-btn-dismissal`).on("click", () => {
-            Evergage.cashDom(buildTemplateSelector(context)).remove();
+    function setDismissal() {
+        Evergage.cashDom("#evg-slide-in-with-cta .evg-btn-dismissal").on("click", () => {
+            Evergage.cashDom("#evg-slide-in-with-cta").remove();
         });
     }
 
@@ -37,7 +27,7 @@
     function handleTemplateContent({ context, template }) {
         const html = template(context);
         Evergage.cashDom("body").append(html);
-        setDismissal(context);
+        setDismissal();
     }
 
     /**
@@ -80,14 +70,14 @@
     }
 
     function apply(context, template) {
-        if (Evergage.cashDom(buildTemplateSelector(context)).length > 0) return;
+        if (Evergage.cashDom("#evg-slide-in-with-cta").length > 0) return;
 
         return handleTriggerEvent({ context, template });
     }
 
     function reset(context, template) {
         Evergage.DisplayUtils.unbind(buildBindId(context));
-        Evergage.cashDom(buildTemplateSelector(context)).remove();
+        Evergage.cashDom("#evg-slide-in-with-cta").remove();
     }
 
     function control(context) {
