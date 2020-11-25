@@ -12,7 +12,7 @@
     /**
      * @function setDismissal
      * @param {Object} context
-     * @description Adds click listener to the overlay and "X" button that removes the template from the DOM.
+     * @description Add click listener to the overlay and "X" button that removes the template from the DOM.
      */
     function setDismissal(context) {
         const dismissSelectors = [
