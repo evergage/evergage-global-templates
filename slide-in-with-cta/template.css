@@ -150,14 +150,22 @@
 
 @media only screen and (max-width: 767px) {
     #evg-slide-in-with-cta {
-        right: 10%;
-        font-size: 14px;
-        animation-name: slideInMobileMessage;
-        animation-duration: 3s;
+        animation-duration: 2s;
     }
 
-    #evg-slide-in-with-cta .evg-header {
-        font-size: 17px;
+    #evg-slide-in-with-cta .evg-header,
+    #evg-slide-in-with-cta .evg-subheader {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #evg-slide-in-with-cta {
+        right: calc((100vw - 300px) / 2);
+        max-width: 95vw;
+        max-height: 95vh;
+        animation-name: slideInMobileMessage;
+        animation-duration: 1.5s;
     }
 }
 
@@ -177,6 +185,6 @@
     }
 
     to {
-        right: 10%;
+        right: calc((100vw - 300px) / 2);
     }
 }
