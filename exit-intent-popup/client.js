@@ -1,5 +1,7 @@
 (function() {
 
+    const pageExitMillis = 500;
+
     /**
      * @function buildBindId
      * @param {Object} context
@@ -15,12 +17,12 @@
      * @description Adds click listener to the overlay and "X" button that removes the template from the DOM.
      */
     function setDismissal(context) {
-        const dismissSelectors = [
-            "#evg-exit-intent-popup .evg-overlay",
-            "#evg-exit-intent-popup .evg-btn-dismissal",
-        ];
+        const dismissSelectors = `
+            #evg-exit-intent-popup .evg-overlay,
+            #evg-exit-intent-popup .evg-btn-dismissal
+        `;
 
-        Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
+        Evergage.cashDom(dismissSelectors).on("click", () => {
             Evergage.cashDom("#evg-exit-intent-popup").remove();
         });
     }
@@ -34,7 +36,7 @@
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
-        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
             const html = template(context);
             Evergage.cashDom("body").append(html);
             setDismissal(context);
@@ -47,7 +49,7 @@
     }
 
     function control(context) {
-        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
             return true;
         });
     }

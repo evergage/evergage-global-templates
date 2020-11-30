@@ -1,5 +1,7 @@
 (function() {
 
+    const pageExitMillis = 500;
+
     /**
      * @function buildBindId
      * @param {Object} context
@@ -48,13 +50,13 @@
      * template from the DOM.
      */
     function setDismissal(context) {
-        const dismissSelectors = [
-            "#evg-exit-intent-popup-email-capture .evg-overlay",
-            "#evg-exit-intent-popup-email-capture .evg-btn-dismissal",
-            "#evg-exit-intent-popup-email-capture .evg-opt-out-msg"
-        ];
+        const dismissSelectors = `
+            #evg-exit-intent-popup-email-capture .evg-overlay,
+            #evg-exit-intent-popup-email-capture .evg-btn-dismissal,
+            #evg-exit-intent-popup-email-capture .evg-opt-out-msg
+        `;
 
-        Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
+        Evergage.cashDom(dismissSelectors).on("click", () => {
             Evergage.cashDom("#evg-exit-intent-popup-email-capture").remove();
         });
     }
@@ -68,7 +70,7 @@
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
-        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
             const html = template(context);
             Evergage.cashDom("body").append(html);
             setConfirmationPanel();
@@ -82,7 +84,7 @@
     }
 
     function control(context) {
-        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
             return true;
         });
     }
