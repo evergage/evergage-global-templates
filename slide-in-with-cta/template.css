@@ -4,7 +4,7 @@
 
 #evg-slide-in-with-cta {
     position: absolute;
-    z-index: 10000;
+    z-index: 100000;
     top: auto !important;
     right: 10%;
     bottom: 10vh !important;
@@ -13,7 +13,7 @@
     max-width: 90vw;
     height: 300px;
     max-height: 90vh;
-    border-color: #000;
+    border: 1px solid #000;
     color: #fff;
     background-color: #000;
     font-family: "Helvetica Neue", "Arial", sans-serif;
@@ -35,7 +35,7 @@
 #evg-slide-in-with-cta .evg-subheader,
 #evg-slide-in-with-cta .evg-cta {
     display: block;
-    width: 60%;
+    max-width: 90%;
     height: fit-content;
     text-align: center;
 }
@@ -44,13 +44,20 @@
    Headers
 ========================================================================== */
 
+#evg-slide-in-with-cta .evg-header,
+#evg-slide-in-with-cta .evg-subheader {
+    margin-bottom: 0.5rem;
+}
+
 #evg-slide-in-with-cta .evg-header {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    line-height: 1.75rem;
 }
 
 #evg-slide-in-with-cta .evg-subheader {
     font-size: 1.5rem;
     font-weight: 300;
+    line-height: 1.5rem;
 }
 
 /* ==========================================================================
@@ -153,7 +160,10 @@
         animation-duration: 2s;
     }
 
-    #evg-slide-in-with-cta .evg-header,
+    #evg-slide-in-with-cta .evg-header {
+        font-size: 1.25rem;
+    }
+
     #evg-slide-in-with-cta .evg-subheader {
         font-size: 1.1rem;
     }
@@ -168,6 +178,10 @@
         animation-duration: 1.5s;
     }
 }
+
+/* ==========================================================================
+   Keyframes
+========================================================================== */
 
 @keyframes slideInDesktopMessage {
     from {
