@@ -2,7 +2,7 @@
     Global Template: Slide-In with Call-to-Action
 
     This global template creates a message that slides in from the bottom-right corner of the screen, and contains a
-    header, subheader, and call-to-action button.
+    call-to-action button.
 
     There are three different triggers for the slide-in: time on page, scroll depth, and inactivity.
 
@@ -26,12 +26,12 @@
     data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" role="dialog" aria-hidden="false"
     aria-label="Slide-In Message{{#if header}} {{header}}{{/if}}{{#if subheader}} {{subheader}}{{/if}}">
     <div class="evg-slide-in">
-        <p class="evg-header {{style.className}}{{#unless headerVisibility}} evg-hide{{/unless}}">
+        <h1 class="evg-header {{style.className}}{{#unless headerVisibility}} evg-hide{{/unless}}">
             {{header}}
-        </p>
-        <p class="evg-subheader {{style.className}}{{#unless subheaderVisibility}} evg-hide{{/unless}}">
+        </h1>
+        <h2 class="evg-subheader {{style.className}}{{#unless subheaderVisibility}} evg-hide{{/unless}}">
             {{subheader}}
-        </p>
+        </h2>
         <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}{{#unless ctaVisibility}} evg-hide{{/unless}}"
             href="{{ctaUrl}}" aria-label="{{ctaText}}" tabindex="0">
             {{ctaText}}

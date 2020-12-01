@@ -3,10 +3,10 @@
 ========================================================================== */
 
 #evg-slide-in-with-cta {
-    position: absolute;
+    position: fixed;
     z-index: 100000;
     top: auto !important;
-    right: 10%;
+    right: 5%;
     bottom: 10vh !important;
     left: auto;
     width: 300px;
@@ -16,13 +16,12 @@
     border: 1px solid #000;
     color: #fff;
     background-color: #000;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-family: inherit;
     animation-name: slideInDesktopMessage;
     animation-duration: 3s;
 }
 
 #evg-slide-in-with-cta .evg-slide-in {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,7 +45,7 @@
 
 #evg-slide-in-with-cta .evg-header,
 #evg-slide-in-with-cta .evg-subheader {
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
 }
 
 #evg-slide-in-with-cta .evg-header {
@@ -67,7 +66,7 @@
 #evg-slide-in-with-cta .evg-btn {
     vertical-align: middle;
     margin-top: 1rem;
-    padding: 0.5rem 1rem;
+    padding: .5rem 1rem;
     border: 1px solid transparent;
     border-radius: 3rem;
     font-size: 1rem;
@@ -76,10 +75,10 @@
     text-align: center;
     text-decoration: none;
     transition:
-        color 0.15s ease-in-out,
-        background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out,
-        box-shadow 0.15s ease-in-out;
+        color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -91,7 +90,7 @@
     border-color: #fff;
     color: #000;
     background-color: #fff;
-    transition: background-color 0.15s, color 0.15s;
+    transition: background-color .15s, color .15s;
 }
 
 #evg-slide-in-with-cta .evg-cta:hover {
@@ -102,7 +101,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0 0.5rem;
+    padding: 0 .5rem;
     border: 1px solid transparent;
     color: #fff;
     background-color: transparent;
@@ -135,20 +134,16 @@
     background-color: #000;
 }
 
-#evg-slide-in-with-cta .evg-header.evg-dark-on-light,
-#evg-slide-in-with-cta .evg-subheader.evg-dark-on-light,
-#evg-slide-in-with-cta .evg-btn-dismissal.evg-dark-on-light,
-#evg-slide-in-with-cta .evg-cta.evg-light-on-dark {
-    color: #000;
-    background-color: #fff;
-}
-
-#evg-slide-in-with-cta .evg-header.evg-light-on-dark,
-#evg-slide-in-with-cta .evg-subheader.evg-light-on-dark,
-#evg-slide-in-with-cta .evg-btn-dismissal.evg-light-on-dark,
+#evg-slide-in-with-cta .evg-light-on-dark,
 #evg-slide-in-with-cta .evg-cta.evg-dark-on-light {
     color: #fff;
     background-color: #000;
+}
+
+#evg-slide-in-with-cta .evg-dark-on-light,
+#evg-slide-in-with-cta .evg-cta.evg-light-on-dark {
+    color: #000;
+    background-color: #fff;
 }
 
 /* ==========================================================================
@@ -189,7 +184,7 @@
     }
 
     to {
-        right: 10%;
+        right: 5%;
     }
 }
 
