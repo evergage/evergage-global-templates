@@ -4,7 +4,7 @@
 
 #evg-exit-intent-popup-email-capture {
     position: relative;
-    z-index: 9999999;
+    z-index: 10000000;
 }
 
 #evg-exit-intent-popup-email-capture .evg-overlay {

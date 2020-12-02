@@ -4,7 +4,7 @@
 
 #evg-slide-in-with-cta {
     position: fixed;
-    z-index: 100000;
+    z-index: 1000000;
     top: auto !important;
     right: 5%;
     bottom: 10vh !important;
