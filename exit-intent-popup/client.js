@@ -15,12 +15,12 @@
      * @description Add click listener to the overlay and "X" button that removes the template from the DOM.
      */
     function setDismissal(context) {
-        const dismissSelectors = [
-            "#evg-exit-intent-popup .evg-overlay",
-            "#evg-exit-intent-popup .evg-btn-dismissal",
-        ];
+        const dismissSelectors = `
+            #evg-exit-intent-popup .evg-overlay,
+            #evg-exit-intent-popup .evg-btn-dismissal
+        `;
 
-        Evergage.cashDom(dismissSelectors.join(", ")).on("click", () => {
+        Evergage.cashDom(dismissSelectors).on("click", () => {
             Evergage.cashDom("#evg-exit-intent-popup").remove();
         });
     }
@@ -35,6 +35,8 @@
          * https://developer.evergage.com/templates/display-utilities
          */
         return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
+            if (Evergage.cashDom("#evg-exit-intent-popup").length > 0) return;
+
             const html = template(context);
             Evergage.cashDom("body").append(html);
             setDismissal(context);
