@@ -6,9 +6,6 @@
      * @description Sets the position of the infobar via class assignments, based on content zone selected.
      */
     function setInfobarPosition(context) {
-        context.infobarClass = context.contentZone == "global_infobar_top_of_page"
-            ? "evg-infobar-top"
-            : "evg-infobar-bottom";
         if (context.infobarClass === "evg-infobar-top") {
             Evergage.cashDom("body").css({ "margin-bottom": "0", "margin-top": "2.5rem" });
         } else {
@@ -22,13 +19,19 @@
      * @description Adds click listener to the "X" button that removes the template from the DOM.
      */
     function setDismissal(context) {
-        Evergage.cashDom("#evg-infobar-with-cta .evg-btn-dismissal").on("click", () => {
-            Evergage.cashDom("#evg-infobar-with-cta").remove();
+        Evergage.cashDom(`#evg-infobar-with-cta.${context.infobarClass} .evg-btn-dismissal`).on("click", () => {
+            Evergage.cashDom(`#evg-infobar-with-cta.${context.infobarClass}`).remove();
             Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
         });
     }
 
     function apply(context, template) {
+        context.infobarClass = context.contentZone == "global_infobar_top_of_page"
+            ? "evg-infobar-top"
+            : "evg-infobar-bottom";
+
+        if (Evergage.cashDom(`#evg-infobar-with-cta.${context.infobarClass}`).length > 0) return;
+
         setInfobarPosition(context);
         const html = template(context);
         Evergage.cashDom("body").append(html);
@@ -36,7 +39,7 @@
     }
 
     function reset(context, template) {
-        Evergage.cashDom("#evg-infobar-with-cta").remove();
+        Evergage.cashDom(`#evg-infobar-with-cta.${context.infobarClass}`).remove();
         Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
     }
 
