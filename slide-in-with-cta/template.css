@@ -10,9 +10,7 @@
     bottom: 10vh !important;
     left: auto;
     width: 300px;
-    max-width: 90vw;
     height: 300px;
-    max-height: 90vh;
     border: 1px solid #000;
     color: #fff;
     background-color: #000;
@@ -167,8 +165,6 @@
 @media only screen and (max-width: 420px) {
     #evg-slide-in-with-cta {
         right: calc((100vw - 300px) / 2);
-        max-width: 95vw;
-        max-height: 95vh;
         animation-name: slideInMobileMessage;
         animation-duration: 1.5s;
     }
