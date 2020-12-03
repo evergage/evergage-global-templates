@@ -71,6 +71,8 @@
          * https://developer.evergage.com/templates/display-utilities
          */
         return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
+            if (Evergage.cashDom("#evg-exit-intent-popup").length > 0) return;
+
             const html = template(context);
             Evergage.cashDom("body").append(html);
             setConfirmationPanel();
