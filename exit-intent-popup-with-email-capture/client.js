@@ -13,7 +13,7 @@
 
     /**
      * @function setConfirmationPanel
-     * @description Adds click listener to the Call-To-Action button that validates the user email address,
+     * @description Add click listener to the Call-To-Action button that validates the user email address,
      * shows the Confirmation Panel, removes dismissal tracking from the "X" button and overlay, and sends
      * an event to Interaction Studio to set the emailAddress attribute to the user email address.
      */
@@ -46,7 +46,7 @@
     /**
      * @function setDismissal
      * @param {Object} context
-     * @description Adds click listener to the overlay, "X" button, and opt-out text that removes the
+     * @description Add click listener to the overlay, "X" button, and opt-out text that removes the
      * template from the DOM.
      */
     function setDismissal(context) {

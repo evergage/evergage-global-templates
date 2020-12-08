@@ -3,7 +3,7 @@
     /**
      * @function setInfobarPosition
      * @param {Object} context
-     * @description Sets the position of the infobar via class assignments, based on content zone selected.
+     * @description Set the position of the infobar via class assignments, based on content zone selected.
      */
     function setInfobarPosition(context) {
         if (context.infobarClass === "evg-infobar-top") {
@@ -16,7 +16,7 @@
     /**
      * @function setDismissal
      * @param {Object} context
-     * @description Adds click listener to the "X" button that removes the template from the DOM.
+     * @description Add click listener to the "X" button that removes the template from the DOM.
      */
     function setDismissal(context) {
         Evergage.cashDom(`#evg-infobar-with-cta.${context.infobarClass} .evg-btn-dismissal`).on("click", () => {

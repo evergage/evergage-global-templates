@@ -4,7 +4,7 @@
 
 #evg-infobar-with-user-attr {
     position: fixed;
-    z-index: 10000000;
+    z-index: 100000;
     left: 0;
 
     display: -webkit-box;
