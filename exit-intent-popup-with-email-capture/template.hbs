@@ -37,9 +37,11 @@ role="dialog" aria-modal="true" aria-hidden="false">
             <h1 class="evg-header evg-h1 evg-display-4 evg-style-text {{style.className}}">
                 {{header}}
             </h1>
-            <h2 class="evg-subheader evg-h2 evg-style-text {{style.className}}{{#unless mainSubheaderVisibility}} evg-hide{{/unless}}">
+            {{#if subheader}}
+            <h2 class="evg-subheader evg-h2 evg-style-text {{style.className}}">
                 {{subheader}}
             </h2>
+            {{/if}}
             <form class="evg-form" aria-label="Email Signup" role="form">
                 <input class="evg-email" name="email" type="email" required placeholder="Email" novalidate
                 aria-label="Email" aria-required="true" tabindex="0">
@@ -59,9 +61,11 @@ role="dialog" aria-modal="true" aria-hidden="false">
             <h1 class="evg-confirm-header evg-h1 evg-style-text {{style.className}}">
                 {{confirmationHeader}}
             </h1>
-            <h2 class="evg-confirm-subheader evg-h2 evg-style-text {{style.className}}{{#unless confSubheaderVisibility}} evg-hide{{/unless}}">
+            {{#if confirmationSubheader}}
+            <h2 class="evg-confirm-subheader evg-h2 evg-style-text {{style.className}}">
                 {{confirmationSubheader}}
             </h2>
+            {{/if}}
         </div>
         <button class="evg-btn-dismissal evg-style-text {{style.className}}" data-evg-dismissal
         aria-label="Close Popup" tabindex="3">&times;</button>

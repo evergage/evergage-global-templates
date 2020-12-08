@@ -219,17 +219,6 @@
 }
 
 /* ==========================================================================
-   Visibility
-========================================================================== */
-
-#evg-exit-intent-popup-email-capture .evg-hide {
-    visibility: hidden;
-    display: none;
-    width: 0;
-    height: 0;
-}
-
-/* ==========================================================================
    Media Queries
 ========================================================================== */
 
@@ -256,8 +245,8 @@
         font-size: 1rem;
     }
 
-   #evg-exit-intent-popup-email-capture .evg-error-msg,
-   #evg-exit-intent-popup-email-capture .evg-opt-out-msg {
+    #evg-exit-intent-popup-email-capture .evg-error-msg,
+    #evg-exit-intent-popup-email-capture .evg-opt-out-msg {
         font-size: .85rem;
     }
 }
