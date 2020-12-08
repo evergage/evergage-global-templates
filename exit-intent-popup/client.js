@@ -28,6 +28,7 @@
     }
 
     function apply(context, template) {
+        if (!context.contentZone) return;
 
         /**
          * The pageExit method waits for the user's cursor to exit through the top edge of the page before rendering the
@@ -51,7 +52,7 @@
     }
 
     function control(context) {
-        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
+        return context.contentZone && Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
             return true;
         });
     }

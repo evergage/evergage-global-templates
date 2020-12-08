@@ -22,10 +22,9 @@ export class ExitIntentPopupTemplate implements CampaignTemplateComponent {
     @richText(true)
     header: string = "Header Text";
 
+    @subtitle("Optional rich text field")
     @richText(true)
     subheader: string = "Subheader Text";
-
-    subheaderVisibility: boolean = true;
 
     @title("CTA Text")
     ctaText: string ="Call To Action";
