@@ -32,19 +32,25 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
                 <img class="evg-product-img" src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
-                <a class="evg-product-name{{#unless ../nameVisibility}} evg-hide{{/unless}}"
-                href="{{attributes.url.value}}">
+                {{#unless ../nameVisibility}}
+                <a class="evg-product-name" href="{{attributes.url.value}}">
                     {{attributes.name.value}}
                 </a>
-                {{#if attributes.description.value}}
-                <div class="evg-product-description{{#unless ../descriptionVisibility}} evg-hide{{/unless}}">
-                    {{attributes.description.value}}
-                </div>
-                {{/if}}
-                <div class="evg-product-price{{#unless ../priceVisibility}} evg-hide{{/unless}}">
+                {{/unless}}
+                {{#unless ../descriptionVisibility}}
+                    {{#if attributes.description.value}}
+                    <div class="evg-product-description evg-hide">
+                        {{attributes.description.value}}
+                    </div>
+                    {{/if}}
+                {{/unless}}
+                {{#unless ../priceVisibility}}
+                <div class="evg-product-price">
                     ${{attributes.price.value}}
                 </div>
-                <div class="evg-product-rating{{#unless ../ratingVisibility}} evg-hide{{/unless}}"
+                {{/unless}}
+                {{#unless ../ratingVisibility}}
+                <div class="evg-product-rating"
                 aria-label="Rating: {{attributes.rating.value}}">
                     <div class="evg-star-empty"
                     eg-ratings="{{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}}"
@@ -56,6 +62,7 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
                         ★★★★★
                     </div>
                 </div>
+                {{/unless}}
             </div>
         </article>
         {{/each}}
