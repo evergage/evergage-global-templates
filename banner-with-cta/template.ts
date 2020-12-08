@@ -16,15 +16,11 @@ export class BannerWithCTATemplate implements CampaignTemplateComponent {
     ])
     style: StyleField = { label: "Light on Dark", className: "evg-light-on-dark" };
 
+    @subtitle("Optional text field")
     header: string = "Header Text";
 
-    @title("Header Visibility")
-    headerVisibility: boolean = true;
-
+    @subtitle("Optional text field")
     subheader: string = "Subheader Text";
-
-    @title("Subheader Visibility")
-    subheaderVisibility: boolean = true;
 
     @title("CTA Text")
     ctaText: string = "Call To Action";

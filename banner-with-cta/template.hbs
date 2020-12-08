@@ -25,12 +25,16 @@
 <div class="evg-banner-with-cta evg-jumbotron {{style.className}}" data-evg-campaign-id="{{campaign}}"
 data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Banner{{#if header}} - {{header}}{{/if}}"
 role="banner" style="background-image: url({{imageURL}})">
-    <h1 class="evg-header evg-h1 evg-display-2 {{style.className}}{{#unless headerVisibility}} evg-hide{{/unless}}">
+    {{#if header}}
+    <h1 class="evg-header evg-h1 evg-display-2 {{style.className}}">
         {{header}}
     </h1>
-    <h2 class="evg-subheader evg-h2 {{style.className}}{{#unless subheaderVisibility}} evg-hide{{/unless}}">
+    {{/if}}
+    {{#if subheader}}
+    <h2 class="evg-subheader evg-h2 {{style.className}}">
         {{subheader}}
     </h2>
+    {{/if}}
     <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg" href="{{ctaUrl}}" aria-label="{{ctaText}}">
         {{ctaText}}
     </a>
