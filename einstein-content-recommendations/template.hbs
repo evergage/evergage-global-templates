@@ -32,14 +32,18 @@ data-evg-user-group="{{userGroup}}" aria-label="Content Recommendations {{#if he
                     alt="{{attributes.name.value}}"/>
                 </a>
                 <div class="evg-content-details">
-                    <a class="evg-content-title{{#unless ../nameVisibility}} evg-hide{{/unless}}" href="{{attributes.url.value}}">
+                    {{#unless ../nameVisibility}}
+                    <a class="evg-content-title" href="{{attributes.url.value}}">
                         {{attributes.name.value}}
                     </a>
-                    {{#if attributes.description.value}}
-                    <div class="evg-content-description{{#unless ../descriptionVisibility}} evg-hide{{/unless}}">
-                        {{attributes.description.value}}
-                    </div>
-                    {{/if}}
+                    {{/unless}}
+                    {{#unless ../descriptionVisibility}}
+                        {{#if attributes.description.value}}
+                        <div class="evg-content-description">
+                            {{attributes.description.value}}
+                        </div>
+                        {{/if}}
+                    {{/unless}}
                 </div>
             </article>
         </div>
