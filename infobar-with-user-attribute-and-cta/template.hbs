@@ -34,9 +34,11 @@ aria-label="Infobar{{#if messageText}} - {{messageText}}{{/if}}" role="alert">
         <p class="evg-message {{style.className}}">
             {{messageText}}
         </p>
-        <a class="evg-cta {{style.className}}{{#unless ctaVisibility}} evg-hide{{/unless}}" href="{{ctaUrl}}">
+        {{#unless ctaVisibility}}
+        <a class="evg-cta {{style.className}}" href="{{ctaUrl}}">
             {{ctaText}}
         </a>
+        {{/unless}}
     </div>
     <button class="evg-btn-dismissal {{style.className}}" data-evg-dismissal aria-label="Close Infobar">&times;</button>
 </div>
