@@ -23,33 +23,35 @@
 
 <section class="evg-einstein-product-recs" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}"
 data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if header}} - {{header}}{{/if}}">
-    <h3 class="evg-header evg-h3">{{header}}</h3>
+    {{#if header}}
+    <h3 class="evg-header evg-h3">
+        {{~header~}}
+    </h3>
+    {{/if}}
     <div class="evg-product-recs">
-        {{#each products}}
+        {{~#each products}}
         <article class="evg-product-rec" data-evg-item-id="{{id}}" data-evg-item-type="{{../itemType}}"
         style="max-width: calc((1 / {{../maximumNumberOfProducts}} * 100%));">
             <a href="{{attributes.url.value}}">
                 <img class="evg-product-img" src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
             </a>
             <div class="evg-product-details">
-                {{#unless ../nameVisibility}}
+                {{#if ../nameVisibility}}
                 <a class="evg-product-name" href="{{attributes.url.value}}">
-                    {{attributes.name.value}}
+                    {{~attributes.name.value~}}
                 </a>
-                {{/unless}}
-                {{#unless ../descriptionVisibility}}
+                {{/if}}
+                {{#if ../descriptionVisibility}}
                     {{#if attributes.description.value}}
                     <div class="evg-product-description">
-                        {{attributes.description.value}}
+                        {{~attributes.description.value~}}
                     </div>
                     {{/if}}
-                {{/unless}}
-                {{#unless ../priceVisibility}}
-                <div class="evg-product-price">
-                    ${{attributes.price.value}}
-                </div>
-                {{/unless}}
-                {{#unless ../ratingVisibility}}
+                {{/if}}
+                {{#if ../priceVisibility}}
+                <div class="evg-product-price">${{~attributes.price.value~}}</div>
+                {{/if}}
+                {{#if ../ratingVisibility}}
                 <div class="evg-product-rating"
                 aria-label="Rating: {{attributes.rating.value}}">
                     <div class="evg-star-empty"
@@ -62,9 +64,9 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
                         ★★★★★
                     </div>
                 </div>
-                {{/unless}}
+                {{/if}}
             </div>
         </article>
-        {{/each}}
+        {{/each~}}
     </div>
 </section>

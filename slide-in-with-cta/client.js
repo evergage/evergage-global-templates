@@ -36,6 +36,8 @@
      * @description Create trigger event based on context
      */
     function handleTriggerEvent({ context, template }) {
+        if (!context.contentZone) return;
+
         const { userGroup, triggerOptions, triggerOptionsNumber } = context || {};
 
         switch (triggerOptions.name) {

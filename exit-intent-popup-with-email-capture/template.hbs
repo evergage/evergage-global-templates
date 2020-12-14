@@ -35,11 +35,11 @@ role="dialog" aria-modal="true" aria-hidden="false">
     <div class="evg-popup evg-style-bg {{style.className}}" style="background-image:url('{{imageUrl}}')">
         <div class="evg-main-panel">
             <h1 class="evg-header evg-h1 evg-display-4 evg-style-text {{style.className}}">
-                {{header}}
+                {{~header~}}
             </h1>
             {{#if subheader}}
             <h2 class="evg-subheader evg-h2 evg-style-text {{style.className}}">
-                {{subheader}}
+                {{~subheader~}}
             </h2>
             {{/if}}
             <form class="evg-form" aria-label="Email Signup" role="form">
@@ -50,20 +50,20 @@ role="dialog" aria-modal="true" aria-hidden="false">
                 </span>
                 <button class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}" onsubmit="return false;" tabindex="1"
                 type="button" aria-label="Submit">
-                    {{ctaText}}
+                    {{~ctaText~}}
                 </button>
             </form>
             <span class="evg-opt-out-msg evg-style-text {{style.className}}" tabindex="2" data-evg-dismissal>
-                {{optOutText}}
+                {{~optOutText~}}
             </span>
         </div>
         <div class="evg-confirm-panel evg-hide">
             <h1 class="evg-confirm-header evg-h1 evg-style-text {{style.className}}">
-                {{confirmationHeader}}
+                {{~confirmationHeader~}}
             </h1>
             {{#if confirmationSubheader}}
             <h2 class="evg-confirm-subheader evg-h2 evg-style-text {{style.className}}">
-                {{confirmationSubheader}}
+                {{~confirmationSubheader~}}
             </h2>
             {{/if}}
         </div>

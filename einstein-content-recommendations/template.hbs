@@ -20,33 +20,35 @@
 --}}
 
 <section class="evg-einstein-content-recs" data-evg-campaign-id="{{campaign}}" data-evg-experience-id="{{experience}}"
-data-evg-user-group="{{userGroup}}" aria-label="Content Recommendations {{#if header}}- {{header}}{{/if}}">
-    <h3 class="evg-header evg-h3">{{header}}</h3>
+data-evg-user-group="{{userGroup}}" aria-label="Content Recommendations{{#if header}} - {{header}}{{/if}}">
+    {{#if header}}
+    <h3 class="evg-header evg-h3">
+        {{~header~}}
+    </h3>
+    {{/if}}
     <div class="evg-content-recs">
-        {{#each blogs}}
+        {{~#each blogs}}
         <div class="evg-container">
-            <article class="evg-content-rec" data-evg-item-id="{{id}}"
-            data-evg-item-type="{{../itemType}}">
+            <article class="evg-content-rec" data-evg-item-id="{{id}}" data-evg-item-type="{{../itemType}}">
                 <a href="{{attributes.url.value}}">
-                    <img class="evg-content-img" src="{{attributes.imageUrl.value}}"
-                    alt="{{attributes.name.value}}"/>
+                    <img class="evg-content-img" src="{{attributes.imageUrl.value}}" alt="{{attributes.name.value}}"/>
                 </a>
                 <div class="evg-content-details">
-                    {{#unless ../nameVisibility}}
+                    {{#if ../nameVisibility}}
                     <a class="evg-content-title" href="{{attributes.url.value}}">
-                        {{attributes.name.value}}
+                        {{~attributes.name.value~}}
                     </a>
-                    {{/unless}}
-                    {{#unless ../descriptionVisibility}}
+                    {{/if}}
+                    {{#if ../descriptionVisibility}}
                         {{#if attributes.description.value}}
                         <div class="evg-content-description">
-                            {{attributes.description.value}}
+                            {{~attributes.description.value~}}
                         </div>
                         {{/if}}
-                    {{/unless}}
+                    {{/if}}
                 </div>
             </article>
         </div>
-        {{/each}}
+        {{/each~}}
     </div>
 </section>

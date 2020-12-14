@@ -27,12 +27,12 @@ aria-label="Infobar{{#if messageText}} - {{messageText}}{{/if}}" role="alert">
     <div class="evg-infobar">
         {{#if messageText}}
         <p class="evg-message {{style.className}}">
-            {{messageText}}
+            {{~messageText~}}
         </p>
         {{/if}}
         {{#if ctaText}}
         <a class="evg-cta {{style.className}}" href="{{ctaUrl}}">
-            {{ctaText}}
+            {{~ctaText~}}
         </a>
         {{/if}}
     </div>

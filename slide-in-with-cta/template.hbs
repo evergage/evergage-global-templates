@@ -23,19 +23,25 @@
 --}}
 
 <div class="{{style.className}}" id="evg-slide-in-with-cta" data-evg-campaign-id="{{campaign}}"
-    data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" role="dialog" aria-hidden="false"
-    aria-label="Slide-In Message{{#if header}} {{header}}{{/if}}{{#if subheader}} {{subheader}}{{/if}}">
+data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" role="dialog" aria-hidden="false"
+aria-label="Slide-In Message{{#if header}} {{header}}{{/if}}{{#if subheader}} {{subheader}}{{/if}}">
     <div class="evg-slide-in">
-        <h1 class="evg-header {{style.className}}{{#unless headerVisibility}} evg-hide{{/unless}}">
-            {{header}}
+        {{#if header}}
+        <h1 class="evg-header {{style.className}}">
+            {{~header~}}
         </h1>
-        <h2 class="evg-subheader {{style.className}}{{#unless subheaderVisibility}} evg-hide{{/unless}}">
-            {{subheader}}
+        {{/if}}
+        {{#if subheader}}
+        <h2 class="evg-subheader {{style.className}}">
+            {{~subheader~}}
         </h2>
-        <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}{{#unless ctaVisibility}} evg-hide{{/unless}}"
+        {{/if}}
+        {{#if ctaText}}
+        <a class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}"
             href="{{ctaUrl}}" aria-label="{{ctaText}}" tabindex="0">
-            {{ctaText}}
+            {{~ctaText~}}
         </a>
+        {{/if}}
         <button class="evg-btn-dismissal {{style.className}}" data-evg-dismissal aria-label="Close Slide-In">&times;</button>
     </div>
 </div>

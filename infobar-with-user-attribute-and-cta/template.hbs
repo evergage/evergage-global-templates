@@ -32,11 +32,11 @@ data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}"
 aria-label="Infobar{{#if messageText}} - {{messageText}}{{/if}}" role="alert">
     <div class="evg-infobar">
         <p class="evg-message {{style.className}}">
-            {{messageText}}
+            {{~messageText~}}
         </p>
         {{#unless ctaVisibility}}
         <a class="evg-cta {{style.className}}" href="{{ctaUrl}}">
-            {{ctaText}}
+            {{~ctaText~}}
         </a>
         {{/unless}}
     </div>
