@@ -1,5 +1,7 @@
 (function() {
 
+    const pageExitMillis = 500;
+
     /**
      * @function buildBindId
      * @param {Object} context
@@ -34,7 +36,7 @@
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
-        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(500).then(() => {
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
             if (Evergage.cashDom("#evg-exit-intent-popup").length > 0) return;
 
             const html = template(context);
@@ -48,8 +50,10 @@
         Evergage.cashDom("#evg-exit-intent-popup").remove();
     }
 
-    function control() {
-
+    function control(context) {
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
+            return true;
+        });
     }
 
     registerTemplate({
