@@ -27,9 +27,9 @@ export class ExitIntentPopupTemplate implements CampaignTemplateComponent {
     subheader: string = "Subheader Text";
 
     @title("CTA Text")
-    ctaText: string ="Call To Action";
+    ctaText: string = "Call To Action";
 
-    @title('CTA Destination URL')
+    @title("CTA Destination URL")
     @subtitle("Requires full URL string including https://")
     ctaUrl: string = "https://cumulusfinserv.com/banking";
 

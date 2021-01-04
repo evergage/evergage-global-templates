@@ -25,8 +25,8 @@
 --}}
 
 <div id="evg-exit-intent-popup-email-capture" data-evg-campaign-id="{{campaign}}"
-data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}" aria-label="Popup{{#if header}} - {{header}}{{/if}}"
-role="dialog" aria-modal="true" aria-hidden="false">
+data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}"
+aria-label="Popup{{#if header}} - {{header}}{{/if}}" role="dialog" aria-modal="true" aria-hidden="false">
 
     {{#if lightbox}}
     <div class="evg-overlay" data-evg-dismissal></div>
@@ -48,8 +48,8 @@ role="dialog" aria-modal="true" aria-hidden="false">
                 <span class="evg-error-msg evg-hide">
                     Enter a valid email address
                 </span>
-                <button class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}" onsubmit="return false;" tabindex="1"
-                type="button" aria-label="Submit">
+                <button class="evg-cta evg-btn evg-btn-primary evg-btn-lg {{style.className}}" onsubmit="return false;"
+                tabindex="1" type="button" aria-label="Submit">
                     {{~ctaText~}}
                 </button>
             </form>

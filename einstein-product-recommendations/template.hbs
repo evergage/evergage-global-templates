@@ -52,8 +52,7 @@ data-evg-user-group="{{userGroup}}" aria-label="Product Recommendations{{#if hea
                 <div class="evg-product-price">${{~attributes.price.value~}}</div>
                 {{/if}}
                 {{#if ../ratingVisibility}}
-                <div class="evg-product-rating"
-                aria-label="Rating: {{attributes.rating.value}}">
+                <div class="evg-product-rating" aria-label="Rating: {{attributes.rating.value}}">
                     <div class="evg-star-empty"
                     eg-ratings="{{#if attributes.rating.value}}{{attributes.rating.value}}{{else}}0{{/if}}"
                     style="width: auto">
