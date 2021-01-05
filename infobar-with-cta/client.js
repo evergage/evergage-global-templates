@@ -46,7 +46,7 @@
     }
 
     function control(context) {
-        return !!context.contentZone;
+        return new Promise(resolve => { if (!!context.contentZone) resolve(!!context.contentZone); });
     }
 
     registerTemplate({
