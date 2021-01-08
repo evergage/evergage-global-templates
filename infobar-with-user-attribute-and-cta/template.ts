@@ -12,25 +12,23 @@ export class InfobarWithUserAttrAndCTATemplate implements CampaignTemplateCompon
     ])
     style: StyleField = { label: "Light on Dark", className: "evg-light-on-dark" };
 
-    @title('Pre-Attribute Message Text')
-    @subtitle('Optional text input field')
+    @title("Pre-Attribute Message Text")
+    @subtitle("Optional text field")
     preAttrMessageText: string = "Message Text, ";
 
-    @title('User Attribute Default')
-    @subtitle('Default text to appear if attribute is blank or null on the user profile')
+    @title("User Attribute Default")
+    @subtitle("Default text to appear if attribute is blank or null on the user profile")
     userAttrDefault: string = "Default";
 
-    @title('Post-Attribute Message Text')
-    @subtitle('Optional text input field')
+    @title("Post-Attribute Message Text")
+    @subtitle("Optional text field")
     postAttrMessageText: string = ", Additional Message Text";
 
-    @title('CTA Text')
+    @title("CTA Text")
+    @subtitle("Optional text field")
     ctaText: string = "Call To Action";
 
-    @title('CTA Visibility')
-    ctaVisibility: boolean = true;
-
-    @title('CTA Destination URL')
+    @title("CTA Destination URL")
     @subtitle("Requires full URL string including https://")
     ctaUrl: string = "https://cumulusfinserv.com/banking";
 

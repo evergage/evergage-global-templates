@@ -256,8 +256,8 @@
         font-size: 1rem;
     }
 
-   #evg-exit-intent-popup-email-capture .evg-error-msg,
-   #evg-exit-intent-popup-email-capture .evg-opt-out-msg {
+    #evg-exit-intent-popup-email-capture .evg-error-msg,
+    #evg-exit-intent-popup-email-capture .evg-opt-out-msg {
         font-size: .85rem;
     }
 }

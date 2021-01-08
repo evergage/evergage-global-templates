@@ -12,17 +12,14 @@ export class InfobarWithCTATemplate implements CampaignTemplateComponent {
     ])
     style: StyleField = { label: "Light on Dark", className: "evg-light-on-dark" };
 
+    @subtitle("Optional text field")
     messageText: string = "Infobar Message Text";
 
-    messageVisibility: boolean = true;
-
-    @title('CTA Text')
+    @title("CTA Text")
+    @subtitle("Optional text field")
     ctaText: string = "Call To Action";
 
-    @title('CTA Visibility')
-    ctaVisibility: boolean = true;
-
-    @title('CTA Destination URL')
+    @title("CTA Destination URL")
     @subtitle("Requires full URL string including https://")
     ctaUrl: string = "https://cumulusfinserv.com/banking";
 

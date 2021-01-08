@@ -26,6 +26,8 @@
     }
 
     function apply(context, template) {
+        if (!context.contentZone) return;
+
         context.infobarClass = context.contentZone == "global_infobar_top_of_page"
             ? "evg-infobar-top"
             : "evg-infobar-bottom";
@@ -43,8 +45,8 @@
         Evergage.cashDom("body").css({ "margin-top": "0", "margin-bottom": "0" });
     }
 
-    function control() {
-
+    function control(context) {
+        return new Promise(resolve => { if (context.contentZone) resolve(); });
     }
 
     registerTemplate({

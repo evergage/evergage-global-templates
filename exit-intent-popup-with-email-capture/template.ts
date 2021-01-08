@@ -21,10 +21,8 @@ export class ExitIntentPopupWithEmailCapture implements CampaignTemplateComponen
 
     header: string = "Header Text";
 
+    @subtitle("Optional text field")
     subheader: string = "Subheader Text";
-
-    @title("Subheader Visibility")
-    mainSubheaderVisibility: boolean = true;
 
     @title("CTA Text")
     ctaText: string = "Call To Action";
@@ -38,10 +36,8 @@ export class ExitIntentPopupWithEmailCapture implements CampaignTemplateComponen
     confirmationHeader: string = "Confirmation Header Text";
 
     @title("Confirmation Screen Subheader")
+    @subtitle("Optional text field")
     confirmationSubheader: string = "Confirmation Subheader Text";
-
-    @title("Subheader Visibility")
-    confSubheaderVisibility: boolean = true;
 
     run(context: CampaignComponentContext) {
         return {};
