@@ -4,10 +4,9 @@
 
 #evg-einstein-decisions-banner .evg-promotion-link,
 #evg-einstein-decisions-banner .evg-promotion-img {
-    width: 100%;
     max-width: 100%;
 }
 
-#evg-einstein-promotions-banner .evg-promotion-img {
-    object-fit: cover;
+#evg-einstein-decisions-banner .evg-promotion-img {
+    object-fit: contain;
 }
