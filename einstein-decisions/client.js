@@ -10,6 +10,8 @@
     }
 
     function apply(context, template) {
+        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
+
         /**
          * The pageElementLoaded method waits for the content zone to load into the DOM
          * before rendering the template. The observer element that monitors for the content
@@ -20,8 +22,7 @@
          * Visit the Template Display Utilities documentation to learn more:
          * https://developer.evergage.com/templates/display-utilities
          */
-        const selector = Evergage.getContentZoneSelector(context.contentZone);
-        return Evergage.DisplayUtils.bind(buildBindId(context)).pageElementLoaded(selector).then(element => {
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageElementLoaded(contentZoneSelector).then(element => {
             const html = template(context);
             Evergage.cashDom(element).html(html);
         });
@@ -29,16 +30,17 @@
 
     function reset(context, template) {
         Evergage.DisplayUtils.unbind(buildBindId(context));
-        Evergage.cashDom("#evg-einstein-decisions-banner").remove();
+        Evergage.cashDom(`[data-evg-campaign-id="${context.campaign}"][data-evg-experience-id="${context.experience}"]`)
+            .remove();
     }
 
     function control(context) {
-        const selector = Evergage.getContentZoneSelector(context.contentZone);
-        return Evergage.DisplayUtils.bind(buildBindId(context)).pageElementLoaded(selector).then(element => {
+        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
+        return Evergage.DisplayUtils.bind(buildBindId(context)).pageElementLoaded(contentZoneSelector).then(element => {
             Evergage.cashDom(element).attr({
                 "data-evg-campaign-id": context.campaign,
                 "data-evg-experience-id": context.experience,
-                "data-evg-user-group": "Control",
+                "data-evg-user-group": "Control"
             });
         });
     }

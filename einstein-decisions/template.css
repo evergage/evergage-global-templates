@@ -1,12 +1,12 @@
-#evg-einstein-decisions-banner {
+#evg-einstein-decisions {
     text-align: center;
 }
 
-#evg-einstein-decisions-banner .evg-promotion-link,
-#evg-einstein-decisions-banner .evg-promotion-img {
+#evg-einstein-decisions .evg-promotion-link,
+#evg-einstein-decisions .evg-promotion-img {
     max-width: 100%;
 }
 
-#evg-einstein-decisions-banner .evg-promotion-img {
+#evg-einstein-decisions .evg-promotion-img {
     object-fit: contain;
 }

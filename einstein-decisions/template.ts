@@ -1,6 +1,6 @@
 import { ContextualBanditConfig, decide } from "corvus";
 
-export class EinsteinDecisionsBannerTemplate implements CampaignTemplateComponent {
+export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
 
     run(context: CampaignComponentContext) {
         const banditConfig: ContextualBanditConfig = {
@@ -10,8 +10,10 @@ export class EinsteinDecisionsBannerTemplate implements CampaignTemplateComponen
 
         const promotion = decide(context, banditConfig, null)[0] as Promotion;
 
-        return promotion == null ? {} : {
-                promotion,
+        return promotion == null
+            ? {}
+            : {
+                promotion
             };
     }
 

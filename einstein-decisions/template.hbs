@@ -1,21 +1,18 @@
 {{!--
-    Global Template: Einstein (Contextual Bandit) Promotions Banner
+    Global Template: Einstein Decisions
 
-    This Global Template inserts a Promotion, chosen by an Einstein Contextual Bandit.
+    This Global Template inserts a Promotion, chosen by an Einstein Decision (Contextual Bandit).
 
     Requirements:
-    1) Ensure that the available content zones are defined in your Sitemap.
-    2) Ensure that Promotions are enabled for the account/dataset.
-    3) Add any necessary image dimensions to the Serverside code.
+    1) Set the content zone(s) to that are defined in your Sitemap.
+    2) Ensure that Promotions are enabled for the account and dataset.
 
     Customizations:
-    1) For performance optimization, add an observer selector as a second argument to
-    Evergage.DisplayUtil.pageElementLoaded in Clientside Code that waits for the content zone to load into the DOM.
-    2) Remove or change the default values for the configuration properties in Serverside Code.
+    1) Remove or change the default values for the configuration properties in Serverside Code.
 --}}
 
 {{#if promotion}}
-<div id="evg-einstein-decisions-banner" data-evg-campaign-id="{{campaign}}"
+<div id="evg-einstein-decisions" data-evg-campaign-id="{{campaign}}"
 data-evg-experience-id="{{experience}}" data-evg-user-group="{{userGroup}}">
     <a class="evg-promotion-link" href="{{promotion.attributes.url.value}}">
         <img class="evg-promotion-img" src="{{promotion.assets.[0].imageUrl}}">
