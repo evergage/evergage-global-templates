@@ -5,16 +5,12 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
     run(context: CampaignComponentContext) {
         const banditConfig: ContextualBanditConfig = {
             maxResults: 1,
-            contentZone: context.contentZone,
+            contentZone: context.contentZone
         } as ContextualBanditConfig;
 
         const promotion = decide(context, banditConfig, null)[0] as Promotion;
 
-        return promotion == null
-            ? {}
-            : {
-                promotion
-            };
+        return promotion == null ? {} : { promotion };
     }
 
 }
