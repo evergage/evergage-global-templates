@@ -5,7 +5,12 @@
 
     Requirements:
     1) Set the content zone(s) to that defined in your Sitemap.
-    2) Ensure that Promotions are enabled for the account and dataset.
+    2) Ensure that the "Contextual Bandit" feature flag is enabled for your account. If you encounter issues,
+    please contact your account administrator.
+    3) Ensure that the "Feature Engineering" features (Einstein Decisions > Feature Engineering) are enabled
+    for the dataset. Once again, please contact your account administrator if you encounter issues.
+    4) Enable Promotions in the dataset's Catalog Setup.
+    5) Create and configure Promotions, either manually or through an ETL.
 
     Customizations:
     1) Remove or change the default value for maxResults in Serverside Code.
