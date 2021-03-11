@@ -10,13 +10,12 @@ call-to-action button.
 <img src="config.png" alt="Slide-In with Call-to-Action" width="350px"/>
 
 1. Trigger Options
-    - Second(s) on page
-    - % of page the user has scrolled
-    - Second(s) of inactivity on page
+    - Time on Page (Delay)
+    - Scroll Depth
+    - Inactivity
 2. Style (Light on Dark, Dark on Light)
 3. Header
 4. Subheader
-5. Post-Attribute Message Text
-6. CTA Text
-7. CTA Destination URL
-8. Content Zone
+5. CTA Text
+6. CTA Destination URL
+7. Content Zone
