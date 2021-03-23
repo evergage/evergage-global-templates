@@ -40,8 +40,20 @@
 
     }
 
-    function control() {
-
+    function control(context) {
+        const { campaign, experience } = context;
+        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone) || 'body';
+        Evergage.DisplayUtils.bind(`${campaign}:${experience}`).pageElementLoaded(contentZoneSelector).then(element => {
+            Evergage.sendStat({
+                campaignStats: [
+                    {
+                        control: true,
+                        experienceId: context.experience,
+                        stat: "Impression"
+                    }
+                ]
+            });
+        });
     }
 
     registerTemplate({
