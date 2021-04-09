@@ -136,6 +136,7 @@
 
 .evg-einstein-product-recs .evg-star-empty,
 .evg-einstein-product-recs .evg-star-full {
+    height: 1.5em;
     text-align: left;
     text-decoration: none;
 }
@@ -148,7 +149,7 @@
 .evg-einstein-product-recs .evg-star-fill {
     position: relative;
     overflow: hidden;
-    margin-top: -1.4em;
+    margin-top: -1.5em;
     color: #ce763c;
     background-color: transparent;
 }
