@@ -69,16 +69,19 @@
          * template after a set delay.
          *
          * Visit the Template Display Utilities documentation to learn more:
-         * https://developer.evergage.com/templates/display-utilities
+         * https://developer.evergage.com/campaign-development/web-templates/web-display-utilities
          */
-        return Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
-            if (Evergage.cashDom("#evg-exit-intent-popup").length > 0) return;
+        return Evergage.DisplayUtils
+            .bind(buildBindId(context))
+            .pageExit(pageExitMillis)
+            .then(() => {
+                if (Evergage.cashDom("#evg-exit-intent-popup").length > 0) return;
 
-            const html = template(context);
-            Evergage.cashDom("body").append(html);
-            setConfirmationPanel();
-            setDismissal(context);
-        });
+                const html = template(context);
+                Evergage.cashDom("body").append(html);
+                setConfirmationPanel();
+                setDismissal(context);
+            });
     }
 
     function reset(context, template) {
@@ -87,9 +90,13 @@
     }
 
     function control(context) {
-        return context.contentZone && Evergage.DisplayUtils.bind(buildBindId(context)).pageExit(pageExitMillis).then(() => {
-            return true;
-        });
+        return context.contentZone
+            && Evergage.DisplayUtils
+                .bind(buildBindId(context))
+                .pageExit(pageExitMillis)
+                .then(() => {
+                    return true;
+                });
     }
 
     registerTemplate({
