@@ -58,7 +58,7 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
 
     @searchOptions((self) => new PromotionSearchOptions())
     @title("Optional Fallback Promotion Selector")
-    @subtitle("Select a fallback promotion to display if there are no eligible promotions to show to the end user. If no fallback is selected, the default site experience would display. (NOTE: This field is case-sensitive.)")
+    @subtitle("Search for a fallback promotion to display if there are no eligible promotions to show to the end user. If no fallback is selected, the default site experience would display. (NOTE: This field is case-sensitive.)")
     fallbackArm: ItemReference;
 
     @title("Fallback Asset Selector")

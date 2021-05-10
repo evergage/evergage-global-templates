@@ -10,7 +10,7 @@
     }
 
     function apply(context, template) {
-        if (!context.contentZone || !context.imageUrl) return;
+        if (!context.contentZone || !context.imageUrl || !context.url) return;
 
         const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
 
