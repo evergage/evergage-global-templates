@@ -8,4 +8,6 @@ This Global Template inserts a Promotion, chosen by Einstein Decisions.
 
 <img src="config.png" alt="Einstein Decisions" width="350px"/>
 
-1. Content Zone
+1. Optional Fallback Promotion Selector
+2. Fallback Asset Selector (only shows if an Optional Fallback Promotion is selected)
+3. Content Zone
