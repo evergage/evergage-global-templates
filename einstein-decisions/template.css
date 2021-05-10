@@ -1,12 +1,12 @@
-#evg-einstein-decisions {
+#mcis-einstein-decisions {
     text-align: center;
 }
 
-#evg-einstein-decisions .evg-promotion-link,
-#evg-einstein-decisions .evg-promotion-img {
+#mcis-einstein-decisions .mcis-promotion-link,
+#mcis-einstein-decisions .mcis-promotion-img {
     max-width: 100%;
 }
 
-#evg-einstein-decisions .evg-promotion-img {
+#mcis-einstein-decisions .mcis-promotion-img {
     object-fit: contain;
 }
