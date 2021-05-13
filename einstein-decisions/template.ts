@@ -78,28 +78,35 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
 
         let imageUrl: string = "";
         let url: string = "";
-        if (promotion) {
-            if (promotion.assets) {
-                let promoAsset: ImageAsset = null;
-                for (const asset of promotion.assets) {
-                    if (!(asset.type === "CdnImage" || asset.type === "ExternalImage")) continue;
+        if (promotion?.assets) {
+            let promoAsset: ImageAsset = null;
+            for (const asset of promotion.assets) {
+                if (!(asset.type === "CdnImage" || asset.type === "ExternalImage")) continue;
 
-                    if (asset.contentZones.includes(context.contentZone) ||
-                        (this.fallbackAsset && asset.contentZones.includes(this.fallbackAsset))) {
+                if (asset.contentZones?.includes(context.contentZone)) {
+                    promoAsset = asset as ImageAsset;
+                    break;
+                }
+            }
 
-                        promoAsset = asset as ImageAsset;
+            if (!promoAsset && this.fallbackAsset && this.fallbackArm?.id === promotion.id) {
+                for (const innerAsset of promotion.assets) {
+                    if (!(innerAsset.type === "CdnImage" || innerAsset.type === "ExternalImage")) continue;
+
+                    if (innerAsset.contentZones?.includes(this.fallbackAsset)) {
+                        promoAsset = innerAsset as ImageAsset;
                         break;
                     }
                 }
-
-                if (promoAsset) {
-                    imageUrl = (promoAsset as ImageAsset).imageUrl;
-                }
             }
 
-            if (promotion.attributes?.url) {
-                url = promotion.attributes.url.value as string;
+            if (promoAsset) {
+                imageUrl = (promoAsset as ImageAsset).imageUrl;
             }
+        }
+
+        if (promotion?.attributes?.url) {
+            url = promotion.attributes.url.value as string;
         }
 
         return { imageUrl, url };
