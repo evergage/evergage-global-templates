@@ -1,6 +1,10 @@
 import { ContextualBanditConfig, decide } from "corvus";
 import { ItemReference } from "common";
 
+function isCdnOrExternalImage(asset) {
+    return asset?.type === "CdnImage" || asset?.type === "ExternalImage";
+}
+
 export class PromotionSearchOptions implements Search<string> {
 
     search(context: GearLifecycleContext, searchString: string): ItemReference[] {
@@ -58,13 +62,15 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
 
     @searchOptions((self) => new PromotionSearchOptions())
     @title("Optional Fallback Promotion Selector")
-    @subtitle("Search for a fallback promotion to display if there are no eligible promotions to show to the end user. If no fallback is selected, the default site experience would display. (NOTE: This field is case-sensitive.)")
+    @subtitle(`Search for a fallback promotion to display if there are no eligible promotions to show to the end user.
+    If no fallback is selected, the default site experience would display. (NOTE: This field is case-sensitive.)`)
     fallbackArm: ItemReference;
 
     @title("Fallback Asset Selector")
     @lookupOptions((self) => new AssetLookupOptions(self.fallbackArm))
     @hidden(this, (self) => !self.fallbackArm)
-    @subtitle("Select a Content Zone or Tag to determine which asset on your selected fallback promotion is rendered in the targeted web content zone.")
+    @subtitle(`Select a Content Zone or Tag to determine which asset on your selected fallback promotion is rendered in
+    the targeted web content zone.`)
     fallbackAsset: string;
 
     run(context: CampaignComponentContext) {
@@ -76,38 +82,29 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
 
         const promotion: Promotion = decide(context, banditConfig, null)[0] as Promotion;
 
-        let imageUrl: string = "";
-        let url: string = "";
-        if (promotion?.assets) {
-            let promoAsset: ImageAsset = null;
+        function fetchImageUrl(promotion: Promotion, contentZone: string): string {
+            if (!promotion || !promotion.assets) {
+                return "";
+            }
             for (const asset of promotion.assets) {
-                if (!(asset.type === "CdnImage" || asset.type === "ExternalImage")) continue;
-
-                if (asset.contentZones?.includes(context.contentZone)) {
-                    promoAsset = asset as ImageAsset;
-                    break;
+                if (!isCdnOrExternalImage(asset)) continue;
+                if (asset.contentZones?.includes(contentZone)) {
+                    return (asset as ImageAsset).imageUrl;
                 }
             }
-
-            if (!promoAsset && this.fallbackAsset && this.fallbackArm?.id === promotion.id) {
-                for (const innerAsset of promotion.assets) {
-                    if (!(innerAsset.type === "CdnImage" || innerAsset.type === "ExternalImage")) continue;
-
-                    if (innerAsset.contentZones?.includes(this.fallbackAsset)) {
-                        promoAsset = innerAsset as ImageAsset;
-                        break;
+            if (this.fallbackAsset && this.fallbackArm?.id === promotion.id) {
+                for (const asset of promotion.assets) {
+                    if (!isCdnOrExternalImage(asset)) continue;
+                    if (asset.contentZones?.includes(this.fallbackAsset)) {
+                        return (asset as ImageAsset).imageUrl;
                     }
                 }
             }
-
-            if (promoAsset) {
-                imageUrl = (promoAsset as ImageAsset).imageUrl;
-            }
+            return "";
         }
 
-        if (promotion?.attributes?.url) {
-            url = promotion.attributes.url.value as string;
-        }
+        let imageUrl: string = fetchImageUrl(promotion, context.contentZone);
+        let url: string = promotion?.attributes?.url ? promotion.attributes.url as string : "";
 
         return { imageUrl, url };
     }
