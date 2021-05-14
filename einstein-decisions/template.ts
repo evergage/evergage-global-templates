@@ -1,7 +1,7 @@
 import { ContextualBanditConfig, decide } from "corvus";
 import { ItemReference } from "common";
 
-function isCdnOrExternalImage(asset) {
+function isCdnOrExternalImage(asset?: Asset) {
     return asset?.type === "CdnImage" || asset?.type === "ExternalImage";
 }
 
@@ -103,8 +103,8 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
             return "";
         }
 
-        let imageUrl: string = fetchImageUrl(promotion, context.contentZone);
-        let url: string = promotion?.attributes?.url ? promotion.attributes.url as string : "";
+        const imageUrl: string = fetchImageUrl(promotion, context.contentZone);
+        const url: string = promotion?.attributes?.url?.value ? promotion.attributes.url.value as string : "";
 
         return { imageUrl, url };
     }
