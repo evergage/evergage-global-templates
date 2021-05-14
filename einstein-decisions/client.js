@@ -22,12 +22,12 @@
          * a second selector argument, which will be used as the observer element instead.
          *
          * Visit the Template Display Utilities documentation to learn more:
-         * https://developer.evergage.com/templates/display-utilities
+         * https://developer.evergage.com/campaign-development/web-templates/web-display-utilities
          */
         return Evergage.DisplayUtils
             .bind(buildBindId(context))
             .pageElementLoaded(contentZoneSelector)
-            .then(element => {
+            .then((element) => {
                 const html = template(context);
                 Evergage.cashDom(element).html(html);
             });
@@ -44,13 +44,13 @@
         return Evergage.DisplayUtils
             .bind(buildBindId(context))
             .pageElementLoaded(contentZoneSelector)
-            .then(element => {
+            .then((element) => {
                 Evergage.cashDom(element).attr({
                     "data-evg-campaign-id": context.campaign,
                     "data-evg-experience-id": context.experience,
                     "data-evg-user-group": context.userGroup
                 });
-        });
+            });
     }
 
     registerTemplate({
