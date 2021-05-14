@@ -44,7 +44,7 @@ export class AssetLookupOptions implements Lookup<string> {
         }
 
         return fullPromo.assets.reduce((contentZones: string[], asset: Asset) => {
-            if (asset && asset.contentZones) {
+            if (isCdnOrExternalImage(asset) && asset?.contentZones) {
                 asset.contentZones.forEach(zone => { if (!(zone in contentZones)) contentZones.push(zone) });
             }
             return contentZones;
