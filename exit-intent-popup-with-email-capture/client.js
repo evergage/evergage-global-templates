@@ -90,13 +90,12 @@
     }
 
     function control(context) {
-        return context.contentZone
-            && Evergage.DisplayUtils
-                .bind(buildBindId(context))
-                .pageExit(pageExitMillis)
-                .then(() => {
-                    return true;
-                });
+        return Evergage.DisplayUtils
+            .bind(buildBindId(context))
+            .pageExit(pageExitMillis)
+            .then(() => {
+                if (context.contentZone) return true;
+            });
     }
 
     registerTemplate({
