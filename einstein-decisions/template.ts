@@ -82,7 +82,8 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
 
         const promotion: Promotion = decide(context, banditConfig, null)[0] as Promotion;
 
-        function fetchImageUrl(promotion: Promotion, contentZone: string): string {
+        function fetchImageUrl(promotion: Promotion, contentZone: string, fallbackArm: ItemReference,
+                               fallbackAsset: string): string {
             if (!promotion || !promotion.assets) {
                 return "";
             }
@@ -92,10 +93,10 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
                     return (asset as ImageAsset).imageUrl;
                 }
             }
-            if (this.fallbackAsset && this.fallbackArm?.id === promotion.id) {
+            if (fallbackAsset && fallbackArm?.id === promotion.id) {
                 for (const asset of promotion.assets) {
                     if (!isCdnOrExternalImage(asset)) continue;
-                    if (asset.contentZones?.includes(this.fallbackAsset)) {
+                    if (asset.contentZones?.includes(fallbackAsset)) {
                         return (asset as ImageAsset).imageUrl;
                     }
                 }
@@ -103,7 +104,7 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
             return "";
         }
 
-        const imageUrl: string = fetchImageUrl(promotion, context.contentZone);
+        const imageUrl: string = fetchImageUrl(promotion, context.contentZone, this.fallbackArm, this.fallbackAsset);
         const url: string = promotion?.attributes?.url?.value ? promotion.attributes.url.value as string : "";
 
         return { imageUrl, url };

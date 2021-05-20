@@ -1,0 +1,12 @@
+#evg-manual-promotion {
+    text-align: center;
+}
+
+#evg-manual-promotion .evg-promotion-link,
+#evg-manual-promotion .evg-promotion-img {
+    max-width: 100%;
+}
+
+#evg-manual-promotion .evg-promotion-img {
+    object-fit: contain;
+}
