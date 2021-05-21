@@ -7,9 +7,8 @@ function isCdnOrExternalImage(asset?: Asset) {
 export class PromotionSearchOptions implements Search<string> {
 
     search(context: GearLifecycleContext, searchString: string): ItemReference[] {
-        if (!searchString) {
-            return [];
-        }
+        if (!searchString) return [];
+
         const promos: Promotion[] = context.services.catalog.findByName("Promotion", searchString) as Promotion[];
         return promos.reduce((allPromos, promo: Promotion) => {
             const promoItem = {
@@ -32,14 +31,10 @@ export class AssetLookupOptions implements Lookup<string> {
     }
 
     lookup(context: GearLifecycleContext): string[] {
-        if (!this.selectedPromo) {
-            return [];
-        }
+        if (!this.selectedPromo) return [];
 
         const fullPromo: Promotion = context.services.catalog.findItem("Promotion", this.selectedPromo.id) as Promotion;
-        if (!fullPromo || !fullPromo.assets) {
-            return [];
-        }
+        if (!fullPromo || !fullPromo.assets) return [];
 
         return fullPromo.assets.reduce((contentZones: string[], asset: Asset) => {
             if (isCdnOrExternalImage(asset) && asset?.contentZones) {
@@ -50,24 +45,24 @@ export class AssetLookupOptions implements Lookup<string> {
     }
 }
 
-export class ManualPromotionTemplate implements CampaignTemplateComponent {
+export class ManualPromotionSelectorTemplate implements CampaignTemplateComponent {
 
-    @searchOptions((self) => new PromotionSearchOptions())
+    @searchOptions(() => new PromotionSearchOptions())
     @title("Promotion Selector")
-    @subtitle("Select the promotion that you want to display in the targeted web content zone")
+    @subtitle("Select the promotion that you want to display in the targeted web content zone.")
     selectedPromo: ItemReference;
 
     @title("Asset Selector")
     @lookupOptions((self) => new AssetLookupOptions(self.selectedPromo))
-    @subtitle("Select a Content Zone or Tag to determine which asset from your selected promotion is rendered in the targeted web content zone.")
+    @subtitle("Select a Content Zone or Tag to determine which asset from your selected promotion is rendered in the " +
+              "targeted web content zone.")
     selectedAsset: string;
 
     run(context: CampaignComponentContext) {
-        const promotion: Promotion= context.services.catalog.findItem("Promotion", this.selectedPromo.id) as Promotion;
+        const promotion: Promotion = context.services.catalog.findItem("Promotion", this.selectedPromo.id) as Promotion;
         function fetchImageUrl(promotion: Promotion, contentZone: string, selectedAsset: string): string {
-            if (!promotion || !promotion.assets) {
-                return "";
-            }
+            if (!promotion || !promotion.assets) return "";
+
             for (const asset of promotion.assets) {
                 if (!isCdnOrExternalImage(asset)) continue;
                 if (asset.contentZones?.includes(selectedAsset)) {
@@ -85,7 +80,7 @@ export class ManualPromotionTemplate implements CampaignTemplateComponent {
         const imageUrl: string = fetchImageUrl(promotion, context.contentZone, this.selectedAsset);
         const url: string = promotion?.attributes?.url?.value ? promotion.attributes.url.value as string : "";
 
-        return { imageUrl, url};
+        return { imageUrl, url };
     }
 
 }

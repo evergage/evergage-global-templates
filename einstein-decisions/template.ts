@@ -8,9 +8,7 @@ function isCdnOrExternalImage(asset?: Asset) {
 export class PromotionSearchOptions implements Search<string> {
 
     search(context: GearLifecycleContext, searchString: string): ItemReference[] {
-        if (!searchString) {
-            return [];
-        }
+        if (!searchString) return [];
 
         const promos: Promotion[] = context.services.catalog.findByName("Promotion", searchString) as Promotion[];
         return promos.reduce((allPromos: ItemReference[], promo: Promotion) => {
@@ -34,14 +32,10 @@ export class AssetLookupOptions implements Lookup<string> {
     }
 
     lookup(context: GearLifecycleContext): string[] {
-        if (!this.fallbackArm) {
-            return [];
-        }
+        if (!this.fallbackArm) return [];
 
         const fullPromo: Promotion = context.services.catalog.findItem("Promotion", this.fallbackArm.id) as Promotion;
-        if (!fullPromo || !fullPromo.assets) {
-            return [];
-        }
+        if (!fullPromo || !fullPromo.assets) return [];
 
         return fullPromo.assets.reduce((contentZones: string[], asset: Asset) => {
             if (isCdnOrExternalImage(asset) && asset?.contentZones) {
@@ -84,9 +78,8 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
 
         function fetchImageUrl(promotion: Promotion, contentZone: string, fallbackArm: ItemReference,
                                fallbackAsset: string): string {
-            if (!promotion || !promotion.assets) {
-                return "";
-            }
+            if (!promotion || !promotion.assets) return "";
+
             for (const asset of promotion.assets) {
                 if (!isCdnOrExternalImage(asset)) continue;
                 if (asset.contentZones?.includes(contentZone)) {
