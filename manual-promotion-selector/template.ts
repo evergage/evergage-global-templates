@@ -54,8 +54,8 @@ export class ManualPromotionSelectorTemplate implements CampaignTemplateComponen
 
     @title("Asset Selector")
     @lookupOptions((self) => new AssetLookupOptions(self.selectedPromo))
-    @subtitle("Select a Content Zone or Tag to determine which asset from your selected promotion is rendered in the " +
-              "targeted web content zone.")
+    @subtitle(`Select a Content Zone or Tag to determine which asset from your selected promotion is rendered in the
+              targeted web content zone.`)
     selectedAsset: string;
 
     run(context: CampaignComponentContext) {
