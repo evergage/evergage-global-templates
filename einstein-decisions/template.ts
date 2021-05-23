@@ -94,7 +94,7 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
                 }
             }
             return "";
-        }
+        };
 
         const imageUrl: string = fetchImageUrl(promotion, context.contentZone);
         const url: string = promotion?.attributes?.url?.value ? promotion.attributes.url.value as string : "";
