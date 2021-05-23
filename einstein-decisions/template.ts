@@ -57,14 +57,14 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
     @searchOptions((self) => new PromotionSearchOptions())
     @title("Optional Fallback Promotion Selector")
     @subtitle(`Search for a fallback promotion to display if there are no eligible promotions to show to the end user.
-    If no fallback is selected, the default site experience would display. (NOTE: This field is case-sensitive.)`)
+              If no fallback is selected, the default site experience would display. (NOTE: This field is case-sensitive.)`)
     fallbackArm: ItemReference;
 
     @title("Fallback Asset Selector")
     @lookupOptions((self) => new AssetLookupOptions(self.fallbackArm))
     @hidden(this, (self) => !self.fallbackArm)
     @subtitle(`Select a Content Zone or Tag to determine which asset on your selected fallback promotion is rendered in
-    the targeted web content zone.`)
+              the targeted web content zone.`)
     fallbackAsset: string;
 
     run(context: CampaignComponentContext) {
@@ -76,8 +76,7 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
 
         const promotion: Promotion = decide(context, banditConfig, null)[0] as Promotion;
 
-        function fetchImageUrl(promotion: Promotion, contentZone: string, fallbackArm: ItemReference,
-                               fallbackAsset: string): string {
+        const fetchImageUrl = (promotion: Promotion, contentZone: string): string => {
             if (!promotion || !promotion.assets) return "";
 
             for (const asset of promotion.assets) {
@@ -86,10 +85,10 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
                     return (asset as ImageAsset).imageUrl;
                 }
             }
-            if (fallbackAsset && fallbackArm?.id === promotion.id) {
+            if (this.fallbackAsset && this.fallbackArm?.id === promotion.id) {
                 for (const asset of promotion.assets) {
                     if (!isCdnOrExternalImage(asset)) continue;
-                    if (asset.contentZones?.includes(fallbackAsset)) {
+                    if (asset.contentZones?.includes(this.fallbackAsset)) {
                         return (asset as ImageAsset).imageUrl;
                     }
                 }
@@ -97,7 +96,7 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
             return "";
         }
 
-        const imageUrl: string = fetchImageUrl(promotion, context.contentZone, this.fallbackArm, this.fallbackAsset);
+        const imageUrl: string = fetchImageUrl(promotion, context.contentZone);
         const url: string = promotion?.attributes?.url?.value ? promotion.attributes.url.value as string : "";
 
         return { imageUrl, url };

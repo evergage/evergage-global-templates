@@ -12,8 +12,10 @@
     function apply(context, template) {
         if (!context.contentZone || !context.imageUrl || !context.url) return;
 
-        const contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
-
+        let contentZoneSelector = Evergage.getContentZoneSelector(context.contentZone);
+        if (!contentZoneSelector && context.selectedAsset) {
+            contentZoneSelector = Evergage.getContentZoneSelector(context.selectedAsset);
+        }
         /**
          * The pageElementLoaded method waits for the content zone to load into the DOM
          * before rendering the template. The observer element that monitors for the content

@@ -60,12 +60,12 @@ export class ManualPromotionSelectorTemplate implements CampaignTemplateComponen
 
     run(context: CampaignComponentContext) {
         const promotion: Promotion = context.services.catalog.findItem("Promotion", this.selectedPromo.id) as Promotion;
-        function fetchImageUrl(promotion: Promotion, contentZone: string, selectedAsset: string): string {
+        const fetchImageUrl = (promotion: Promotion, contentZone: string): string => {
             if (!promotion || !promotion.assets) return "";
 
             for (const asset of promotion.assets) {
                 if (!isCdnOrExternalImage(asset)) continue;
-                if (asset.contentZones?.includes(selectedAsset)) {
+                if (asset.contentZones?.includes(this.selectedAsset)) {
                     return (asset as ImageAsset).imageUrl;
                 }
             }
@@ -77,7 +77,7 @@ export class ManualPromotionSelectorTemplate implements CampaignTemplateComponen
             }
             return "";
         }
-        const imageUrl: string = fetchImageUrl(promotion, context.contentZone, this.selectedAsset);
+        const imageUrl: string = fetchImageUrl(promotion, context.contentZone);
         const url: string = promotion?.attributes?.url?.value ? promotion.attributes.url.value as string : "";
 
         return { imageUrl, url };
