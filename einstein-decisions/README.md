@@ -1,6 +1,6 @@
 ### Einstein Decisions
 
-This Global Template inserts a Promotion, chosen by Einstein Decisions.
+This global template inserts a promotion, chosen by Einstein Decisions.
 
 ![Einstein Decisions](template.png)
 

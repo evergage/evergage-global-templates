@@ -8,9 +8,7 @@ function isCdnOrExternalImage(asset?: Asset) {
 export class PromotionSearchOptions implements Search<string> {
 
     search(context: GearLifecycleContext, searchString: string): ItemReference[] {
-        if (!searchString) {
-            return [];
-        }
+        if (!searchString) return [];
 
         const promos: Promotion[] = context.services.catalog.findByName("Promotion", searchString) as Promotion[];
         return promos.reduce((allPromos: ItemReference[], promo: Promotion) => {
@@ -34,14 +32,10 @@ export class AssetLookupOptions implements Lookup<string> {
     }
 
     lookup(context: GearLifecycleContext): string[] {
-        if (!this.fallbackArm) {
-            return [];
-        }
+        if (!this.fallbackArm) return [];
 
         const fullPromo: Promotion = context.services.catalog.findItem("Promotion", this.fallbackArm.id) as Promotion;
-        if (!fullPromo || !fullPromo.assets) {
-            return [];
-        }
+        if (!fullPromo || !fullPromo.assets) return [];
 
         return fullPromo.assets.reduce((contentZones: string[], asset: Asset) => {
             if (isCdnOrExternalImage(asset) && asset?.contentZones) {
@@ -63,14 +57,14 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
     @searchOptions((self) => new PromotionSearchOptions())
     @title("Optional Fallback Promotion Selector")
     @subtitle(`Search for a fallback promotion to display if there are no eligible promotions to show to the end user.
-    If no fallback is selected, the default site experience would display. (NOTE: This field is case-sensitive.)`)
+              If no fallback is selected, the default site experience would display. (NOTE: This field is case-sensitive.)`)
     fallbackArm: ItemReference;
 
     @title("Fallback Asset Selector")
     @lookupOptions((self) => new AssetLookupOptions(self.fallbackArm))
     @hidden(this, (self) => !self.fallbackArm)
     @subtitle(`Select a Content Zone or Tag to determine which asset on your selected fallback promotion is rendered in
-    the targeted web content zone.`)
+              the targeted web content zone.`)
     fallbackAsset: string;
 
     run(context: CampaignComponentContext) {
@@ -82,10 +76,9 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
 
         const promotion: Promotion = decide(context, banditConfig, null)[0] as Promotion;
 
-        function fetchImageUrl(promotion: Promotion, contentZone: string): string {
-            if (!promotion || !promotion.assets) {
-                return "";
-            }
+        const fetchImageUrl = (promotion: Promotion, contentZone: string): string => {
+            if (!promotion || !promotion.assets) return "";
+
             for (const asset of promotion.assets) {
                 if (!isCdnOrExternalImage(asset)) continue;
                 if (asset.contentZones?.includes(contentZone)) {
@@ -101,7 +94,7 @@ export class EinsteinDecisionsTemplate implements CampaignTemplateComponent {
                 }
             }
             return "";
-        }
+        };
 
         const imageUrl: string = fetchImageUrl(promotion, context.contentZone);
         const url: string = promotion?.attributes?.url?.value ? promotion.attributes.url.value as string : "";
